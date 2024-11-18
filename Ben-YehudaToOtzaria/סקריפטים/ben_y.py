@@ -6,7 +6,7 @@ import os
 import html
 
 def sanitize_filename(filename):
-    sanitized_filename = re.sub(r'[\\/:*?<>|]', '', filename).replace('"', "''").replace('_', ' ')
+    sanitized_filename = re.sub(r'[\\/:"*?<>|]', '', filename).replace('_', ' ')
     return sanitized_filename
 
 def adjust_html_tag_spaces(html):
@@ -182,5 +182,5 @@ not_koser_file = "not_koser_file.txt"
 need_to_check_file = "need_to_check.txt"
 base_url = "https://raw.githubusercontent.com/projectbenyehuda/public_domain_dump/refs/heads/master/html"
 csv_path = "list.csv"
-destination_path = os.path.join("..", "ספרים")
+destination_path = os.path.join("..", "ספרים", "לא ממויין")
 main(url, koser_file, base_url, not_koser_file, need_to_check_file, csv_path, destination_path)

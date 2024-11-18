@@ -11,7 +11,7 @@ to do:
 """
 
 def sanitize_filename(filename):
-    sanitized_filename = re.sub(r'[\\/:*?<>|]', '', filename).replace('"', "''")
+    sanitized_filename = re.sub(r'[\\/:"*?<>|]', '', filename)
     return sanitized_filename
 
 def adjust_html_tag_spaces(html):
@@ -216,6 +216,6 @@ def proses_file(text):
     
 
 books_dir = "books"
-target_dir = os.path.join("..", "ספרים")
+target_dir = os.path.join("..", "ספרים", "לא ממויין")
 csv_file = "list.csv"
 main(books_dir, target_dir, csv_file)

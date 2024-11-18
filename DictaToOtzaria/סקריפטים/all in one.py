@@ -68,7 +68,7 @@ def process_html(file):
         f.write(str(soup))
 
 def sanitize_filename(filename):
-    sanitized_filename = re.sub(r'[\\/:*?<>|]', '', filename).replace('"', "''").replace('_', ' ')
+    sanitized_filename = re.sub(r'[\\/:*"?<>|]', '', filename).replace('_', ' ')
     return sanitized_filename
 
 def get_new_json(url):
@@ -165,5 +165,5 @@ def main(url, old_json_path, target, csv_file_path):
 url = r"https://raw.githubusercontent.com/Dicta-Israel-Center-for-Text-Analysis/Dicta-Library-Download/refs/heads/main/books.json"
 old_json_path = "old books.json"
 csv_file_path = "list.csv"
-target_path = os.path.join("..", "ספרים")
+target_path = os.path.join("..", "ספרים", "לא ערוך", "לא ממויין")
 main(url, old_json_path, target_path, csv_file_path)                
