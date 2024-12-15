@@ -25,10 +25,14 @@ def remove_old(folder_path):
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
 
-target_folder = ""
+target_folder = "אוצריא"
 remove_old(target_folder)
 
-folders = ()
+folders = ("Ben-YehudaToOtzaria/ספרים/אוצריא",
+            "DictaToOtzaria/ספרים/ערוך/אוצריא",
+            "OnYourWayToOtzaria/ספרים/אוצריא",
+            "OraytaToOtzaria/ספרים/אוצריא",
+            "sefaria and more")
 for folder in folders:
     sync_files(folder, target_folder)
 
