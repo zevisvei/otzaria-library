@@ -1,15 +1,16 @@
-"""מודל זה מכיל פונקציות להתאמת html לאוצריא
+"""
+This module contains functions for adjusting HTML for To otzaria.
 
-מכיל את הפונקציות הבאות:
+It includes the following functions:
 --------
-*func:process_body_html
-*func:adjust_html_tag_spaces
-*func:extract_comments
-*func:fix_comments
+* func: process_body_html
+* func: adjust_html_tag_spaces
+* func: extract_comments
+* func: fix_comments
 
-שים לב:
+Note:
 ----
-אופן ציון הערות שוליים משתנה בין ספר לספר, כך שיתכן ויהיה צורך לשנות את הפונקציה extract_comments
+The method of marking footnotes varies from book to book, so it may be necessary to change the extract_comments function.
 """
 
 from bs4 import BeautifulSoup
@@ -18,9 +19,16 @@ import html
 
 def extract_comments(html_content: str)-> tuple[str, dict]:
     """
-    מחלץ את ההערות מהדף
+    Extracts comments from the page.
 
-    אופן ציון ההערות משתנה מספר לספר, כך שיתכן שיהיה צורך לשנות את הפונקציה."""
+    The method of marking comments varies from book to book, so it may be necessary to change the function.
+    
+    Args:
+        html_content (str): The HTML content from which to extract comments.
+    
+    Returns:
+        tuple: A tuple containing the modified HTML content and a dictionary of extracted comments.
+    """
     sup = 0
     sup_content = {}
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -35,7 +43,15 @@ def extract_comments(html_content: str)-> tuple[str, dict]:
     return text, sup_content
 
 def fix_comments(comment:str)-> str:
-    """מסיר ירידת שורה מההערה"""
+    """
+    Removes line breaks from the comment.
+
+    Args:
+        comment (str): The comment text to be fixed.
+    
+    Returns:
+        str: The fixed comment text.
+    """
     soup = BeautifulSoup(comment, 'html.parser')
     for tag in soup.find_all(recursive=False):
         tag_str = str(tag)
@@ -44,14 +60,20 @@ def fix_comments(comment:str)-> str:
         new_tag = BeautifulSoup(tag_str, "html.parser").find()
         tag.replace_with(new_tag)
     text = str(soup).strip()
-    text = text.replace("\n", " ")
+    text = " ".join(list(map(lambda x: x.strip(), text.split("\n"))))
+    text = re.sub(r'[\n\r]+', ' ', text)
+    text = re.sub(r'[ ]{2,}', ' ', text)
     return text
 
 def adjust_html_tag_spaces(html: str)-> str:
     """
-    מסיר רווחים מיותרים
+    Removes unnecessary spaces and empty lines from HTML.
 
-    מסיר שורות ריקות
+    Args:
+        html (str): The HTML content to be adjusted.
+    
+    Returns:
+        str: The adjusted HTML content.
     """
     start_pattern = r'(<[^/<>]+?>)([ ]+)' 
     end_pattern = r'([ ]+)(</[^<>]+?>)' 
@@ -68,13 +90,15 @@ def adjust_html_tag_spaces(html: str)-> str:
 
 def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
     """
-    מסיר תגים לא נתמכים
+    Processes the body HTML by removing unsupported tags, ensuring tags start and end on the same line,
+    removing empty tags, and ensuring the sequence of headings.
 
-    מוודא שהתג מתחיל ונגמר באותה שורה
-
-    מסיר תגים ריקים
-
-    מוודא את רצף הכותרות
+    Args:
+        body_html (str): The body HTML content to be processed.
+        start_heading_level (int, optional): The starting heading level. Defaults to 2.
+    
+    Returns:
+        str: The processed body HTML content.
     """
     body_html = html.unescape(body_html)
     supported_tags = {
@@ -84,7 +108,7 @@ def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
     "noscript", "ol", "p", "pre", "q", "rp", "rt", "ruby", "s", "samp", "section", "small",
     "strike", "strong", "sub", "sup", "div", "summary", "svg", "table", "tbody", "td", "template", "tfoot",
     "th", "thead", "time", "tr", "tt", "u", "ul", "var", "video", "math", "mrow", "msup", "msub",
-    "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo"
+    "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo", "span"
 }
     soup = BeautifulSoup(body_html, 'html.parser')
 
@@ -118,5 +142,6 @@ def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
         tag.replace_with(new_tag)
 
     text = str(soup).strip()
+    text = html.unescape(text)
 
     return text

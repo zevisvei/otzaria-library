@@ -13,8 +13,30 @@
 """
 
 import re
+import wikitextparser as wtp
 
-def remove_templates(wikitext: str)-> str:
+
+def media_wiki_list_to_html(string: str)-> str:
+    
+    def convert_list_to_html(wikilist: wtp._wikilist.WikiList, list_type: str)-> str:
+        html = f"<{list_type}>\n"
+        for index, item in enumerate(wikilist.items):
+            html += f"  <li>{item.strip()}</li>\n"
+            sublists = wikilist.sublists(index)
+            for sublist in sublists:
+                sublist_type = "ul" if sublist.pattern[-1] == ("*") else "ol"
+                html += convert_list_to_html(sublist, sublist_type)
+        html += f"</{list_type}>\n"
+        return html
+
+    parsed = wtp.parse(string)
+    for wikilist in parsed.get_lists():
+        list_type = "ul" if wikilist.pattern[-1] == ("*") else "ol"
+        html_ordered_list = convert_list_to_html(wikilist, list_type)
+        string = string.replace(str(wikilist), html_ordered_list)
+    return string
+
+def remove_templates_old(wikitext: str)-> str:
     """מסיר תבניות מהתוכן, התבניות שצריך להסיר משתנות בין קובץ לקובץ."""
     wikitext = re.sub(r'{{מקור\|([^}]*)}}', r'\1', wikitext) 
     cleaned_text = re.sub(r'{{[^{}]*}}', '', wikitext)
@@ -41,22 +63,13 @@ def wikitext_to_html(wikitext: str, start_heading_level = 2)-> str:
         rf'\n<h{start_heading_level}>\g<1></h{start_heading_level}>\n', protected_text, flags=re.MULTILINE)
     
     # המרת רשימות (כוכביות) ל<ul> <li>
-    protected_text = re.sub(
-    r'(?m)^(?:#\s.*(?:\n|$))+',
-    lambda match: f"<ol>{''.join(f'\n<li>{line.strip()[1:].strip()}</li>\n' for line in match.group().splitlines() if line.strip())}</ol>",
-    protected_text
-)
-    protected_text = re.sub(
-    r'(?m)^(?:\*\s.*(?:\n|$))+',
-    lambda match: f"<ul>{''.join(f'\n<li>{line.strip()[1:].strip()}</li>\n' for line in match.group().splitlines() if line.strip())}</ul>",
-    protected_text
-)
+    protected_text = media_wiki_list_to_html(protected_text)
     
     # המרת קישורים פנימיים
     protected_text = re.sub(r'\[\[קטגוריה:.*?\]\]', '', protected_text)
     protected_text = re.sub(r'\[\[(.*?)\|(.*?)\]\]', r'\2', protected_text)
     protected_text = re.sub(r'\[\[(.*?)\]\]', r'\1', protected_text)  # במקרה של לינק בלי |
-    
+    # to do: re.dotall
     # המרת טקסט מודגש ('''text''' -> <b>text</b>)
     protected_text = re.sub(r"'''''(.*?)'''''", r'<b><i>\1</i></b>', protected_text)
     protected_text = re.sub(r"'''(.*?)'''", r"<b>\1</b>", protected_text)
@@ -78,5 +91,5 @@ def wikitext_to_html(wikitext: str, start_heading_level = 2)-> str:
 
     for key, html_region in html_regions.items():
         protected_text = protected_text.replace(key, html_region)
-
+    protected_text = "\n".join(list(map(lambda x: x.lstrip(":"), protected_text.split("\n"))))
     return protected_text

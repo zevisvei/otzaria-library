@@ -23,8 +23,12 @@ def split_list_by_first_letter(input_list: list, folder: str)-> dict[str,list[st
 def sanitize_filename(filename: str)->str:
     """מסיר תווים לא חוקיים לשמות תיקייה וקובץ ב windows"""
     sanitized_filename = re.sub(r'[\\/:*?<>|]', '', filename).replace('"', "''").replace('_', ' ')
-    return sanitized_filename
+    return sanitized_filename.strip()
 
 def sort_by_name(file_name: str)->int:
     """מחזיר את הגימטריא של המחרוזת, שימושי למקרה שצריך למיין את הקבצים לפי סימנים (סימן א', ב' וכו')"""
+    if file_name == "הקדמה":
+        return 0
+    elif file_name == "פתח דבר":
+        return -1
     return gematriapy.to_number(file_name)

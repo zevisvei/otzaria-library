@@ -15,7 +15,15 @@ JEWISHBOOKS = "https://wiki.jewishbooks.org.il/mediawiki/api.php" # ה end-point
 BASE_URL = ""
 
 def get_list_by_ns(ns: str|int)->list:
-    """מחזיר רשימת דפים שנמצאים בשם מתחם (ns) מסוים"""
+    """
+    Returns a list of pages in a specific namespace (ns).
+
+    Parameters:
+    ns (str|int): The namespace identifier.
+
+    Returns:
+    list: A list of page titles in the specified namespace.
+    """
     i = 0
     pages = []
     apcontinue = ''
@@ -43,7 +51,15 @@ def get_list_by_ns(ns: str|int)->list:
     return pages
 
 def get_list_by_name(name: str)->list:
-    """מחזיר רשימת דפים ששמם מתחיל בטקסט 'name'"""
+    """
+    Returns a list of pages whose titles start with the specified text (name).
+
+    Parameters:
+    name (str): The starting text of the page titles.
+
+    Returns:
+    list: A list of page titles that start with the specified text.
+    """
     i = 0
     pages = []
     apcontinue = ''
