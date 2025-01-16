@@ -1,4 +1,4 @@
-name: Update Files Manifest
+name: Update Library and create manifest
 
 on:
   push:
