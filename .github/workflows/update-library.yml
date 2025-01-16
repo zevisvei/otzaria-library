@@ -1,0 +1,76 @@
+name: Update Files Manifest
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]' && github.actor != 'github-actions'
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+          fetch-depth: 1
+          sparse-checkout: |
+            files_manifest.json
+            metadata.json           
+            links/**/*
+            merge_folders.py
+            Ben-YehudaToOtzaria/ספרים/אוצריא/*/**
+            DictaToOtzaria/ספרים/ערוך/אוצריא/*/**
+            OnYourWayToOtzaria/ספרים/אוצריא/*/**
+            OraytaToOtzaria/ספרים/אוצריא/*/**
+            sefaria_and_more/*/**
+          sparse-checkout-cone-mode: false
+
+      - name: Sync files and folders
+        run: |
+          python merge_folders.py
+
+      - name: Generate Files Manifest
+        run: |
+          echo "{" > files_manifest.json
+          find . \( -path "./metadata.json" -o -path "./אוצריא/*" -o -path "./links/*" \) -type f \
+          ! -path "./.git/*" \
+          ! -path "./.github/*" \
+          ! -name "files_manifest.json" \
+          -exec sh -c '
+            path="${1#./}"
+            hash=$(sha256sum "$1" | cut -d" " -f1)
+            echo "\"$path\": {\"hash\": \"$hash\"}"
+          ' sh {} \; | sed "$ ! s/$/,/" >> files_manifest.json
+          echo "}" >> files_manifest.json
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Update files manifest and sync folders"
+          default_author: github_actions
+
+      - name: Create Release Archive
+        run: |
+          zip -r otzaria_latest.zip אוצריא links files_manifest.json metadata.json
+
+      - name: Delete existing 'latest' release and tag
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        run: |
+          gh release delete latest --yes || true
+          git push --delete origin latest || true
+
+      - name: Create Release
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        run: |
+          gh release create latest \
+            --title "Latest Otzaria Files" \
+            --notes "Latest version of Otzaria files" \
+            otzaria_latest.zip
