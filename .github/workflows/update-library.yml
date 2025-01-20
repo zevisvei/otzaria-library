@@ -15,23 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PAT }}
-          fetch-depth: 1
-          sparse-checkout: |
-            files_manifest.json
-            metadata.json           
-            links/**/*
-            merge_folders.py
-            Ben-YehudaToOtzaria/ספרים/אוצריא/*/**
-            DictaToOtzaria/ספרים/ערוך/אוצריא/*/**
-            OnYourWayToOtzaria/ספרים/אוצריא/*/**
-            OraytaToOtzaria/ספרים/אוצריא/*/**
-            sefaria_and_more/*/**
-          sparse-checkout-cone-mode: false
-
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Sync files and folders
         run: |
-          python merge_folders.py
+          python sync_and_merge_folders.py
 
       - name: Generate Files Manifest
         run: |
@@ -60,7 +48,7 @@ jobs:
       - name: Delete existing 'latest' release and tag
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release delete latest --yes || true
           git push --delete origin latest || true
@@ -68,7 +56,7 @@ jobs:
       - name: Create Release
         id: create_release
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create latest \
             --title "Latest Otzaria Files" \
