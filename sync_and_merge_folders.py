@@ -36,8 +36,7 @@ folders = ("Ben-YehudaToOtzaria/ספרים/אוצריא",
 for folder in folders:
     sync_files(folder, target_folder)
 
-folders_updated = sys.argv[1:]
 
-for folder in folders_updated:
-    folders_to_update = [folder for folder in folders if folder not in folders_updated]
-    sync_folders(folder, folders_to_update)
+
+for folder in folders:
+    sync_folders(folder, folders)
