@@ -2,8 +2,6 @@ from collections import defaultdict
 
 from .sefaria_api import SefariaApi
 from .utils import to_daf, to_gematria, has_value, to_eng_daf
-# from .link import Link
-# from .node import Node
 
 
 class Book:
@@ -120,7 +118,7 @@ class Book:
             self.process_simple_book(level=level)
         return self.book_content
 
-    def process_complex_and_simple_book(self, node: dict, level: int = 0) -> None:
+    def process_complex_and_simple_book(self, node: dict, level: int = 1) -> None:
         section_names = (
             self.sefaria_api.get_name(self.book_title)["heSectionNames"]
             if self.section_names_lang == "he"
@@ -164,7 +162,7 @@ class Book:
                     print(self.book_title)
             key.pop()
 
-    def process_simple_book(self, level: int = 0) -> None:
+    def process_simple_book(self, level: int = 1) -> None:
         index = self.index
         if self.section_names_lang == "he":
             section_names = self.sefaria_api.get_name(self.book_title).get(
@@ -185,7 +183,7 @@ class Book:
             else:
                 print(self.book_title)
 
-    def process_node(self, node: dict, key: list | None = None, level: int = 0) -> None:
+    def process_node(self, node: dict, key: list | None = None, level: int = 1) -> None:
         """
         Process a given node, handling both nested nodes and nested arrays.
         :param node: the current node being processed

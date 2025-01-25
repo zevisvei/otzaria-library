@@ -5,3 +5,4 @@ default.isar
 default.isar-lck
 index/books_indexed.isar
 index/books_indexed.isar-lck
+__pycache__/

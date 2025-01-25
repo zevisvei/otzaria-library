@@ -1,10 +1,8 @@
 import re
-#import typing as t
-from hebrew_numbers import int_to_gematria
+import json
 
-# https://stackoverflow.com/questions/58400724/type-hint-for-nested-dict
-#JsonType: t.TypeAlias = t.List['JsonValue'] | t.Dict[str, 'JsonValue']
-#JsonValue: t.TypeAlias = str | JsonType
+from bs4 import BeautifulSoup
+from hebrew_numbers import int_to_gematria
 
 
 def recursive_register_categories(
@@ -45,9 +43,9 @@ def sanitize_filename(filename: str) -> str:
 def to_daf(i: int) -> str:
     i += 1
     if i % 2 == 0:
-        return to_gematria(i//2)+'.'
+        return to_gematria(i // 2) + '.'
     else:
-        return to_gematria(i//2)+':'
+        return to_gematria(i // 2) + ':'
 
 
 def to_gematria(i: int) -> str:
@@ -63,10 +61,30 @@ def to_gematria(i: int) -> str:
 def to_eng_daf(i) -> str:
     i += 1
     if i % 2 == 0:
-        return str(i//2)+'a'
+        return str(i // 2) + 'a'
     else:
-        return str(i//2)+'b'
+        return str(i // 2) + 'b'
 
 
 def has_value(data: list):
     return any(has_value(item) if isinstance(item, list) else item for item in data)
+
+
+def read_json(file_path: str) -> dict:
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = json.load(f)
+    return content
+
+
+def footnotes(html_content: str) -> tuple[str, list[str]]:
+    soup = BeautifulSoup(html_content, 'html.parser')
+    notes = []
+    for sup_tag in soup.find_all('sup', class_='footnote-marker'):
+        next_tag = sup_tag.find_next_sibling()
+        sup_tag.attrs["style"] = "color: gray;"
+        del sup_tag.attrs["class"]
+        if next_tag and next_tag.name == 'i' and 'footnote' in next_tag.get('class', []):
+            next_tag.extract()
+            notes.append((next_tag.string))
+
+    return str(soup), notes
