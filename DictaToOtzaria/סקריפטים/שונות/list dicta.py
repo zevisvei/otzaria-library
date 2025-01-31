@@ -2,9 +2,9 @@ import csv
 import json
 
 list_all = ['underwentBerelUnflagging', 'categoryEnglish', 'printYear', 'ocrFeDir',
-             'printLocationEnglish', 'textFileURL', 'notHumanReviewed', 'category',
-             'source', 'author', 'printLocation', 'displayName', 'nikudMetegFileURL',
-               'OCRDataURL', 'authorEnglish', 'fileName', 'displayNameEnglish']
+            'printLocationEnglish', 'textFileURL', 'notHumanReviewed', 'category',
+            'source', 'author', 'printLocation', 'displayName', 'nikudMetegFileURL',
+            'OCRDataURL', 'authorEnglish', 'fileName', 'displayNameEnglish']
 
 with open("new_books.json", "r", encoding="utf-8") as json_file:
     json_content = json.load(json_file)

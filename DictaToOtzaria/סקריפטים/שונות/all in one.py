@@ -7,24 +7,27 @@ import requests
 import zipfile
 import shutil
 
+
 def adjust_html_tag_spaces(html):
     start_pattern = r'(<[^/<>]+?>)([ ]+)' 
     end_pattern = r'([ ]+)(</[^<>]+?>)' 
-    while re.findall(end_pattern , html):
+    while re.findall(end_pattern, html):
         html = re.sub(end_pattern, r'\2\1', html)
     while re.findall(start_pattern, html):
-        html = re.sub(start_pattern , r'\2\1', html)
+        html = re.sub(start_pattern, r'\2\1', html)
     html = re.sub(r'[ ]{2,}', ' ', html)
     html = re.sub(r"\s*\n\s*", r"\n", html)
     html = re.sub(r"[\n]{2,}", "\n", html)
     html = html.replace(": ", ":\n")
     return html
 
+
 def extract_numerical_part(filename):
     match = re.search(r'\d+', filename)
     if match:
         return int(match.group())
     return float('inf')
+
 
 def process_html(file):
     with open(file, 'r', encoding="utf-8") as f:
@@ -63,27 +66,32 @@ def process_html(file):
     with open(file, 'w', encoding="utf-8") as f:
         f.write(str(soup))
 
+
 def sanitize_filename(filename):
     sanitized_filename = re.sub(r'[\/:*?<>|]', '', filename).replace('"', "''").replace('_', ' ')
     return sanitized_filename
+
 
 def get_new_json(url):
     content = requests.get(url)
     if content.status_code == 200:
         return content.json()
 
+
 def read_old_json(old_json_path):
     if os.path.exists(old_json_path):
-        with open(old_json_path, "r", encoding = "utf-8") as old_file:
+        with open(old_json_path, "r", encoding="utf-8") as old_file:
             content = json.load(old_file)
         return content
     else:
         return []
-    
+
+
 def get_new_books(new_json, old_json):
     for book in new_json:
         if book not in old_json:
             yield book
+
 
 def main(url, old_json_path, target, csv_file_path):
     new_json = get_new_json(url)
@@ -131,13 +139,16 @@ def main(url, old_json_path, target, csv_file_path):
                 while os.path.exists(target_file_path):
                     num += 1
                     target_file_path = os.path.join(target_path, f"{file_name}_{num}.txt")
-                
-                with open(target_file_path, "w", encoding = "utf-8") as final_file:
+
+                with open(target_file_path, "w", encoding="utf-8") as final_file:
                     final_file.write(merged_content)
-                list_all = ['underwentBerelUnflagging', 'categoryEnglish', 'printYear', 'ocrFeDir',
-             'printLocationEnglish', 'textFileURL', 'notHumanReviewed', 'category',
-             'source', 'author', 'printLocation', 'displayName', 'nikudMetegFileURL',
-               'OCRDataURL', 'authorEnglish', 'fileName', 'displayNameEnglish']
+
+                list_all = ['displayName', 'printYear', 'author', 'printLocation', 'category',
+                            'source', 'textFileURL', 'nikudMetegFileURL', 'OCRDataURL', 'ocrFeDir',
+                            'displayNameEnglish', 'authorEnglish', 'categoryEnglish', 'printLocationEnglish',
+                            "underwentBerelUnflagging", 'fileName', 'notHumanReviewed']
+                if os.path.exists("list.csv"):
+                    os.rename("list.csv", "old.csv")
                 with open(csv_file_path, "a", newline="", encoding="utf-8") as csv_file:
                     writer = csv.writer(csv_file)
                     new_dict = {}
@@ -147,12 +158,13 @@ def main(url, old_json_path, target, csv_file_path):
                         writer.writerow(list_all)
                     writer.writerow(list(new_dict.values()))
                 old_books.append(book)
-                with open(old_json_path, "w", encoding = "utf-8") as updated_file:
+                with open(old_json_path, "w", encoding="utf-8") as updated_file:
                     json.dump(old_books, updated_file, ensure_ascii=False, indent=4)
     if os.path.exists("temp"):
         shutil.rmtree("temp")
     if os.path.exists("temp.zip"):
         os.remove("temp.zip")
+
 
 url = r"https://raw.githubusercontent.com/Dicta-Israel-Center-for-Text-Analysis/Dicta-Library-Download/refs/heads/main/books.json"
 old_json_path = "old books.json"
