@@ -5,6 +5,13 @@ on:
     branches:
       - main
       - master
+    paths:
+      - Ben-YehudaToOtzaria/ספרים/אוצריא/**
+      - DictaToOtzaria/ספרים/ערוך/אוצריא/**
+      - OnYourWayToOtzaria/ספרים/אוצריא/**
+      - OraytaToOtzaria/ספרים/אוצריא/**
+      - sefaria and more/**
+
   workflow_dispatch:
 
 jobs:
