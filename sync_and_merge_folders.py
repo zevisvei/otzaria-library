@@ -43,7 +43,8 @@ folders = ("Ben-YehudaToOtzaria/ספרים/אוצריא",
            "DictaToOtzaria/ספרים/ערוך/אוצריא",
            "OnYourWayToOtzaria/ספרים/אוצריא",
            "OraytaToOtzaria/ספרים/אוצריא",
-           "sefaria and more")
+           "sefaria and more",
+           "SefariaUpdate-2.25")
 
 with open("report.csv", "w", newline="", encoding="utf-8") as csvfile:
     csv_writer = csv.writer(csvfile)
