@@ -178,8 +178,8 @@ def main(url: str, old_json_path: str, target: str, csv_file_path: str) -> None:
         shutil.rmtree("temp")
     if os.path.exists("temp.zip"):
         os.remove("temp.zip")
-    os.makedirs(target_path, exist_ok=True)
-    dif.main(target_path)
+    os.makedirs(target, exist_ok=True)
+    dif.main(target)
 
 
 url = r"https://raw.githubusercontent.com/Dicta-Israel-Center-for-Text-Analysis/Dicta-Library-Download/refs/heads/main/books.json"
