@@ -7,7 +7,7 @@ mapping = {
     "DictaToOtzaria": "Dicta",
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
-    "sefaria and more": "sefaria"
+    "sefaria and more": "sefaria",
     "SefariaUpdate-2.25": "sefariaUpdate"
 }
 
