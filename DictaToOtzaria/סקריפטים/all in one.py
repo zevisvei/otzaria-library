@@ -4,7 +4,6 @@ import os
 import re
 import zipfile
 import shutil
-from typing import Generator
 
 from bs4 import BeautifulSoup
 import requests
@@ -103,7 +102,7 @@ def read_old_json(old_json_path: str) -> list:
         return []
 
 
-def get_new_books(new_json: list, old_json: list) -> Generator[dict]:
+def get_new_books(new_json: list, old_json: list):
     for book in new_json:
         if book not in old_json:
             yield book
