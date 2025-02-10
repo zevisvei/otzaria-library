@@ -9,7 +9,7 @@ from pyluach import dates
 
 from otzaria.sefaria_api import SefariaApi
 from otzaria.get_from_sefaria import Book
-from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes , has_value
+from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes, has_value
 
 
 def new_folder_name() -> tuple[str, str]:
