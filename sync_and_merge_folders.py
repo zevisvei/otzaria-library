@@ -8,8 +8,9 @@ mapping = {
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
-    "SefariaUpdate2.25": "sefaria1"
+    "sefariaToOtzaria": "sefaria new"
 }
+
 
 def sync_files(folder_path, target_folder_path, csv_writer):
     source_key = folder_path.split("/")[0]
@@ -24,6 +25,7 @@ def sync_files(folder_path, target_folder_path, csv_writer):
             shutil.copy(file_path, target_file_path)
             csv_writer.writerow([file, target_file_path, original_folder])
 
+
 def sync_folders(folder_path, folders_to_update):
     for root, folders, _ in os.walk(folder_path):
         for folder in folders:
@@ -33,19 +35,23 @@ def sync_folders(folder_path, folders_to_update):
                 full_target_folder_path = os.path.join(folder_to_update, rel_folder_path)
                 os.makedirs(full_target_folder_path, exist_ok=True)
 
+
 def remove_old(folder_path):
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)
 
+
 target_folder = "אוצריא"
 remove_old(target_folder)
 
-folders = ("Ben-YehudaToOtzaria/ספרים/אוצריא",
-           "DictaToOtzaria/ספרים/ערוך/אוצריא",
-           "OnYourWayToOtzaria/ספרים/אוצריא",
-           "OraytaToOtzaria/ספרים/אוצריא",
-           "sefaria and more",
-           "SefariaUpdate2.25")
+folders = (
+    "Ben-YehudaToOtzaria/ספרים/אוצריא",
+    "DictaToOtzaria/ספרים/ערוך/אוצריא",
+    "OnYourWayToOtzaria/ספרים/אוצריא",
+    "OraytaToOtzaria/ספרים/אוצריא",
+    "sefariaToOtzaria/ספרים/אוצריא",
+    "sefaria and more"
+)
 
 with open("SourcesBooks.csv", "w", newline="", encoding="utf-8") as csvfile:
     csv_writer = csv.writer(csvfile)
@@ -55,3 +61,6 @@ with open("SourcesBooks.csv", "w", newline="", encoding="utf-8") as csvfile:
 
 for folder in folders:
     sync_folders(folder, folders)
+
+csv_file_path = os.path.join("אוצריא", "אודות התוכנה", "SourcesBooks.csv")
+shutil.move("SourcesBooks.csv", csv_file_path)

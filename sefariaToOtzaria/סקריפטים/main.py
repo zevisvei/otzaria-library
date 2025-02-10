@@ -1,6 +1,7 @@
 import os
 import json
 import csv
+import traceback
 
 import pandas as pd
 from tqdm import tqdm
@@ -8,7 +9,7 @@ from pyluach import dates
 
 from otzaria.sefaria_api import SefariaApi
 from otzaria.get_from_sefaria import Book
-from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes
+from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes , has_value
 
 
 def new_folder_name() -> tuple[str, str]:
@@ -65,7 +66,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     book_content_copy.append(line)
                 with open(f"{book_file}.txt", "w", encoding="utf-8") as f:
                     f.writelines(book_content_copy)
-                if all_footnotes:
+                if has_value(all_footnotes):
                     footnotes_file = os.path.join(file_path, f"הערות על {file_name}.txt")
                     with open(footnotes_file, 'w', encoding='utf-8') as file:
                         file.write("\n".join(all_footnotes))
@@ -92,7 +93,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
             print(e)
             eroor_file_path = os.path.join(target_path, "eroor.log")
             with open(eroor_file_path, "a", encoding="utf-8") as f:
-                f.write(f"{book_he_title} error {e}\n")
+                f.write(f"{book_he_title} error {e}\n{traceback.format_exc()}\n")
     with open(old_json_file_path, "w", encoding="utf-8") as f:
         json.dump(new_books_index, f, indent=4, ensure_ascii=False)
 

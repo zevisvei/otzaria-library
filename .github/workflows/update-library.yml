@@ -10,8 +10,8 @@ on:
       - DictaToOtzaria/ספרים/ערוך/אוצריא/**
       - OnYourWayToOtzaria/ספרים/אוצריא/**
       - OraytaToOtzaria/ספרים/אוצריא/**
+      - sefariaToOtzaria/ספרים/אוצריא/**
       - sefaria and more/**
-      - SefariaUpdate2.25/**
 
   workflow_dispatch:
 
