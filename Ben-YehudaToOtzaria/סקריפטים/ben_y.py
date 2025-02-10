@@ -1,58 +1,71 @@
 import csv
-import requests
-from bs4 import BeautifulSoup
 import re
 import os
 import html
 
-def sanitize_filename(filename):
+import requests
+from bs4 import BeautifulSoup
+from pyluach import dates
+
+
+def new_folder_name() -> tuple[str, str]:
+    today = dates.HebrewDate.today()
+    month = today.month_name(hebrew=True)
+    year = today.hebrew_year(withgershayim=False)
+    return year, month
+
+
+def sanitize_filename(filename: str) -> str:
     sanitized_filename = re.sub(r'[\\/:"*?<>|]', '', filename).replace('_', ' ')
     return sanitized_filename
 
-def adjust_html_tag_spaces(html):
-    start_pattern = r'(<[^/<>]+?>)([ ]+)' 
-    end_pattern = r'([ ]+)(</[^<>]+?>)' 
+
+def adjust_html_tag_spaces(html: str) -> str:
+    start_pattern = r'(<[^/<>]+?>)([ ]+)'
+    end_pattern = r'([ ]+)(</[^<>]+?>)'
     # Move spaces from inside the closing tag to after the tag
-    while re.findall(end_pattern , html):
+    while re.findall(end_pattern, html):
         html = re.sub(end_pattern, r'\2\1', html)
 
     # Move spaces from the beginning of tags to before the tags
     while re.findall(start_pattern, html):
-        html = re.sub(start_pattern , r'\2\1', html)
+        html = re.sub(start_pattern, r'\2\1', html)
     # Clean up any double spaces created by the previous step
     html = re.sub(r'[ ]{2,}', ' ', html)
 
     return html
-    
-def extract_html_info(html):
+
+
+def extract_html_info(html: str) -> tuple:
     # Parse the HTML content
     soup = BeautifulSoup(html, 'html.parser')
-    
+
     # Extract the title text
     title = soup.title.string if soup.title else None
-    
+
     # Extract the author from the meta tag
     author = None
     author_meta = soup.find('meta', attrs={'name': 'author'})
     if author_meta:
         author = author_meta.get('content')
-    
+
     # Extract the body HTML
     body = str(soup.body) if soup.body else None
-    
+
     return title, author, body
 
-def process_body_html(body_html):
+
+def process_body_html(body_html: str) -> str:
     body_html = body_html.replace("\n", " ")
     supported_tags = {
-    "a", "abbr", "acronym", "address", "article", "aside", "audio", "b", "bdi", "bdo", "big",
-    "blockquote", "br", "caption", "cite", "code", "data", "dd", "del", "details", "dfn", "dl", "dt", "em", "figcaption", "figure", "footer", "font", "h1", "h2", "h3", "h4",
-    "h5", "h6", "header", "hr", "i", "iframe", "img", "ins", "kbd", "li", "main", "mark", "nav",
-    "noscript", "ol", "p", "pre", "q", "rp", "rt", "ruby", "s", "samp", "section", "small", "span",
-    "strike", "strong", "sub", "sup", "summary", "svg", "table", "tbody", "td", "template", "tfoot",
-    "th", "thead", "time", "tr", "tt", "u", "ul", "var", "video", "math", "mrow", "msup", "msub",
-    "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo"
-}
+        "a", "abbr", "acronym", "address", "article", "aside", "audio", "b", "bdi", "bdo", "big",
+        "blockquote", "br", "caption", "cite", "code", "data", "dd", "del", "details", "dfn", "dl", "dt", "em", "figcaption", "figure", "footer", "font", "h1", "h2", "h3", "h4",
+        "h5", "h6", "header", "hr", "i", "iframe", "img", "ins", "kbd", "li", "main", "mark", "nav",
+        "noscript", "ol", "p", "pre", "q", "rp", "rt", "ruby", "s", "samp", "section", "small", "span",
+        "strike", "strong", "sub", "sup", "summary", "svg", "table", "tbody", "td", "template", "tfoot",
+        "th", "thead", "time", "tr", "tt", "u", "ul", "var", "video", "math", "mrow", "msup", "msub",
+        "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo"
+    }
     soup = BeautifulSoup(body_html, 'html.parser')
 
     # Check if there is an <h1> tag in the document
@@ -93,8 +106,8 @@ def process_body_html(body_html):
 
     for tag in soup.find_all():
         if not tag.get_text(strip=True) and tag.name != "br":  # If the tag has no text
-            tag.decompose() 
-        
+            tag.decompose()
+
     for tag in soup.find_all(recursive=False):
         tag.insert_before('\n')
         tag.insert_after('\n')
@@ -103,14 +116,16 @@ def process_body_html(body_html):
 
     return text
 
-def get_updated_csv(url):
+
+def get_updated_csv(url: str) -> list | None:
     content = requests.get(url)
     if content.status_code == 200:
         content = content.text.splitlines()
         csv_format = csv.reader(content)
         return list(csv_format)
 
-def read_old_csv_file(csv_path):
+
+def read_old_csv_file(csv_path: str) -> list:
     if os.path.exists(csv_path):
         with open(csv_path, "r", encoding="utf-8") as csv_content:
             return list(csv.reader(csv_content))
@@ -118,7 +133,7 @@ def read_old_csv_file(csv_path):
         return []
 
 
-def author_list(file_path):
+def author_list(file_path: str) -> list:
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as file:
             list_all = file.read().splitlines()
@@ -126,12 +141,14 @@ def author_list(file_path):
     else:
         return []
 
-def write_to_csv(csv_path, data):
+
+def write_to_csv(csv_path: str, data: list) -> None:
     with open(csv_path, "a", newline='', encoding='utf-8') as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(data)
 
-def get_book(book_path, base_url):
+
+def get_book(book_path: str, base_url: str) -> str | None:
     full_url = f"{base_url}/{book_path}.html"
     content = requests.get(full_url)
     if content.status_code == 200:
@@ -140,7 +157,8 @@ def get_book(book_path, base_url):
     else:
         print(full_url)
 
-def main(url, koser_file, base_url, not_koser_file, need_to_check_file, csv_path, destination_path):
+
+def main(url: str, koser_file: str, base_url: str, not_koser_file: str, need_to_check_file: str, csv_path: str, destination_path: str) -> None:
     updated_csv = get_updated_csv(url)
     old_csv = read_old_csv_file(csv_path)
     kosher_list = author_list(koser_file)
@@ -168,13 +186,14 @@ def main(url, koser_file, base_url, not_koser_file, need_to_check_file, csv_path
                         while os.path.exists(target_file):
                             num += 1
                             target_file = os.path.join(target_path, f"{sanitize_filename(line[2])}_{num}.txt")
-                        with open(target_file, "w", encoding = "utf-8") as output:
+                        with open(target_file, "w", encoding="utf-8") as output:
                             output.write(join_lines)
                         write_to_csv(csv_path, line)
                 elif author not in need_to_check_list and author not in not_koser_list:
                     need_to_check_list.append(author)
-                    with open(need_to_check_file, "w", encoding = "utf-8") as need_to_check_new:
+                    with open(need_to_check_file, "w", encoding="utf-8") as need_to_check_new:
                         need_to_check_new.write("\n".join(need_to_check_list))
+
 
 url = "https://raw.githubusercontent.com/projectbenyehuda/public_domain_dump/refs/heads/master/pseudocatalogue.csv"
 koser_file = "koser_file.txt"
@@ -182,5 +201,6 @@ not_koser_file = "not_koser_file.txt"
 need_to_check_file = "need_to_check.txt"
 base_url = "https://raw.githubusercontent.com/projectbenyehuda/public_domain_dump/refs/heads/master/html"
 csv_path = "list.csv"
-destination_path = os.path.join("..", "ספרים", "לא ממויין")
+year, month = new_folder_name()
+destination_path = os.path.join("..", "ספרים", "לא ממויין", year, month)
 main(url, koser_file, base_url, not_koser_file, need_to_check_file, csv_path, destination_path)

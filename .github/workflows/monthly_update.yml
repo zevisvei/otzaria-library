@@ -24,13 +24,21 @@ jobs:
           pip install bs4
           pip install lxml
           pip install requests
+          pip install pyluach
+          pip install tqdm
+          pip install python_hebrew_numbers
 
       - name: Run script Ben-Yehuda
         run: python ben_y.py
         working-directory: Ben-YehudaToOtzaria/סקריפטים
+
       - name: Run script dicta  
         run: python "all in one.py"
         working-directory: DictaToOtzaria/סקריפטים
+
+      - name: Run script sefaria-update
+        run: python main.py
+        working-directory: sefariaToOtzaria/סקריפטים
 
 
 

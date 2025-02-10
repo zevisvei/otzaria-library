@@ -1,4 +1,5 @@
 import csv
+import os
 
 
 def read_csv(file_path):
@@ -46,14 +47,15 @@ def new_vs_old(dict_1, dict_2):
     return list_all, list_2
 
 
-def main():
+def main(file_path: str) -> None:
     old_list = read_csv("old.csv")
     new_list = read_csv("list.csv")
-    dict_new = dict_csv(new_list)
-    dict_old = dict_csv(old_list)
-    not_in_old, not_in_old_2 = new_vs_old(dict_new, dict_old)
-    not_in_new, not_in_new_2 = new_vs_old(dict_old, dict_new)
-    write_csv("not_in_old.csv", not_in_old)
-    write_csv("not_in_new.csv", not_in_new)
-    write_csv("not_in_old_2.csv", not_in_old_2)
-    write_csv("not_in_new_2.csv", not_in_new_2)
+    if old_list != new_list:
+        dict_new = dict_csv(new_list)
+        dict_old = dict_csv(old_list)
+        not_in_old, not_in_old_2 = new_vs_old(dict_new, dict_old)
+        not_in_new, not_in_new_2 = new_vs_old(dict_old, dict_new)
+        write_csv(os.path.join(file_path, "not_in_old.csv"), not_in_old)
+        write_csv(os.path.join(file_path, "not_in_new.csv"), not_in_new)
+        write_csv(os.path.join(file_path, "not_in_old_2.csv"), not_in_old_2)
+        write_csv(os.path.join(file_path, "not_in_new_2.csv"), not_in_new_2)

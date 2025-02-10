@@ -1,15 +1,26 @@
 import json
 import csv
 import os
-from bs4 import BeautifulSoup
 import re
-import requests
 import zipfile
 import shutil
+from typing import Generator
+
+from bs4 import BeautifulSoup
+import requests
+from pyluach import dates
+
 import dif
 
 
-def adjust_html_tag_spaces(html):
+def new_folder_name() -> tuple[str, str]:
+    today = dates.HebrewDate.today()
+    month = today.month_name(hebrew=True)
+    year = today.hebrew_year(withgershayim=False)
+    return year, month
+
+
+def adjust_html_tag_spaces(html: str) -> str:
     start_pattern = r'(<[^/<>]+?>)([ ]+)'
     end_pattern = r'([ ]+)(</[^<>]+?>)'
     while re.findall(end_pattern, html):
@@ -23,7 +34,7 @@ def adjust_html_tag_spaces(html):
     return html
 
 
-def extract_numerical_part(filename):
+def extract_numerical_part(filename: str) -> float:
     name = filename.split("-")[-1]
     match = re.search(r'\d+', name)
     if match:
@@ -31,7 +42,7 @@ def extract_numerical_part(filename):
     return float('inf')
 
 
-def process_html(file):
+def process_html(file: str) -> None:
     with open(file, 'r', encoding="utf-8") as f:
         html_content = f.read().replace("\n", " ")
 
@@ -72,18 +83,18 @@ def process_html(file):
         f.write(str(soup))
 
 
-def sanitize_filename(filename):
+def sanitize_filename(filename: str) -> str:
     sanitized_filename = re.sub(r'[\\/:*"?<>|]', '', filename).replace('_', ' ')
     return sanitized_filename
 
 
-def get_new_json(url):
+def get_new_json(url: str) -> list:
     content = requests.get(url)
     if content.status_code == 200:
         return content.json()
 
 
-def read_old_json(old_json_path):
+def read_old_json(old_json_path: str) -> list:
     if os.path.exists(old_json_path):
         with open(old_json_path, "r", encoding="utf-8") as old_file:
             content = json.load(old_file)
@@ -92,24 +103,20 @@ def read_old_json(old_json_path):
         return []
 
 
-def get_new_books(new_json, old_json):
+def get_new_books(new_json: list, old_json: list) -> Generator[dict]:
     for book in new_json:
         if book not in old_json:
             yield book
 
 
-def main(url, old_json_path, target, csv_file_path):
+def main(url: str, old_json_path: str, target: str, csv_file_path: str) -> None:
     if os.path.exists("list.csv"):
         shutil.copy("list.csv", "old.csv")
     new_json = get_new_json(url)
     old_books = read_old_json(old_json_path)
     for book in get_new_books(new_json, old_books):
-        display_name = "ללא שם"
-        if book.get('displayName'):
-            display_name = book.get('displayName')
-        category = "ללא קטגוריה"
-        if book.get("category"):
-            category = book.get('category')
+        display_name = book.get('displayName', 'ללא שם')
+        category = book.get('category', 'ללא קטגוריה')
         OCRDataURL = book.get('OCRDataURL')
         author = book.get("author")
         if OCRDataURL:
@@ -161,7 +168,7 @@ def main(url, old_json_path, target, csv_file_path):
                     writer = csv.writer(csv_file)
                     new_dict = {}
                     for item in list_all:
-                        new_dict[item] = book.get(item) if book.get(item) else ""
+                        new_dict[item] = book.get(item, '')
                     if csv_file.tell() == 0:
                         writer.writerow(list_all)
                     writer.writerow(list(new_dict.values()))
@@ -172,11 +179,13 @@ def main(url, old_json_path, target, csv_file_path):
         shutil.rmtree("temp")
     if os.path.exists("temp.zip"):
         os.remove("temp.zip")
-    dif.main()
+    os.makedirs(target_path, exist_ok=True)
+    dif.main(target_path)
 
 
 url = r"https://raw.githubusercontent.com/Dicta-Israel-Center-for-Text-Analysis/Dicta-Library-Download/refs/heads/main/books.json"
 old_json_path = "old books.json"
 csv_file_path = "list.csv"
-target_path = os.path.join("..", "ספרים", "לא ערוך", "לא ממויין")
+year, month = new_folder_name()
+target_path = os.path.join("..", "ספרים", "לא ערוך", "לא ממויין", year, month)
 main(url, old_json_path, target_path, csv_file_path)
