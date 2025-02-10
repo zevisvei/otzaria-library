@@ -1,0 +1,164 @@
+פירושי רד"צ הופמן על שמות error sequence item 2: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 2: expected str instance, NoneType found
+
+שיח ושיג מהדורה משפחתית error Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 46, in main
+    book_content = book_ins.process_book()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 113, in process_book
+    self.process_node(self.index["schema"], level=level)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 220, in process_node
+    self.process_node(sub_node, key, level=level)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 201, in process_node
+    node_title = self.parse_terms(node["sharedTitle"])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 321, in parse_terms
+    terms = self.sefaria_api.get_terms(term)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/sefaria_api.py", line 48, in get_terms
+    return response.json()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+שיג ושיח; מהדורה עברית error sequence item 1: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 1: expected str instance, NoneType found
+
+רעיונות משני חיים; קריאות חדשות בפרשת השבוע error sequence item 2: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 2: expected str instance, NoneType found
+
+משנת ארץ ישראל, מבוא error sequence item 0: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, NoneType found
+
+רשימות שיעורים על סנהדרין error sequence item 362: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 362: expected str instance, NoneType found
+
+שערי תורת ארץ ישראל על תלמוד ירושלמי שביעית error sequence item 2: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 2: expected str instance, NoneType found
+
+ביאור הרד"ל על פרקי דרבי אליעזר error sequence item 49: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 49: expected str instance, NoneType found
+
+ספרי זוטא; מדרשה של לוד error sequence item 0: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, NoneType found
+
+תורת האדם error 
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 46, in main
+    book_content = book_ins.process_book()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 113, in process_book
+    self.process_node(self.index["schema"], level=level)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 220, in process_node
+    self.process_node(sub_node, key, level=level)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 220, in process_node
+    self.process_node(sub_node, key, level=level)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 253, in process_node
+    self.recursive_sections(ref, section_names, text, depth, level + 1)
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 294, in recursive_sections
+    assert isinstance(text, list)
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+תורת ההגיון בהלכה error sequence item 60: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 60: expected str instance, NoneType found
+
+מורה נבוכי הזמן error sequence item 1: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 1: expected str instance, NoneType found
+
+בלשון עתיד; חזון ליהודים וליהדות בתרבות הגלובלית error sequence item 0: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 72, in main
+    file.write("\n".join(all_footnotes))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, NoneType found
+
+קובץ יסודות וחקירות error Expecting value: line 6 column 1 (char 5)
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/requests/models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 6 column 1 (char 5)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/main.py", line 45, in main
+    book_ins = Book(book_en_title, "hebrew", book_he_title, book_path, get_links=get_links)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/get_from_sefaria.py", line 30, in __init__
+    self.shape = self.sefaria_api.get_shape(self.book_title)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/otzaria-library/otzaria-library/sefariaToOtzaria/סקריפטים/otzaria/sefaria_api.py", line 22, in get_shape
+    return response.json()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/requests/models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 6 column 1 (char 5)
+
