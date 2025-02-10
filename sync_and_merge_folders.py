@@ -8,7 +8,7 @@ mapping = {
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
-    "SefariaUpdate-2.25": "sefariaUpdate"
+    "SefariaUpdate2.25": "sefaria1"
 }
 
 def sync_files(folder_path, target_folder_path, csv_writer):
@@ -45,7 +45,7 @@ folders = ("Ben-YehudaToOtzaria/ספרים/אוצריא",
            "OnYourWayToOtzaria/ספרים/אוצריא",
            "OraytaToOtzaria/ספרים/אוצריא",
            "sefaria and more",
-           "SefariaUpdate-2.25")
+           "SefariaUpdate2.25")
 
 with open("SourcesBooks.csv", "w", newline="", encoding="utf-8") as csvfile:
     csv_writer = csv.writer(csvfile)

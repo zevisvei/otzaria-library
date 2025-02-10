@@ -11,7 +11,7 @@ on:
       - OnYourWayToOtzaria/ספרים/אוצריא/**
       - OraytaToOtzaria/ספרים/אוצריא/**
       - sefaria and more/**
-      - SefariaUpdate-2.25/**
+      - SefariaUpdate2.25/**
 
   workflow_dispatch:
 
