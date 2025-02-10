@@ -1,5 +1,6 @@
 import os
 import json
+import csv
 
 import pandas as pd
 from tqdm import tqdm
@@ -38,8 +39,8 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
             book_he_title = book["he_title"]
             book_path = book["path"]
             file_name = sanitize_filename(book_he_title)
-            file_path = [sanitize_filename(category) for category in book_path]
-            file_path = os.path.join(target_path, *file_path, file_name)
+            file_path_rel = [sanitize_filename(category) for category in book_path]
+            file_path = os.path.join(target_path, *file_path_rel, file_name)
             book_ins = Book(book_en_title, "hebrew", book_he_title, book_path, get_links=get_links)
             book_content = book_ins.process_book()
             book_refs = book_ins.refs
@@ -78,8 +79,14 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     df = pd.DataFrame(book_refs)
                     df.to_csv(f"{book_file}.csv", index=False)
                 list_books_path = os.path.join(target_path, "list_new_books.log")
+                list_books_csv = os.path.join(target_path, "list_new_books.csv")
                 with open(list_books_path, "a", encoding="utf-8") as f:
-                    f.write(f"{book_he_title}\n")
+                    f.write(f"{file_name}\n")
+                with open(list_books_csv, "a", newline="", encoding="utf-8") as f:
+                    writer = csv.writer(f)
+                    if f.tell() == 0:
+                        writer.writerow(["שם בעברית", "שם באנגלית", "כשר\\לא", "קטגוריות"])
+                    writer.writerow([file_name, book_en_title,"", *file_path_rel])
                 new_books_index.append(book)
         except Exception as e:
             print(e)
@@ -91,7 +98,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
 
 
 if __name__ == "__main__":
-    get_links = True
+    get_links = False
     only_new = True
     old_json_file_path = "toc.json"
     year, month = new_folder_name()
