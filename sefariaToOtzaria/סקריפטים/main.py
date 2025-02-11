@@ -55,6 +55,8 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     if "footnote-marker" in line:
                         line, footnotes_list = footnotes(line)
                         for foot_note in footnotes_list:
+                            if not foot_note:
+                                continue
                             dict_links.append({
                                 "line_index_1": index,
                                 "heRef_2": "הערות",

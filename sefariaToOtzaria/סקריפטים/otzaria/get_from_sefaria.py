@@ -291,6 +291,8 @@ class Book:
             self.refs.append({"ref": anchor_ref_address, "line_index": len(self.book_content)})
         elif not isinstance(text, bool):
             if depth == 1:
+                if not isinstance(text, list):
+                    print(ref, text)
                 assert isinstance(text, list)
             for i, item in enumerate(text, start=1):
                 if has_value(item):
