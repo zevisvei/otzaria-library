@@ -295,7 +295,7 @@ class Book:
         elif not isinstance(text, bool):
             if depth == 1 and isinstance(text, str):
                 self.recursive_sections(ref, section_names, text, depth - 1, level, anchor_ref, links)
-            else:  
+            else:
                 for i, item in enumerate(text, start=1):
                     if has_value(item):
                         letter = ""

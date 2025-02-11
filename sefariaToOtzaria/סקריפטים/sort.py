@@ -1,11 +1,22 @@
 import os
 import shutil
+import csv
 
+mapping = {
+    "Ben-Yehuda": "Ben-YehudaToOtzaria/ספרים/אוצריא",
+    "Dicta": "DictaToOtzaria/ספרים/ערוך/אוצריא",
+    "OnYourWay": "OnYourWayToOtzaria/ספרים/אוצריא",
+    "Orayta": "OraytaToOtzaria/ספרים/אוצריא"
+}
+
+csv_file_path = os.path.join("..", "..", "SourcesBooks.csv")
 links_path = os.path.join("..", "..", "links")
 month_path = ["תשפה", "שבט"]
+new_list = []
 main_file_path = os.path.join("..", "ספרים", "לא ממויין", *month_path)
 black_list_file_path = "blackList.txt"
 target_path = os.path.join("..", "ספרים", "אוצריא")
+dicta_path = os.path.join("..", "..", "DictaToOtzaria", "ספרים", "אוצריא")
 skip_ext = (".csv", ".log")
 with open(black_list_file_path, "r", encoding="utf-8") as f:
     content = f.read()
@@ -23,6 +34,17 @@ for root, _, files in os.walk(main_file_path):
             target = os.path.join(target_path, *fix_path)
             os.makedirs(os.path.dirname(target), exist_ok=True)
             shutil.copy(file_path, target)
+            new_list.append(file_name_ane_ext[0])
         elif file.endswith("_links.json"):
             target = os.path.join(links_path, file)
             shutil.copy(file_path, target)
+
+with open(csv_file_path, "r", encoding="utf-8") as f:
+    reader = csv.reader(f)
+    next(reader)
+    for row in reader:
+        if os.path.splitext(row[0]) in new_list:
+            file_path = row[1].split("/")
+            file_path = os.path.join(mapping[row[2]], *file_path[1:])
+            print(file_path)
+            raise NotImplementedError("This script is not yet finished")
