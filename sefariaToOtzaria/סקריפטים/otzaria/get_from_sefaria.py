@@ -285,39 +285,41 @@ class Book:
         :return: None
         """
         if depth == 0 and text != [] and not isinstance(text, bool):
-            assert isinstance(text, str)
-            anchor_ref_address = f"{ref} {":".join(anchor_ref)}"
-            self.book_content.append(text.strip().replace("\n", "<br>") + "\n")
-            self.refs.append({"ref": anchor_ref_address, "line_index": len(self.book_content)})
+            if isinstance(text, list):
+                for line in text:
+                    self.recursive_sections(ref, section_names, line, depth, level, anchor_ref, links)
+            else:
+                anchor_ref_address = f"{ref} {":".join(anchor_ref)}"
+                self.book_content.append(text.strip().replace("\n", "<br>") + "\n")
+                self.refs.append({"ref": anchor_ref_address, "line_index": len(self.book_content)})
         elif not isinstance(text, bool):
-            if depth == 1:
-                if not isinstance(text, list):
-                    print(ref, text)
-                assert isinstance(text, list)
-            for i, item in enumerate(text, start=1):
-                if has_value(item):
-                    letter = ""
-                    if section_names:
-                        letter = (
-                            to_daf(i)
-                            if section_names[-depth] in ("דף", "Daf")
-                            else to_gematria(i)
-                        )
-                    if depth > 1 and section_names and section_names[-depth] not in skip_section_names:
-                        self.book_content.append(
-                            f"<h{min(level, 6)}>{section_names[-depth]} {letter}</h{min(level, 6)}>\n"
-                        )
-                    elif section_names and section_names[-depth] not in skip_section_names and letter:
-                        self.book_content.append(f"({letter}) ")
-                anchor_ref.append(to_eng_daf(i) if section_names[-depth] in ("דף", "Daf") else str(i))
-                self.recursive_sections(
-                    ref,
-                    section_names, item,
-                    depth - 1, level + 1,
-                    anchor_ref,
-                    links
-                )
-                anchor_ref.pop()
+            if depth == 1 and isinstance(text, str):
+                self.recursive_sections(ref, section_names, text, depth - 1, level, anchor_ref, links)
+            else:  
+                for i, item in enumerate(text, start=1):
+                    if has_value(item):
+                        letter = ""
+                        if section_names:
+                            letter = (
+                                to_daf(i)
+                                if section_names[-depth] in ("דף", "Daf")
+                                else to_gematria(i)
+                            )
+                        if depth > 1 and section_names and section_names[-depth] not in skip_section_names:
+                            self.book_content.append(
+                                f"<h{min(level, 6)}>{section_names[-depth]} {letter}</h{min(level, 6)}>\n"
+                            )
+                        elif section_names and section_names[-depth] not in skip_section_names and letter:
+                            self.book_content.append(f"({letter}) ")
+                    anchor_ref.append(to_eng_daf(i) if section_names[-depth] in ("דף", "Daf") else str(i))
+                    self.recursive_sections(
+                        ref,
+                        section_names, item,
+                        depth - 1, level + 1,
+                        anchor_ref,
+                        links
+                    )
+                    anchor_ref.pop()
 
     def parse_terms(self, term: str) -> str | None:
         terms = self.sefaria_api.get_terms(term)
