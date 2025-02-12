@@ -9,7 +9,7 @@ from pyluach import dates
 
 from otzaria.sefaria_api import SefariaApi
 from otzaria.get_from_sefaria import Book
-from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes, has_value
+from otzaria.utils import sanitize_filename, recursive_register_categories, footnotes
 
 
 def new_folder_name() -> tuple[str, str]:
@@ -30,7 +30,10 @@ def filter_new_books(new_list: list[dict[str, str | list]], file_path: str) -> t
 
 def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str = "", target_path: str = "") -> None:
     new_index = SefariaApi().table_of_contents()
+    os.makedirs(target_path, exist_ok=True)
     new_books_index = []
+    all_metadata = []
+    authors = set()
     get_new_book_names = recursive_register_categories(new_index)
     if only_new:
         get_new_book_names, new_books_index = filter_new_books(get_new_book_names, old_json_file_path)
@@ -45,6 +48,9 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
             book_ins = Book(book_en_title, "hebrew", book_he_title, book_path, get_links=get_links)
             book_content = book_ins.process_book()
             book_refs = book_ins.refs
+            book_metadata = book_ins.get_metadata()
+            if book_metadata and book_metadata.get("authors"):
+                authors.add(book_metadata["authors"])
             if book_content:
                 os.makedirs(file_path, exist_ok=True)
                 book_file = os.path.join(file_path, file_name)
@@ -55,8 +61,6 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     if "footnote-marker" in line:
                         line, footnotes_list = footnotes(line)
                         for foot_note in footnotes_list:
-                            if not foot_note:
-                                continue
                             dict_links.append({
                                 "line_index_1": index,
                                 "heRef_2": "הערות",
@@ -68,7 +72,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     book_content_copy.append(line)
                 with open(f"{book_file}.txt", "w", encoding="utf-8") as f:
                     f.writelines(book_content_copy)
-                if has_value(all_footnotes):
+                if all_footnotes:
                     footnotes_file = os.path.join(file_path, f"הערות על {file_name}.txt")
                     with open(footnotes_file, 'w', encoding='utf-8') as file:
                         file.write("\n".join(all_footnotes))
@@ -91,6 +95,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                         writer.writerow(["שם בעברית", "שם באנגלית", "כשר\\לא", "קטגוריות"])
                     writer.writerow([file_name, book_en_title,"", *file_path_rel])
                 new_books_index.append(book)
+                all_metadata.append(book_metadata)
         except Exception as e:
             print(e)
             eroor_file_path = os.path.join(target_path, "eroor.log")
@@ -98,6 +103,13 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                 f.write(f"{book_he_title} error {e}\n{traceback.format_exc()}\n")
     with open(old_json_file_path, "w", encoding="utf-8") as f:
         json.dump(new_books_index, f, indent=4, ensure_ascii=False)
+    metadate_file_path = os.path.join(target_path, "metadata.json")
+    with open(metadate_file_path, "w", encoding="utf-8") as f:
+        json.dump(all_metadata, f, indent=4, ensure_ascii=False)
+    authors_file_path = os.path.join(target_path, "authors.txt")
+    if authors:
+        with open(authors_file_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(authors))
 
 
 if __name__ == "__main__":

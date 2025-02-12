@@ -48,46 +48,20 @@ class Book:
             "A": {"en": "Amoraim", "he": "אמוראים"},
             "CO": {"en": "Contemporary", "he": "מחברי זמננו"},
         }
-        authors = self.index.get("authors")
-        if authors:
-            self.metadata["authors"] = "&".join(authors)
 
-        if self.section_names_lang == "he" and (
-            self.he_title or self.shape[0].get("heBook")
-        ):
-            self.metadata["title"] = self.he_title or self.shape[0].get("heBook")
-        else:
-            self.metadata["title"] = self.book_title
-
-        long_Desc = self.index.get(f"{self.section_names_lang}Desc")
-        ShortDesc = self.index.get(f"{self.section_names_lang}ShortDesc")
+        self.metadata["authors"] = self.index.get("authors")
+        self.metadata["he_title"] = self.he_title or self.shape[0].get("heBook")
+        self.metadata["en_title"] = self.book_title
+        self.metadata["he_long_desc"] = self.index.get("heDesc")
+        self.metadata["en_long_desc"] = self.index.get("enDesc")
+        self.metadata["he_short_desc"] = self.index.get("heShortDesc")
+        self.metadata["en_short_desc"] = self.index.get("enShortDesc")
+        self.metadata["he_categories"] = self.categories
+        self.metadata["en_categories"] = self.index.get("categories")
         era = self.index.get("era")
-
-        if long_Desc:
-            self.metadata["comments"] = long_Desc
-        elif ShortDesc:
-            self.metadata["comments"] = ShortDesc
-
-        self.metadata["publisher"] = "sefaria"
-        categories = self.index.get("categories")
-
-        if self.categories and self.section_names_lang == "he":
-            self.metadata["tags"] = ",".join(self.categories)
-            if not self.metadata.get("series"):
-                self.metadata["series"] = self.categories[-1]
-        elif categories:
-            self.metadata["tags"] = ",".join(categories)
-            if not self.metadata.get("series"):
-                self.metadata["series"] = categories[-1]
-
-        if era:
-            era_in_dict = era_dict.get(era)
-            if era_in_dict:
-                if self.metadata.get("tags"):
-                    self.metadata["tags"] += f",{era_in_dict[self.section_names_lang]}"
-                else:
-                    self.metadata["tags"] = era_in_dict[self.section_names_lang]
-
+        era_value = era_dict.get(era, {})
+        self.metadata["he_era"] = era_value.get("he")
+        self.metadata["he_era"] = era_value.get("en")
         self.metadata["language"] = self.lang
         return self.metadata
 
@@ -104,10 +78,9 @@ class Book:
     def process_book(self) -> list | None:
         if not self.exists:
             return
-        level = 0
-        if self.he_title:
-            self.book_content.append(f"<h1>{self.he_title}</h1>\n")
-            level += 1
+
+        level = self.add_heading(1, self.he_title)
+        self.book_content.append(self.index.get("authors", ""))
         if self.is_complex:
             self.node_num = 0
             self.process_node(self.index["schema"], level=level)
@@ -134,11 +107,7 @@ class Book:
                 node_title = self.parse_titles(node_titles)
             if node_title is None and node.get("sharedTitle"):
                 node_title = self.parse_terms(node["sharedTitle"])
-            if node_title:
-                node_level += 1
-                self.book_content.append(
-                    f"<h{min(node_level, 6)}>{node_title}</h{min(node_level, 6)}>\n"
-                )
+            node_level = self.add_heading(node_level + 1, node_title)
             depth = node["depth"]
             if node["key"] == "default":
                 node_len = self.shape[0]["length"]
@@ -147,7 +116,6 @@ class Book:
                 node_index = ", ".join(key)
                 text = self.sefaria_api.get_book(node_index, self.long_lang)
             else:
-
                 key.append(node["key"])
                 node_index = ", ".join(key)
                 ref = node_index
@@ -208,11 +176,7 @@ class Book:
             )
             node_title = node_title.split(",")[-1].strip()
 
-        if node_title:
-            level += 1
-            self.book_content.append(
-                f"<h{min(level, 6)}>{node_title}</h{min(level, 6)}>\n"
-            )
+        level = self.add_heading(level + 1, node_title)
         if node.get("nodes"):  # Process nested nodes
             node_key = node["key"]
             key.append(node_key)
@@ -238,13 +202,10 @@ class Book:
                 key.append(node_key)
                 node_index = ", ".join(key)
                 ref = node_index
-                # self.book_content.append(f"{self.codes[level][0]}{node_title}{self.codes[level][1]}\n")
                 section_names = self.sefaria_api.get_name(node_index).get(
                     "heSectionNames"
                 )
                 text = self.sefaria_api.get_book(node_index, self.long_lang)
-                # depth = text.get('textDepth', 1)
-                # print(depth)
             self.set_series(text)
             text = text.get("versions")
             if text:
@@ -300,15 +261,10 @@ class Book:
                     if has_value(item):
                         letter = ""
                         if section_names:
-                            letter = (
-                                to_daf(i)
-                                if section_names[-depth] in ("דף", "Daf")
-                                else to_gematria(i)
-                            )
+                            letter = to_daf(i) if section_names[-depth] in ("דף", "Daf") else to_gematria(i)
+
                         if depth > 1 and section_names and section_names[-depth] not in skip_section_names:
-                            self.book_content.append(
-                                f"<h{min(level, 6)}>{section_names[-depth]} {letter}</h{min(level, 6)}>\n"
-                            )
+                            self.add_heading(level, f"{section_names[-depth]} {letter}")
                         elif section_names and section_names[-depth] not in skip_section_names and letter:
                             self.book_content.append(f"({letter}) ")
                     anchor_ref.append(to_eng_daf(i) if section_names[-depth] in ("דף", "Daf") else str(i))
@@ -335,9 +291,7 @@ class Book:
                 title = i.get("text")
                 return title
 
-    def parse_links(
-        self, links: list[dict[str, str | list | dict] | None]
-            ) -> None:
+    def parse_links(self, links: list[dict[str, str | list | dict] | None]) -> None:
         for link in links:
             link_type = link.get("type")
             ref = link.get("ref")
@@ -347,3 +301,11 @@ class Book:
                 continue
 
             self.links[anchor_ref].append({"ref": ref, "link_type": link_type})
+
+    def add_heading(self, level: int, text: str | None) -> int:
+        if not text or not text.strip() or (level == 2 and text == self.he_title):
+            return level - 1
+        self.book_content.append(
+            f"<h{min(level, 6)}>{text}</h{min(level, 6)}>\n"
+        )
+        return level

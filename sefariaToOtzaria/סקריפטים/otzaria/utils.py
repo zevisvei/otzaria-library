@@ -85,6 +85,9 @@ def footnotes(html_content: str) -> tuple[str, list[str]]:
         del sup_tag.attrs["class"]
         if next_tag and next_tag.name == 'i' and 'footnote' in next_tag.get('class', []):
             next_tag.extract()
-            notes.append((next_tag.string))
+            if next_tag.string and next_tag.string.strip():
+                notes.append((next_tag.string.strip().replace("\n", "<br>")))
+            else:
+                sup_tag.extract()
 
     return str(soup), notes
