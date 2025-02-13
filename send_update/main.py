@@ -5,6 +5,7 @@ import os
 from pyluach import dates
 
 from mitmachim import MitmachimClient
+from yemot import send_to_yemot
 
 
 FOLDER = "אוצריא"
@@ -43,21 +44,25 @@ print(modified_files)
 print(deleted_files)
 
 if any([added_files, modified_files, deleted_files]):
-    content = f"**עדכון {date}**\n"
+    content_mitmachim = f"**עדכון {date}**\n"
     if added_files:
-        content += f"\nהתווספו הקבצים הבאים:\n* {"\n* ".join(added_files)}\n"
+        content_mitmachim += f"\nהתווספו הקבצים הבאים:\n* {"\n* ".join(added_files)}\n"
     if modified_files:
-        content += f"\nהשתנו הקבצים הבאים:\n* {"\n* ".join(modified_files)}\n"
+        content_mitmachim += f"\nהשתנו הקבצים הבאים:\n* {"\n* ".join(modified_files)}\n"
     if deleted_files:
-        content += f"\nנמחקו הקבצים הבאים:\n* {"\n* ".join(deleted_files)}\n"
-    print(content)
+        content_mitmachim += f"\nנמחקו הקבצים הבאים:\n* {"\n* ".join(deleted_files)}\n"
+    content_yemot = content_mitmachim.replace("* ", "").replace("*", "")
+
     username = os.getenv("USER_NAME")
     password = os.getenv("PASSWORD")
+    yemot_token = os.getenv("TOKEN_YEMOT")
+    yemot_path = ""
     client = MitmachimClient(username.strip().replace(" ", "+"), password.strip())
 
     try:
         client.login()
         topic_id = 76899
-        print(client.send_post(content, topic_id))
+        client.send_post(content_mitmachim, topic_id)
+        send_to_yemot(content_yemot, yemot_token, yemot_path)
     finally:
         client.logout()

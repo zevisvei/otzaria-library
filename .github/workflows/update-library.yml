@@ -61,8 +61,9 @@ jobs:
         env:
           USER_NAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          TOKEN_YEMOT: ${{ secrets.TOKEN_YEMOT }}
         run: |
-          python update_mitmachim.py
+          python send_update/main.py
 
       - name: Create Release Archive
         run: |
