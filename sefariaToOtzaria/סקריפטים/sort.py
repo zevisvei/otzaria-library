@@ -9,7 +9,7 @@ mapping = {
     "Orayta": "OraytaToOtzaria/ספרים/אוצריא"
 }
 
-csv_file_path = os.path.join("..", "..", "SourcesBooks.csv")
+csv_file_path = os.path.join("..", "..", "אוצריא","אודות התוכנה" ,"SourcesBooks.csv")
 links_path = os.path.join("..", "..", "links")
 month_path = ["תשפה", "שבט"]
 new_list = []

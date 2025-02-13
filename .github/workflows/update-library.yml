@@ -57,6 +57,12 @@ jobs:
         with:
           message: "Update files manifest and sync folders"
           default_author: github_actions
+      - name: update in mitmachim
+        env:
+          USER_NAME: ${{ secrets.USER_NAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+          python update_mitmachim.py
 
       - name: Create Release Archive
         run: |
@@ -79,9 +85,3 @@ jobs:
             --title "Latest Otzaria Files" \
             --notes "Latest version of Otzaria files" \
             otzaria_latest.zip
-      - name: update in mitmachim
-        env:
-          USER_NAME: ${{ secrets.USER_NAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: |
-          python update_mitmachim.py
