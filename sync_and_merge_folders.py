@@ -8,7 +8,8 @@ mapping = {
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
-    "sefariaToOtzaria": "sefaria new"
+    "sefariaToOtzaria": "sefaria",
+    "MoreBooks": "MoreBooks"
 }
 
 
@@ -50,7 +51,8 @@ folders = (
     "OnYourWayToOtzaria/ספרים/אוצריא",
     "OraytaToOtzaria/ספרים/אוצריא",
     "sefariaToOtzaria/ספרים/אוצריא",
-    "sefaria and more"
+    "sefaria and more",
+    "MoreBooks"
 )
 
 with open("SourcesBooks.csv", "w", newline="", encoding="utf-8") as csvfile:

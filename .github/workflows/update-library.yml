@@ -76,6 +76,11 @@ jobs:
         run: |
           gh release delete latest --yes || true
           git push --delete origin latest || true
+      
+      - name: Create and push new tag  # שלב חדש שנוסף כאן!
+        run: |
+          git tag -f latest
+          git push origin latest --force
 
       - name: Create Release
         id: create_release

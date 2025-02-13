@@ -1,0 +1,6 @@
+pip install bs4
+pip install requests
+pip install pyluach
+pip install tqdm
+pip install python_hebrew_numbers
+pip install pandas
