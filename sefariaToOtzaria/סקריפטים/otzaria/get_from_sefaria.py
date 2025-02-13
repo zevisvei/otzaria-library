@@ -48,8 +48,8 @@ class Book:
             "A": {"en": "Amoraim", "he": "אמוראים"},
             "CO": {"en": "Contemporary", "he": "מחברי זמננו"},
         }
-
-        self.metadata["authors"] = self.index.get("authors")
+        authors = self.index.get("authors")
+        self.metadata["authors"] = ", ".join(authors) if authors else None
         self.metadata["he_title"] = self.he_title or self.shape[0].get("heBook")
         self.metadata["en_title"] = self.book_title
         self.metadata["he_long_desc"] = self.index.get("heDesc")
@@ -80,7 +80,8 @@ class Book:
             return
 
         level = self.add_heading(1, self.he_title)
-        self.book_content.append(self.index.get("authors", ""))
+        authors = self.index.get("authors")
+        self.book_content.append((", ".join(authors) if authors else "") + "\n")
         if self.is_complex:
             self.node_num = 0
             self.process_node(self.index["schema"], level=level)
