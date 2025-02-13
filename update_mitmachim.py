@@ -58,6 +58,6 @@ if any([added_files, modified_files, deleted_files]):
     try:
         client.login()
         topic_id = 76899
-        client.send_post(content, topic_id)
+        print(client.send_post(content, topic_id))
     finally:
         client.logout()
