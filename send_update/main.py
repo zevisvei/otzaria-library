@@ -63,6 +63,6 @@ if any([added_files, modified_files, deleted_files]):
         client.login()
         topic_id = 80213
         client.send_post(content_mitmachim, topic_id)
-        send_to_yemot(content_yemot, yemot_token, yemot_path)
+        #send_to_yemot(content_yemot, yemot_token, yemot_path)
     finally:
         client.logout()
