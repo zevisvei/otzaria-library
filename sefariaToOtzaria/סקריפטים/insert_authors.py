@@ -3,8 +3,8 @@ import csv
 
 
 authors_list = {}
-csv_file_path = ""
-main_folder = ""
+csv_file_path = "authors.csv"
+main_folder = os.path.join("..", "ספרים", "אוצריא")
 
 
 with open(csv_file_path, "r", encoding="utf-8") as f:
@@ -17,6 +17,8 @@ with open(csv_file_path, "r", encoding="utf-8") as f:
 for root, _, files in os.walk(main_folder):
     for file in files:
         if os.path.splitext(file)[1].lower() != ".txt":
+            continue
+        if "הערות על" in file:
             continue
         file_path = os.path.join(root, file)
         with open(file_path, "r", encoding="utf-8") as f:
