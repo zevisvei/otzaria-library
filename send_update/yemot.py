@@ -4,18 +4,21 @@ import requests
 BASE_URL = "https://www.call2all.co.il/ym/api/"
 
 
-def split_content(content: str):
+def split_content(content: str) -> list[str]:
+    all_partes = []
     start = 0
     chunk_size = 2000
     while start < len(content):
-        yield content[start:start + chunk_size]
+        all_partes.append(content[start:start + chunk_size])
         start += chunk_size
+    return all_partes
 
 
 def send_to_yemot(content: str, token: str, path: str, tzintuk_list_name: str) -> int:
     url = f"{BASE_URL}UploadTextFile"
     num = get_file_num(token, path)
-    for chunk in split_content(content):
+    all_partes = split_content(content)
+    for chunk in all_partes[-1::-1]:
         num += 1
         file_name = str(num).zfill(3)
         data = {
@@ -43,7 +46,7 @@ def get_file_num(token: str, path: str) -> int:
         return -1
 
 
-def send_tzintuk(token: str, list_name: str):
+def send_tzintuk(token: str, list_name: str) -> int:
     url = f"{BASE_URL}RunTzintuk"
     data = {
         "token": token,
