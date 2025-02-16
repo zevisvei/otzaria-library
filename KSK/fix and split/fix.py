@@ -20,7 +20,7 @@ def h_3(text: str):
     return text
 
 
-base_folder = "/home/zevi5/Desktop/ksk/‏‏קובץ שיטות קמאי"
+base_folder = "sefaria and more/תלמוד בבלי/ראשונים/‏‏קובץ שיטות קמאי"
 for root, _, files in os.walk(base_folder):
     for file in files:
         file_path = os.path.join(root, file)
