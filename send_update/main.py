@@ -76,7 +76,6 @@ if any([added_files, modified_files, deleted_files]):
         client.logout()
 
     try:
-        if len(content_yemot) > 2000:
-            send_to_yemot(content_yemot, yemot_token, yemot_path, tzintuk_list_name)
+        send_to_yemot(content_yemot, yemot_token, yemot_path, tzintuk_list_name)
     except Exception as e:
         print(e)
