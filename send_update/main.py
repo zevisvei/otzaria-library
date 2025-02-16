@@ -5,7 +5,7 @@ import os
 from pyluach import dates
 
 from mitmachim import MitmachimClient
-from yemot import send_to_yemot
+from yemot import split_and_send
 
 
 FOLDER = "אוצריא"
@@ -47,16 +47,17 @@ print(deleted_files)
 
 if any([added_files, modified_files, deleted_files]):
     content_mitmachim = f"**עדכון {date}**\n"
-    content_yemot = f"עדכון {date}\n"
+    date_yemot = f"עדכון {date}\n"
+    content_yemot = {}
     if added_files:
         content_mitmachim += f"\nהתווספו הקבצים הבאים:\n* {"\n* ".join(added_files)}\n"
-        content_yemot += f"\nהתווספו הקבצים הבאים:\n{"\n".join([i.split('/')[-1].split('.')[0] for i in added_files])}"
+        content_yemot["התווספו הקבצים הבאים:"] = f"התווספו הקבצים הבאים:\n{"\n".join([i.split('/')[-1].split('.')[0] for i in added_files])}"
     if modified_files:
         content_mitmachim += f"\nהשתנו הקבצים הבאים:\n* {"\n* ".join(modified_files)}\n"
-        content_yemot += f"\nהשתנו הקבצים הבאים:\n{"\n".join([i.split('/')[-1].split('.')[0] for i in modified_files])}"
+        content_yemot["השתנו הקבצים הבאים:"] = f"{"\n".join([i.split('/')[-1].split('.')[0] for i in modified_files])}"
     if deleted_files:
         content_mitmachim += f"\nנמחקו הקבצים הבאים:\n* {"\n* ".join(deleted_files)}\n"
-        content_yemot += f"\nנמחקו הקבצים הבאים:\n{"\n".join([i.split('/')[-1].split('.')[0] for i in deleted_files])}"
+        content_yemot["נמחקו הקבצים הבאים:"] = f"{"\n".join([i.split('/')[-1].split('.')[0] for i in deleted_files])}"
 
     username = os.getenv("USER_NAME")
     password = os.getenv("PASSWORD")
@@ -76,6 +77,6 @@ if any([added_files, modified_files, deleted_files]):
         client.logout()
 
     try:
-        send_to_yemot(content_yemot, yemot_token, yemot_path, tzintuk_list_name)
+        split_and_send(content_yemot, date_yemot, yemot_token, yemot_path, tzintuk_list_name)
     except Exception as e:
         print(e)
