@@ -8,13 +8,13 @@ mapping = {
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
-    "sefariaToOtzaria": "sefaria",
+    "sefariaToOtzaria": "sefaria_new",
     "MoreBooks": "MoreBooks"
 }
 
 
 def sync_files(folder_path, target_folder_path, csv_writer):
-    source_key = folder_path.split("/")[0]
+    source_key = folder_path.split(os.sep)[0]
     original_folder = mapping.get(source_key, source_key)
     for root, _, files in os.walk(folder_path):
         for file in files:
@@ -24,7 +24,11 @@ def sync_files(folder_path, target_folder_path, csv_writer):
             sync_folder = os.path.split(target_file_path)[0]
             os.makedirs(sync_folder, exist_ok=True)
             shutil.copy(file_path, target_file_path)
-            csv_writer.writerow([file, target_file_path, original_folder])
+            if not file.lower().endswith(".txt"):
+                continue
+            with open(target_file_path, "r", encoding="utf-8") as f:
+                content = f.read().split("\n")
+            csv_writer.writerow([file, target_file_path, original_folder, str(len(content))])
 
 
 def sync_folders(folder_path, folders_to_update):
@@ -43,6 +47,9 @@ def remove_old(folder_path):
 
 
 target_folder = "אוצריא"
+ver_file_path = os.path.join("אוצריא", "אודות התוכנה", "גירסת ספריה.txt")
+with open(ver_file_path, "r", encoding="utf-8") as f:
+    library_ver = int(f.read())
 remove_old(target_folder)
 
 folders = (
@@ -57,7 +64,7 @@ folders = (
 
 with open("SourcesBooks.csv", "w", newline="", encoding="utf-8") as csvfile:
     csv_writer = csv.writer(csvfile)
-    csv_writer.writerow(["שם הקובץ", "נתיב הקובץ", "תיקיית המקור"])
+    csv_writer.writerow(["שם הקובץ", "נתיב הקובץ", "תיקיית המקור", "מספר שורות"])
     for folder in folders:
         sync_files(folder, target_folder, csv_writer)
 
@@ -65,4 +72,8 @@ for folder in folders:
     sync_folders(folder, folders)
 
 csv_file_path = os.path.join("אוצריא", "אודות התוכנה", "SourcesBooks.csv")
-shutil.move("SourcesBooks.csv", csv_file_path)
+shutil.copy("SourcesBooks.csv", csv_file_path)
+os.makedirs("library_csv", exist_ok=True)
+os.rename("SourcesBooks.csv", os.path.join("library_csv", f"{library_ver + 1}.csv"))
+with open(ver_file_path, "w", encoding="utf-8") as f:
+    f.write(str(library_ver + 1))

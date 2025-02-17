@@ -2,32 +2,38 @@ import csv
 import os
 
 
-def read_csv(file_path):
+def has_value(data: list) -> bool:
+    return any(has_value(item) if isinstance(item, list) else item for item in data)
+
+
+def read_csv(file_path) -> list[list[str]]:
     with open(file_path, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
         return list(reader)
 
 
-def write_csv(file, data):
+def write_csv(file_path: str, data: list[list[str]]) -> None:
+    if not has_value(data):
+        return
     list_all = ['displayName', 'printYear', 'author', 'printLocation', 'category',
                 'source', 'textFileURL', 'nikudMetegFileURL', 'OCRDataURL', 'ocrFeDir',
                 'displayNameEnglish', 'authorEnglish', 'categoryEnglish', 'printLocationEnglish',
                 "underwentBerelUnflagging", 'fileName', 'notHumanReviewed']
-    with open(file, "w", encoding="utf-8", newline="") as file:
+    with open(file_path, "w", encoding="utf-8", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(list_all)
         for i in data:
             csv_writer.writerow(i)
 
 
-def dict_csv(data):
+def dict_csv(data: list[list[str]]) -> dict[str, list[str]]:
     dict_all = {}
     for i in data:
         dict_all[i[8]] = i[0:8] + i[9:]
     return dict_all
 
 
-def new_vs_old(dict_1, dict_2):
+def new_vs_old(dict_1: dict[str, list[str]], dict_2: dict[str, list[str]]) -> tuple[list[list[str]], list[list[str]]]:
     list_all = []
     list_2 = []
     for key, value in dict_1.items():

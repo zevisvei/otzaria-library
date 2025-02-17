@@ -108,7 +108,7 @@ def get_new_books(new_json: list, old_json: list):
             yield book
 
 
-def main(url: str, old_json_path: str, target: str, csv_file_path: str) -> None:
+def main(url: str, old_json_path: str, target: str, csv_file_path: str, dif_folder: str) -> None:
     if os.path.exists("list.csv"):
         shutil.copy("list.csv", "old.csv")
     new_json = get_new_json(url)
@@ -178,13 +178,20 @@ def main(url: str, old_json_path: str, target: str, csv_file_path: str) -> None:
         shutil.rmtree("temp")
     if os.path.exists("temp.zip"):
         os.remove("temp.zip")
-    os.makedirs(target, exist_ok=True)
-    dif.main(target)
+    os.makedirs(dif_folder, exist_ok=True)
+    dif.main(dif_folder)
+    if not os.listdir(dif_folder):
+        os.rmdir(dif_folder)
 
 
 url = r"https://raw.githubusercontent.com/Dicta-Israel-Center-for-Text-Analysis/Dicta-Library-Download/refs/heads/main/books.json"
 old_json_path = "old books.json"
 csv_file_path = "list.csv"
 year, month = new_folder_name()
+num = 1
 target_path = os.path.join("..", "ספרים", "לא ערוך", "לא ממויין", year, month)
-main(url, old_json_path, target_path, csv_file_path)
+while os.path.exists(target_path):
+    num += 1
+    target_path = os.path.join("..", "ספרים", "לא ערוך", "לא ממויין", year, f"{month}_{num}")
+dif_folder = os.path.join("dif", f"{' '.join(target_path.split(os.sep)[-2:])}")
+main(url, old_json_path, target_path, csv_file_path, dif_folder)

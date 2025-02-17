@@ -28,7 +28,7 @@ def filter_new_books(new_list: list[dict[str, str | list]], file_path: str) -> t
     return filtered_list, content
 
 
-def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str = "", target_path: str = "") -> None:
+def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str = "", target_path: str = "", eroor_file: str = "") -> None:
     new_index = SefariaApi().table_of_contents()
     os.makedirs(target_path, exist_ok=True)
     new_books_index = []
@@ -98,14 +98,14 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                 all_metadata.append(book_metadata)
         except Exception as e:
             print(e)
-            eroor_file_path = os.path.join(target_path, "eroor.log")
-            with open(eroor_file_path, "a", encoding="utf-8") as f:
+            with open(eroor_file, "a", encoding="utf-8") as f:
                 f.write(f"{book_he_title} error {e}\n{traceback.format_exc()}\n")
     with open(old_json_file_path, "w", encoding="utf-8") as f:
         json.dump(new_books_index, f, indent=4, ensure_ascii=False)
     metadate_file_path = os.path.join(target_path, "metadata.json")
-    with open(metadate_file_path, "w", encoding="utf-8") as f:
-        json.dump(all_metadata, f, indent=4, ensure_ascii=False)
+    if all_metadata:
+        with open(metadate_file_path, "w", encoding="utf-8") as f:
+            json.dump(all_metadata, f, indent=4, ensure_ascii=False)
     authors_file_path = os.path.join(target_path, "authors.txt")
     if authors:
         with open(authors_file_path, "w", encoding="utf-8") as f:
@@ -117,5 +117,15 @@ if __name__ == "__main__":
     only_new = True
     old_json_file_path = "toc.json"
     year, month = new_folder_name()
+    num = 1
     target_path = os.path.join("..", "ספרים", "לא ממויין", year, month)
-    main(get_links, only_new, old_json_file_path, target_path)
+    while os.path.exists(target_path):
+        num += 1
+        target_path = os.path.join("..", "ספרים", "לא ממויין", year, f"{month}_{num}")
+    eroor_file = os.path.join("eroor", f'{" ".join(target_path.split(os.sep)[-2:])}.log')
+    os.makedirs("eroor", exist_ok=True)
+    main(get_links, only_new, old_json_file_path, target_path, eroor_file)
+    if not os.listdir(target_path):
+        os.rmdir(target_path)
+    if not os.listdir("eroor"):
+        os.rmdir("eroor")

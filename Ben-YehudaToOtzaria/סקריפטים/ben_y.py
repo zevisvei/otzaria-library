@@ -203,4 +203,8 @@ base_url = "https://raw.githubusercontent.com/projectbenyehuda/public_domain_dum
 csv_path = "list.csv"
 year, month = new_folder_name()
 destination_path = os.path.join("..", "ספרים", "לא ממויין", year, month)
+num = 1
+while os.path.exists(destination_path):
+    num += 1
+    destination_path = os.path.join("..", "ספרים", "לא ממויין", year, f"{month}_{num}")
 main(url, koser_file, base_url, not_koser_file, need_to_check_file, csv_path, destination_path)
