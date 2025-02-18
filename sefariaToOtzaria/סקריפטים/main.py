@@ -49,8 +49,8 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
             book_content = book_ins.process_book()
             book_refs = book_ins.refs
             book_metadata = book_ins.get_metadata()
-            if book_metadata and book_metadata.get("authors"):
-                authors.add(book_metadata["authors"])
+            if book_metadata and book_metadata.get("en_authors") and book_metadata.get("he_authors") is None:
+                authors.add(book_metadata["en_authors"])
             if book_content:
                 os.makedirs(file_path, exist_ok=True)
                 book_file = os.path.join(file_path, file_name)

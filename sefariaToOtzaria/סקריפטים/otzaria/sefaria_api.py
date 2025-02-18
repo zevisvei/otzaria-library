@@ -22,7 +22,7 @@ class SefariaApi:
         return response.json()
 
     def get_index(self, book_title: str) -> dict:
-        url = f"{self.base_url}v2/raw/index/{book_title}"
+        url = f"{self.base_url}v2/index/{book_title}"
         response = requests.get(url, headers=self.headers)
         return response.json()
 
