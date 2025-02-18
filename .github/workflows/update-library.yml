@@ -1,19 +1,24 @@
 name: Update Library and create manifest
 
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - Ben-YehudaToOtzaria/ספרים/אוצריא/**
-      - DictaToOtzaria/ספרים/ערוך/אוצריא/**
-      - OnYourWayToOtzaria/ספרים/אוצריא/**
-      - OraytaToOtzaria/ספרים/אוצריא/**
-      - sefariaToOtzaria/ספרים/אוצריא/**
-      - sefaria and more/**
+  schedule:
+    - cron: '0 3 * * 5'  # מפעיל את ה-Workflow כל יום שישי בשעה 5:00 שעון ישראל (3:00 UTC)
 
-  workflow_dispatch:
+  workflow_dispatch:  # מאפשר הפעלה ידנית
+
+# שמירת הטריגר הישן כתגובה כדי שלא יפעל בפועל
+# on:
+#   push:
+#     branches:
+#       - main
+#       - master
+#     paths:
+#       - Ben-YehudaToOtzaria/ספרים/אוצריא/**
+#       - DictaToOtzaria/ספרים/ערוך/אוצריא/**
+#       - OnYourWayToOtzaria/ספרים/אוצריא/**
+#       - OraytaToOtzaria/ספרים/אוצריא/**
+#       - sefariaToOtzaria/ספרים/אוצריא/**
+#       - sefaria and more/**
 
 jobs:
   update-manifest:
@@ -25,11 +30,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      
+
       - name: Install dependencies
         run: |
           pip install bs4 requests pyluach
@@ -57,6 +63,7 @@ jobs:
         with:
           message: "Update files manifest and sync folders"
           default_author: github_actions
+
       - name: update in mitmachim
         env:
           USER_NAME: ${{ secrets.USER_NAME }}
@@ -77,7 +84,7 @@ jobs:
           gh release delete latest --yes || true
           git push --delete origin latest || true
       
-      - name: Create and push new tag  # שלב חדש שנוסף כאן!
+      - name: Create and push new tag  # יצירת תגית חדשה
         run: |
           git tag -f latest
           git push origin latest --force
