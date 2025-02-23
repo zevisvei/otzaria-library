@@ -44,7 +44,7 @@ line_num = 1
 while (book_info := (book := get_book(line_num)).get("values")):
     library_ver, book_id, line, eroor_id, more_info = book_info
     line_in_api = book.get("row", 1)
-    line_num = int(line_in_api) + 1
+    line_num = int(line_in_api)
     ver_file = os.path.join(ver_folder, f"{library_ver}.csv")
     if not os.path.exists(ver_file):
         continue
