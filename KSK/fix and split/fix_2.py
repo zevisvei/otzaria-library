@@ -1,5 +1,9 @@
 import os
 
+"""
+לא רלוונטי, כלול כבר בfix
+"""
+
 base_folder = "sefaria and more/תלמוד בבלי/ראשונים/‏‏קובץ שיטות קמאי"
 for root, _, files in os.walk(base_folder):
     for file in files:

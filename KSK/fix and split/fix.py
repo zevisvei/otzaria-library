@@ -15,7 +15,7 @@ def h_2(text: str):
 
 
 def h_3(text: str):
-    text = text.replace("''", '"').strip("[]. ")
+    text = text.replace("''", '"').replace("0", " ").strip("[]. ")
     if len(text) < 150:  # אורך מקסימאלי של כותרת ברמה h3
         text = f"<h3>{text}</h3>"
     return text
@@ -76,6 +76,9 @@ for root, _, files in os.walk(base_folder):
             else:
                 content.append(sec.strip())
         new = "\n".join(content)
+        new = new.split("\n")
+        new = [line for line in new if line.strip()]
+        new = "\n".join(new)
         new = re.sub(r"<h2>(.+)</h2>", lambda match: h_2(match.group(1)), new)
         new = re.sub(r"<h3>(.+)</h3>", lambda match: h_3(match.group(1)), new)
         new = new.replace("''", '"')
