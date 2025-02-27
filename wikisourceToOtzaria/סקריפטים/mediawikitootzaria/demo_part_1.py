@@ -4,10 +4,12 @@ from mediawikitootzaria import mediawikiapi
 
 mediawikiapi.BASE_URL = mediawikiapi.WIKISOURCE
 
+
 def write_order_to_csv(csv_file_path, books_list):
     with open(csv_file_path, "w", newline="", encoding="windows-1255") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerows(books_list)
+
 
 def get_list(book_name):
     list_all = []
@@ -17,6 +19,7 @@ def get_list(book_name):
         page_split = page.split("/")
         list_all.append([page, *page_split])
     return list_all
+
 
 file_path = "ספר השרשים.csv"
 book_name = 'ספר השרשים (רד"ק)/'

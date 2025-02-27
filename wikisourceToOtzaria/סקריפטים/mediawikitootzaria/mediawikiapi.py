@@ -8,13 +8,15 @@
 *func:get_page_content
 """
 import requests
- 
-WIKISOURCE= "https://he.wikisource.org/w/api.php" # ה end-point של ויקיטקסט
-YESHIVA = "https://www.yeshiva.org.il/wiki/api.php" # ה end-point של ויקישיבה
-JEWISHBOOKS = "https://wiki.jewishbooks.org.il/mediawiki/api.php" # ה end-point של אוצר הספרים היהודי השיתופי
+
+
+WIKISOURCE = "https://he.wikisource.org/w/api.php"  # ה end-point של ויקיטקסט
+YESHIVA = "https://www.yeshiva.org.il/wiki/api.php"  # ה end-point של ויקישיבה
+JEWISHBOOKS = "https://wiki.jewishbooks.org.il/mediawiki/api.php"  # ה end-point של אוצר הספרים היהודי השיתופי
 BASE_URL = ""
 
-def get_list_by_ns(ns: str|int)->list:
+
+def get_list_by_ns(ns: str | int) -> list:
     """
     Returns a list of pages in a specific namespace (ns).
 
@@ -32,7 +34,7 @@ def get_list_by_ns(ns: str|int)->list:
         params = {
             'action': 'query',
             'list': 'allpages',
-            'apnamespace': ns, 
+            'apnamespace': ns,
             'aplimit': 'max',
             'format': 'json',
             'apcontinue': apcontinue
@@ -42,7 +44,7 @@ def get_list_by_ns(ns: str|int)->list:
         if 'query' in data and 'allpages' in data['query']:
             pages.extend([page["title"] for page in data['query']['allpages']])
         else:
-            print("Error fetching pages:", data) 
+            print("Error fetching pages:", data)
             break
         if 'continue' not in data:
             break
@@ -50,7 +52,8 @@ def get_list_by_ns(ns: str|int)->list:
         print(f"Fetching pages: batch {i}")
     return pages
 
-def get_list_by_name(name: str)->list:
+
+def get_list_by_name(name: str) -> list:
     """
     Returns a list of pages whose titles start with the specified text (name).
 
@@ -68,7 +71,7 @@ def get_list_by_name(name: str)->list:
         params = {
             'action': 'query',
             'list': 'allpages',
-            'apprefix': name, 
+            'apprefix': name,
             'aplimit': 'max',
             'format': 'json',
             'apcontinue': apcontinue
@@ -78,7 +81,7 @@ def get_list_by_name(name: str)->list:
         if 'query' in data and 'allpages' in data['query']:
             pages.extend([page["title"] for page in data['query']['allpages']])
         else:
-            print("Error fetching pages:", data) 
+            print("Error fetching pages:", data)
             break
         if 'continue' not in data:
             break
@@ -86,7 +89,8 @@ def get_list_by_name(name: str)->list:
         print(f"Fetching pages: batch {i}")
     return pages
 
-def get_list_by_category(category: str)->list:
+
+def get_list_by_category(category: str) -> list:
     """מחזיר רשימת דפים שנמצאים בקטגוריה מסוימת."""
     i = 0
     pages = []
@@ -107,7 +111,7 @@ def get_list_by_category(category: str)->list:
         if 'query' in data and 'categorymembers' in data['query']:
             pages.extend([page["title"] for page in data['query']['categorymembers']])
         else:
-            print("Error fetching pages:", data) 
+            print("Error fetching pages:", data)
             break
         if 'continue' not in data:
             break
@@ -116,14 +120,13 @@ def get_list_by_category(category: str)->list:
     return pages
 
 
-
-def get_page_content(page_title: str)->str:
+def get_page_content(page_title: str) -> str:
     """מחזיר את תוכן הדף בפורמט mediawiki"""
     params = {
         'action': 'query',
         'prop': 'revisions',
         'titles': page_title,
-        'rvslots': '*', 
+        'rvslots': '*',
         'rvprop': 'content',
         'format': 'json',
     }

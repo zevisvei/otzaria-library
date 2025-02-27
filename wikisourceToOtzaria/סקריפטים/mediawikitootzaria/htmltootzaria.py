@@ -17,15 +17,16 @@ from bs4 import BeautifulSoup
 import re
 import html
 
-def extract_comments(html_content: str)-> tuple[str, dict]:
+
+def extract_comments(html_content: str) -> tuple[str, dict]:
     """
     Extracts comments from the page.
 
     The method of marking comments varies from book to book, so it may be necessary to change the function.
-    
+
     Args:
         html_content (str): The HTML content from which to extract comments.
-    
+
     Returns:
         tuple: A tuple containing the modified HTML content and a dictionary of extracted comments.
     """
@@ -42,13 +43,14 @@ def extract_comments(html_content: str)-> tuple[str, dict]:
     text = str(soup)
     return text, sup_content
 
-def fix_comments(comment:str)-> str:
+
+def fix_comments(comment: str) -> str:
     """
     Removes line breaks from the comment.
 
     Args:
         comment (str): The comment text to be fixed.
-    
+
     Returns:
         str: The fixed comment text.
     """
@@ -65,22 +67,23 @@ def fix_comments(comment:str)-> str:
     text = re.sub(r'[ ]{2,}', ' ', text)
     return text
 
-def adjust_html_tag_spaces(html: str)-> str:
+
+def adjust_html_tag_spaces(html: str) -> str:
     """
     Removes unnecessary spaces and empty lines from HTML.
 
     Args:
         html (str): The HTML content to be adjusted.
-    
+
     Returns:
         str: The adjusted HTML content.
     """
-    start_pattern = r'(<[^/<>]+?>)([ ]+)' 
-    end_pattern = r'([ ]+)(</[^<>]+?>)' 
-    while re.findall(end_pattern , html):
+    start_pattern = r'(<[^/<>]+?>)([ ]+)'
+    end_pattern = r'([ ]+)(</[^<>]+?>)'
+    while re.findall(end_pattern, html):
         html = re.sub(end_pattern, r'\2\1', html)
     while re.findall(start_pattern, html):
-        html = re.sub(start_pattern , r'\2\1', html)
+        html = re.sub(start_pattern, r'\2\1', html)
     html = html.replace("<p>", "").replace("</p>", "")
     html = re.sub(r'[ ]{2,}', ' ', html)
     html = "\n".join(list(map(lambda x: x.strip(), html.split("\n"))))
@@ -88,7 +91,8 @@ def adjust_html_tag_spaces(html: str)-> str:
 
     return html
 
-def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
+
+def process_body_html(body_html: str, start_heading_level: int = 2) -> str:
     """
     Processes the body HTML by removing unsupported tags, ensuring tags start and end on the same line,
     removing empty tags, and ensuring the sequence of headings.
@@ -96,20 +100,20 @@ def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
     Args:
         body_html (str): The body HTML content to be processed.
         start_heading_level (int, optional): The starting heading level. Defaults to 2.
-    
+
     Returns:
         str: The processed body HTML content.
     """
     body_html = html.unescape(body_html)
     supported_tags = {
-    "a", "abbr", "acronym", "address", "article", "aside", "audio", "b", "bdi", "bdo", "big",
-    "blockquote", "br", "caption", "cite", "code", "data", "dd", "del", "details", "dfn", "dl", "dt", "em", "figcaption", "figure", "footer", "font", "h1", "h2", "h3", "h4",
-    "h5", "h6", "header", "hr", "i", "iframe", "img", "ins", "kbd", "li", "main", "mark", "nav",
-    "noscript", "ol", "p", "pre", "q", "rp", "rt", "ruby", "s", "samp", "section", "small",
-    "strike", "strong", "sub", "sup", "div", "summary", "svg", "table", "tbody", "td", "template", "tfoot",
-    "th", "thead", "time", "tr", "tt", "u", "ul", "var", "video", "math", "mrow", "msup", "msub",
-    "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo", "span"
-}
+        "a", "abbr", "acronym", "address", "article", "aside", "audio", "b", "bdi", "bdo", "big",
+        "blockquote", "br", "caption", "cite", "code", "data", "dd", "del", "details", "dfn", "dl", "dt", "em", "figcaption", "figure", "footer", "font", "h1", "h2", "h3", "h4",
+        "h5", "h6", "header", "hr", "i", "iframe", "img", "ins", "kbd", "li", "main", "mark", "nav",
+        "noscript", "ol", "p", "pre", "q", "rp", "rt", "ruby", "s", "samp", "section", "small",
+        "strike", "strong", "sub", "sup", "div", "summary", "svg", "table", "tbody", "td", "template", "tfoot",
+        "th", "thead", "time", "tr", "tt", "u", "ul", "var", "video", "math", "mrow", "msup", "msub",
+        "mover", "munder", "msubsup", "moverunder", "mfrac", "mlongdiv", "msqrt", "mroot", "mi", "mn", "mo", "span"
+    }
     soup = BeautifulSoup(body_html, 'html.parser')
 
     for tag in soup.find_all(re.compile("^h[1-6]$")):
@@ -117,7 +121,7 @@ def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
             tag.decompose()
 
     # Check if there is an <h> tag in the document
-    for i in range(5, start_heading_level-1, -1):
+    for i in range(5, start_heading_level - 1, -1):
         has_h = soup.find(f'h{i}') is not None
         # Decrease heading levels
         if not has_h:
@@ -132,8 +136,8 @@ def process_body_html(body_html: str, start_heading_level: int = 2)-> str:
 
     for tag in soup.find_all():
         if not tag.get_text(strip=True) and tag.name != "br":
-            tag.decompose() 
-    
+            tag.decompose()
+
     for tag in soup.find_all(recursive=False):
         tag_str = str(tag)
         re.sub(r"([^>])(\n)(\s*[^<\s])", r"\1<br>\3", tag_str)

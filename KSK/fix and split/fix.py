@@ -16,21 +16,33 @@ def h_2(text: str):
 
 def h_3(text: str):
     text = text.replace("''", '"').replace("0", " ").strip("[]. ")
-    if len(text) < 150:  # אורך מקסימאלי של כותרת ברמה h3
+    if "הערוך" in text:
+        text = f"<h4>{text}</h4>"
+    elif len(text) < 150:  # אורך מקסימאלי של כותרת ברמה h3
         text = f"<h3>{text}</h3>"
     return text
 
 
-def fix_order(content: str, header: str):
+def fix_h2_order(content: str, header: str):
     if "<h2>" in content or "<h1>" in content:
+        if header == "<h3>ערוך</h3>" and "h3" in fix_aruch(content):
+            print(content)
         split_content = content.split("\n")
         index = 0
-        while "<h2>" in split_content[index] or "<h1>" in split_content[index]:
+        while "<h2>" in split_content[index] or "<h1>" in split_content[index] or not split_content[index].strip(" ."):
             index += 1
         split_content.insert(index, header)
-        result = "\n".join(split_content)
+        content = "\n".join(split_content)
     else:
-        result = f"{header}\n{content}"
+        content = f"{header}\n{content}"
+    return content
+
+
+def fix_order(content: str, header: str):
+    if "הערוך" in header:
+        result = f"------\n{content}\n{header}\n------\n"
+    else:
+        result = fix_h2_order(content, header)
     return result
 
 
@@ -57,6 +69,10 @@ def fix_2(content: str):
         print(content)
 
 
+def fix_aruch(text: str):
+    return re.sub(r"\[(.*?הערוך ערך.*?)\]", r"\n<b>\1</b>\n", text)
+
+
 base_folder = "/home/zevi5/Pictures/‏‏קובץ שיטות קמאי/"
 for root, _, files in os.walk(base_folder):
     for file in files:
@@ -64,6 +80,7 @@ for root, _, files in os.walk(base_folder):
         file_path = os.path.join(root, file)
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read().replace("%", "-")
+        content = re.sub(r"</h3>\s*-*", "</h3>\n-------", content)
         content = re.sub(r"-{4,}", r"-------", content)
         all_sec = content.split("-------")
         if len(all_sec) == 1:
@@ -76,12 +93,28 @@ for root, _, files in os.walk(base_folder):
             else:
                 content.append(sec.strip())
         new = "\n".join(content)
-        new = new.split("\n")
-        new = [line for line in new if line.strip()]
-        new = "\n".join(new)
         new = re.sub(r"<h2>(.+)</h2>", lambda match: h_2(match.group(1)), new)
         new = re.sub(r"<h3>(.+)</h3>", lambda match: h_3(match.group(1)), new)
         new = new.replace("''", '"')
         new = re.sub(r"[ ]{2,}", " ", new)
+        new_list = []
+        aruch = False
+        for part in new.split("------"):
+            if "<h4>" in part:
+                if not aruch:
+                    part = fix_h2_order(part, "<h3>ערוך</h3>")
+                else:
+                    print(part)
+                new_list.append(part.replace("<h4>", "[").replace("</h4>", "]"))
+                aruch = True
+            elif part.strip():
+                new_list.append(part)
+                aruch = False
+        new = "\n".join(new_list)
+        new = fix_aruch(new)
+        new = new.split("\n")
+        new = [line.strip().lstrip(".").strip() for line in new if line.strip().lstrip(".").strip()]
+        new = "\n".join(new)
+
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(new)

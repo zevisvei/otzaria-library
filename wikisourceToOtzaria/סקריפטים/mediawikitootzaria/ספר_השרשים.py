@@ -3,8 +3,10 @@ import re
 import html
 import json
 
+from mediawikitootzaria import mediawikiapi, mediawikitohtml, htmltootzaria, templates
+
 dict_templates = {
-    "ערך":"""===<span style="font-size:165%; font-family:david; color: #660066;">{{{1}}}</span>===""",
+    "ערך": """===<span style="font-size:165%; font-family:david; color: #660066;">{{{1}}}</span>===""",
     "צ": """{{#ifeq:{{{מרכאות|}}}|לא||&quot;}}<span class='{{{סוג|psuq2}}}' style="font-size:{{#ifeq:{{{סוג|}}}|psuq2|{{{גודל|108}}}%|103%}}">{{{תוכן|{{{1}}}}}}</span>{{#ifeq:{{{מרכאות|}}}|לא||&quot;}}""",
     "דגש-בפסוק": """{{צ|סוג=psuq2|תוכן={{{1}}} {{הדגש|{{{2}}}}} {{{3}}}}} {{#if:{{{4|}}}|<span style="font-size:80%">([[{{{4|}}}]])</span>}}""",
     "הדגש": """<span style="color: #660000;">{{{1}}}</span>""",
@@ -44,9 +46,8 @@ dict_templates = {
 #default={{{1|black}}}}};">{{{2}}}</span>"""
 }
 
-from mediawikitootzaria import mediawikiapi, mediawikitohtml, htmltootzaria, templates
-
 mediawikiapi.BASE_URL = mediawikiapi.WIKISOURCE
+
 
 def read_order_from_csv(csv_file_path):
     with open(csv_file_path, "r", encoding="windows-1255") as csv_file:
@@ -54,10 +55,12 @@ def read_order_from_csv(csv_file_path):
         for i in csv_reader:
             yield i
 
+
 def write_order_to_csv(csv_file_path, books_list):
     with open(csv_file_path, "w", newline="", encoding="windows-1255") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerows(books_list)
+
 
 def get_list(book_name):
     list_all = []
@@ -68,12 +71,13 @@ def get_list(book_name):
         list_all.append([page, *page_split])
     return list_all
 
+
 def main():
     sup_num = 0
     all_sup = []
     title = "ספר השרשים"
     dict_links = []
-    all_content = [f"<h1>{title}</h1>",'רד"ק']
+    all_content = [f"<h1>{title}</h1>", 'רד"ק']
     lines = len(all_content)
     for book in read_order_from_csv("ספר השרשים.csv"):
         h_level = 0
@@ -92,7 +96,7 @@ def main():
         content = re.sub(r"<קטע (?:התחלה|סוף)=[^>]+/?>", "", content)
         strip_all = content.split("\n")
         all_content.extend(strip_all)
-        for index, line in enumerate(strip_all, start=lines+1):
+        for index, line in enumerate(strip_all, start=lines + 1):
             find = re.findall(r'<sup style="color: gray;">(\d+)</sup>', line)
             for i in find:
                 dict_links.append({
@@ -123,8 +127,9 @@ def main():
         with open(f"הערות על {title}.txt", "w", encoding="utf-8") as f:
             f.write("\n".join(all_sup))
 
+
 file_path = r"ספר השרשים.csv"
-#book_name = 'ספר השרשים (רד"ק)/'
-#books_list = get_list(book_name)
-#write_order_to_csv(file_path, books_list)
+# book_name = 'ספר השרשים (רד"ק)/'
+# books_list = get_list(book_name)
+# write_order_to_csv(file_path, books_list)
 main()

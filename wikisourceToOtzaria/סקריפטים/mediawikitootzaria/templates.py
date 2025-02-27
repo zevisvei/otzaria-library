@@ -7,7 +7,8 @@ import mwparserfromhell
 
 from . import mediawikiapi, utils
 
-def filter_templates(string: str, all_templates = None, template_dict = None)-> list[list[str]]|bool:
+
+def filter_templates(string: str, all_templates=None, template_dict=None) -> list[list[str]] | bool:
     """מחזיר את התבניות ברמה העליונה של הטקסט"""
     string_2 = []
     parsed = mwparserfromhell.parse(string)
@@ -18,12 +19,13 @@ def filter_templates(string: str, all_templates = None, template_dict = None)-> 
                 template_str = convert_templates(str(template), template_dict)
             else:
                 template_str = " ".join([str(param) for param in template.params])
-            string_2.append([str(template),template.name, template_str])
+            string_2.append([str(template), template.name, template_str])
         return string_2
     else:
         return False
-    
-def clean_comment(comment: str, all_templates: list, template_dict: TemplateDict)->str:
+
+
+def clean_comment(comment: str, all_templates: list, template_dict: TemplateDict) ->str:
     """מסיר תבניות מההערה"""
     while True:
         replace = filter_templates(comment, all_templates, template_dict)
@@ -34,7 +36,8 @@ def clean_comment(comment: str, all_templates: list, template_dict: TemplateDict
             comment = comment.replace(i[0], rp)
     return comment
 
-def remove_templates(wikitext:str, template_dict = None)-> tuple[str, dict]:
+
+def remove_templates(wikitext: str, template_dict=None) -> tuple[str, dict]:
     """
     מסיר תבניות ללא פרמטרים
     תבנית עם פרמטרים התבנית מוסרת והפרמטרים נשארים
@@ -71,19 +74,22 @@ def remove_templates(wikitext:str, template_dict = None)-> tuple[str, dict]:
         sorted_dict[counter] = dict_comments[int(num)]
     return wikitext, sorted_dict
 
-def templates_dict(dict_content: dict)-> TemplateDict:
+
+def templates_dict(dict_content: dict) -> TemplateDict:
     tpl = TemplateDict()
     for key, value in dict_content.items():
         tpl[key] = value
 
     return tpl
 
-def convert_templates(mw_content: str, tpl: TemplateDict)-> str:
+
+def convert_templates(mw_content: str, tpl: TemplateDict) -> str:
     ctx = ExpansionContext(templates=tpl)
     expanded_text = str(ctx.expand(mw_content))
     return expanded_text
 
-def get_all_templates()-> None:
+
+def get_all_templates() -> None:
     import os
     base_folder = r"C:\Users\משתמש\Desktop\תבניות ויקיטקסט"
     mediawikiapi.BASE_URL = mediawikiapi.WIKISOURCE
@@ -95,7 +101,8 @@ def get_all_templates()-> None:
             file.write(content)
         print(template)
 
-def get_template_from_site(site: str, template_name: str, json_file_path: str)-> None:
+
+def get_template_from_site(site: str, template_name: str, json_file_path: str) -> None:
     with open(json_file_path, "r", encoding="utf-8") as f:
         template = json.load(f)
     if not template.get(template_name):
@@ -104,4 +111,3 @@ def get_template_from_site(site: str, template_name: str, json_file_path: str)->
         template = [template_name] = ""
         with open(json_file_path, "w", encoding="utf-8") as f:
             json.dump(template, f, ensure_ascii=False, indent=4)
-

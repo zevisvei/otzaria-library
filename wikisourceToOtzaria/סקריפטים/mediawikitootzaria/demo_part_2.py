@@ -7,18 +7,20 @@ from mediawikitootzaria import mediawikiapi, mediawikitohtml, htmltootzaria, tem
 
 mediawikiapi.BASE_URL = mediawikiapi.WIKISOURCE
 
+
 def read_order_from_csv(csv_file_path):
     with open(csv_file_path, "r", encoding="windows-1255") as csv_file:
         csv_reader = csv.reader(csv_file)
         for i in csv_reader:
             yield i
 
+
 def main(csv_file_path):
     sup_num = 0
     all_sup = []
     title = "ספר השרשים"
     dict_links = []
-    all_content = [f"<h1>{title}</h1>",'רד"ק']
+    all_content = [f"<h1>{title}</h1>", 'רד"ק']
     lines = len(all_content)
     for book in read_order_from_csv(csv_file_path):
         h_level = 0
@@ -29,7 +31,6 @@ def main(csv_file_path):
                 all_content.append(f"<h{index}>{i}</h{index}>")
                 lines += 1
                 h_level = index + 1
-    
 
         content = mediawikitohtml.media_wiki_list_to_html(content)
         content = mediawikitohtml.wikitext_to_html(content, h_level)
@@ -39,7 +40,7 @@ def main(csv_file_path):
         content = re.sub(r"<קטע (?:התחלה|סוף)=[^>]+/?>", "", content)
         strip_all = content.split("\n")
         all_content.extend(strip_all)
-        for index, line in enumerate(strip_all, start=lines+1):
+        for index, line in enumerate(strip_all, start=lines + 1):
             find = re.findall(r'<sup style="color: gray;">(\d+)</sup>', line)
             for i in find:
                 dict_links.append({
@@ -69,6 +70,7 @@ def main(csv_file_path):
     if all_sup:
         with open(f"הערות על {title}.txt", "w", encoding="utf-8") as f:
             f.write("\n".join(all_sup))
+
 
 file_path = "ספר השרשים.csv"
 main(file_path)
