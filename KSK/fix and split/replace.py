@@ -3,12 +3,12 @@ import csv
 
 
 base_folder = "/home/zevi5/Pictures/‏‏קובץ שיטות קמאי/"
-csv_path = ""
+csv_path = "/home/zevi5/Pictures/replace.csv"
 replace_dict = {}
 with open(csv_path, 'r', newline='', encoding="windows-1255") as file:
     reader = csv.reader(file)
     for row in reader:
-        replace_dict[row[0]] = row[1]
+        replace_dict[row[0].strip()] = row[1].strip()
 
 for root, _, files in os.walk(base_folder):
     for file in files:
