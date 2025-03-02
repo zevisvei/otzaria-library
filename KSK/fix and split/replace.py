@@ -2,8 +2,8 @@ import os
 import csv
 
 
-base_folder = "/home/zevi5/Pictures/‏‏קובץ שיטות קמאי/"
-csv_path = "/home/zevi5/Pictures/replace.csv"
+base_folder = "MoreBooks/תלמוד בבלי/ראשונים/‏‏קובץ שיטות קמאי"
+csv_path = "KSK/fix and split/replace.csv"
 replace_dict = {}
 with open(csv_path, 'r', newline='', encoding="windows-1255") as file:
     reader = csv.reader(file)
