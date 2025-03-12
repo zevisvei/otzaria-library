@@ -8,7 +8,7 @@ mapping = {
     "OnYourWayToOtzaria": "OnYourWay",
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
-    "sefariaToOtzaria": "sefaria_new",
+    "sefariaToOtzaria": "sefaria",
     "MoreBooks": "MoreBooks"
 }
 
