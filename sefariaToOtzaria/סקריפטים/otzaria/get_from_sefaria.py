@@ -50,10 +50,10 @@ class Book:
         }
         self.metadata["he_title"] = self.he_title or self.shape[0].get("heBook")
         self.metadata["en_title"] = self.book_title
-        self.metadata["he_long_desc"] = self.index.get("heDesc")
-        self.metadata["en_long_desc"] = self.index.get("enDesc")
-        self.metadata["he_short_desc"] = self.index.get("heShortDesc")
-        self.metadata["en_short_desc"] = self.index.get("enShortDesc")
+        self.metadata["heDesc"] = self.index.get("heDesc")
+        self.metadata["enDesc"] = self.index.get("enDesc")
+        self.metadata["heShortDesc"] = self.index.get("heShortDesc")
+        self.metadata["enShortDesc"] = self.index.get("enShortDesc")
         self.metadata["he_categories"] = self.categories
         self.metadata["en_categories"] = self.index.get("categories")
         era = self.index.get("era")

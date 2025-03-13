@@ -49,6 +49,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
             book_content = book_ins.process_book()
             book_refs = book_ins.refs
             book_metadata = book_ins.get_metadata()
+            print(book_metadata)
             if book_metadata and book_metadata.get("en_authors") and book_metadata.get("he_authors") is None:
                 authors.add(book_metadata["en_authors"])
             if book_content:
@@ -105,6 +106,11 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
     metadate_file_path = os.path.join(target_path, "metadata.json")
     if all_metadata:
         with open(metadate_file_path, "w", encoding="utf-8") as f:
+            json.dump(all_metadata, f, indent=4, ensure_ascii=False)
+        with open("metadata.json", "r", encoding="utf-8") as f:
+            old_metadata = json.load(f)
+        old_metadata.extend(all_metadata)
+        with open("metadata.json", "w", encoding="utf-8") as f:
             json.dump(all_metadata, f, indent=4, ensure_ascii=False)
     authors_file_path = os.path.join(target_path, "authors.txt")
     if authors:
