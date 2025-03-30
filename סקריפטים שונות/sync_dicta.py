@@ -2,7 +2,7 @@ import requests
 import os
 
 
-BASE_URL = "https://github.com/zevisvei/otzaria-library/blob/main/"
+BASE_URL = "https://raw.githubusercontent.com/zevisvei/otzaria-library/refs/heads/main/"
 BOOKS_FOLDER = ""
 
 list_local_files = []
@@ -15,7 +15,7 @@ if os.path.exists(BOOKS_FOLDER):
             rel_path = os.path.relpath(os.path.join(root, file), BOOKS_FOLDER)
             list_local_files.append(rel_path)
 
-list_from_github = requests.get(BASE_URL + "DictaToOtzaria/ספרים/ערוך/list.txt?raw=true").text.splitlines()
+list_from_github = requests.get(BASE_URL + "DictaToOtzaria/ספרים/לא ערוך/list.txt").text.splitlines()
 list_all_per_os = [file.replace("/", os.sep) for file in list_from_github]
 
 for file in list_all_per_os:
@@ -23,7 +23,7 @@ for file in list_all_per_os:
     if file_path not in list_local_files:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w", encoding="utf-8") as f:
-            f.write(requests.get(BASE_URL + file + "?raw=true").text)
+            f.write(requests.get(BASE_URL + f"DictaToOtzaria/ספרים/לא ערוך/אוצריא/{file}").text)
 
 for file in list_local_files:
     if file not in list_all_per_os:
