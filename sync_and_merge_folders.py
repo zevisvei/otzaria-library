@@ -77,3 +77,16 @@ os.makedirs("library_csv", exist_ok=True)
 os.rename("SourcesBooks.csv", os.path.join("library_csv", f"{library_ver + 1}.csv"))
 with open(ver_file_path, "w", encoding="utf-8") as f:
     f.write(str(library_ver + 1))
+
+
+all_dicta_files = []
+for root, _, files in os.walk("DictaToOtzaria/ספרים/לא ערוך/אוצריא"):
+    for file in files:
+        file_path = os.path.join(root, file)
+        if not file.lower().endswith(".txt"):
+            continue
+        rel_path = os.path.relpath(file_path, "DictaToOtzaria/ספרים/לא ערוך/אוצריא")
+        all_dicta_files.append(rel_path)
+
+with open("DictaToOtzaria/ספרים/לא ערוך/list.txt", "w", encoding="utf-8") as f:
+    f.write("\n".join(all_dicta_files))
