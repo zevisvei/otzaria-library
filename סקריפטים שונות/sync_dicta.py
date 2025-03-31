@@ -19,8 +19,9 @@ list_from_github = requests.get(BASE_URL + "DictaToOtzaria/ספרים/לא ער�
 list_all_per_os = [file.replace("/", os.sep) for file in list_from_github]
 
 for file in list_from_github:
-    file_path = os.path.join(BOOKS_FOLDER, file.replace("/", os.sep))
-    if file_path not in list_local_files:
+    file_name_per_os = file.replace("/", os.sep)
+    file_path = os.path.join(BOOKS_FOLDER, file_name_per_os)
+    if file not in list_local_files:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         response = requests.get(BASE_URL + f"DictaToOtzaria/ספרים/לא ערוך/אוצריא/{file}")
         if response.status_code != 200:
@@ -31,7 +32,8 @@ for file in list_from_github:
 
 for file in list_local_files:
     if file not in list_all_per_os:
-        os.remove(file)
+        file_path = os.path.join(BOOKS_FOLDER, file)
+        os.remove(file_path)
 
 for root, folder, _ in os.walk(BOOKS_FOLDER):
     for folder in folder:
