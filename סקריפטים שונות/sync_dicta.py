@@ -21,7 +21,7 @@ list_all_per_os = [file.replace("/", os.sep) for file in list_from_github]
 for file in list_from_github:
     file_name_per_os = file.replace("/", os.sep)
     file_path = os.path.join(BOOKS_FOLDER, file_name_per_os)
-    if file not in list_local_files:
+    if file_name_per_os not in list_local_files:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         response = requests.get(BASE_URL + f"DictaToOtzaria/ספרים/לא ערוך/אוצריא/{file}")
         if response.status_code != 200:
