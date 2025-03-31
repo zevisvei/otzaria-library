@@ -18,7 +18,7 @@ if os.path.exists(BOOKS_FOLDER):
 list_from_github = requests.get(BASE_URL + "DictaToOtzaria/ספרים/לא ערוך/list.txt").text.splitlines()
 list_all_per_os = [file.replace("/", os.sep) for file in list_from_github]
 
-for file in list_all_per_os:
+for file in list_from_github:
     file_path = os.path.join(BOOKS_FOLDER, file.replace("/", os.sep))
     if file_path not in list_local_files:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
