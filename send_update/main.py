@@ -30,7 +30,7 @@ def get_changed_files(status_filter):
     for line in raw_output.split("\n"):
         if line:
             decoded_line = codecs.escape_decode(line.strip())[0].decode("utf-8").strip('''"''')
-            if not decoded_line.lower().endswith(".txt"):
+            if not decoded_line.lower().endswith(".txt") or decoded_line.lower() == "גירסת ספריה.txt":
                 continue
             decoded_files.append(decoded_line)
 
@@ -51,7 +51,7 @@ if any([added_files, modified_files, deleted_files]):
     content_yemot = {}
     if added_files:
         content_mitmachim += f"\nהתווספו הקבצים הבאים:\n* {"\n* ".join(added_files)}\n"
-        content_yemot["התווספו הקבצים הבאים:"] = f"התווספו הקבצים הבאים:\n{"\n".join([i.split('/')[-1].split('.')[0] for i in added_files])}"
+        content_yemot["התווספו הקבצים הבאים:"] = f"{"\n".join([i.split('/')[-1].split('.')[0] for i in added_files])}"
     if modified_files:
         content_mitmachim += f"\nהשתנו הקבצים הבאים:\n* {"\n* ".join(modified_files)}\n"
         content_yemot["השתנו הקבצים הבאים:"] = f"{"\n".join([i.split('/')[-1].split('.')[0] for i in modified_files])}"
