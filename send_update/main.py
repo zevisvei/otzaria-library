@@ -30,7 +30,7 @@ def get_changed_files(status_filter):
     for line in raw_output.split("\n"):
         if line:
             decoded_line = codecs.escape_decode(line.strip())[0].decode("utf-8").strip('''"''')
-            if not decoded_line.lower().endswith(".txt") or decoded_line.lower() == "גירסת ספריה.txt":
+            if not decoded_line.lower().endswith(".txt") or decoded_line.lower().endswith("גירסת ספריה.txt"):
                 continue
             decoded_files.append(decoded_line)
 
