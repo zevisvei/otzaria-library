@@ -1,5 +1,7 @@
 from .utils import to_daf, to_gematria, has_value, read_json, to_eng_daf
 
+from typing import Optional
+
 
 class Book:
     def __init__(
@@ -107,14 +109,16 @@ class Book:
         if self.schema["schema"].get("nodes"):
             for node in self.schema['schema']['nodes']:
                 key = [self.schema["schema"]["title"]]
+                heb_key = [self.schema["schema"]["heTitle"]]
                 if node["key"] != "default":
                     key.append(node["key"])
-                self.process_node(key, node, self.text['text'][node['title']] if node['key'] != 'default' else self.text['text'][''], level=2)
+                    heb_key.append(node["heTitle"])
+                self.process_node(key, node, self.text['text'][node['title']] if node['key'] != 'default' else self.text['text'][''], level=2, heb_title=heb_key)
         else:
-            self.process_simple_book(self.schema["schema"]["title"])
+            self.process_simple_book(self.schema["schema"]["title"], self.schema["schema"]["heTitle"])
         return self.book_content
 
-    def process_simple_book(self, ref: str) -> None:
+    def process_simple_book(self, ref: str, heb_title: Optional[str] = None) -> None:
         if self.section_names_lang == "he":
             section_names = self.schema["schema"].get(
                 "heSectionNames"
@@ -127,11 +131,13 @@ class Book:
         text = self.text.get("text")
         if text:
             if has_value(text):
-                self.recursive_sections(ref, section_names, text, depth, 2)
+                self.recursive_sections(ref, section_names, text, depth, 2, heb_title=heb_title)
             else:
                 print(self.book_title)
 
-    def process_node(self, key: list, node: dict, text: list, level: int = 1) -> None:
+    def process_node(self, key: list, node: dict, text: list, level: int = 1, heb_title: Optional[list[str]] = None) -> None:
+        if heb_title is None:
+            heb_title = []
         node_title = node['heTitle'] if self.section_names_lang == "he" else node["title"]
         if node_title:
             self.book_content.append(f"<h{min(level, 6)}>{node_title}</h{min(level, 6)}>\n")
@@ -140,9 +146,11 @@ class Book:
             for sub_node in node['nodes']:
                 if node["key"] != "default":
                     key.append(node["key"])
-                self.process_node(key, sub_node, text[sub_node['title']] if sub_node['key'] != 'default' else text[''], level=level)
+                    heb_title.append(node["heTitle"])
+                self.process_node(key, sub_node, text[sub_node['title']] if sub_node['key'] != 'default' else text[''], level=level, heb_title=heb_title)
                 if node["key"] != "default":
                     key.pop()
+                    heb_title.pop()
         else:  # Process nested arrays
             if self.section_names_lang == "he":
                 section_names = node.get(
@@ -154,7 +162,8 @@ class Book:
                 )
             depth = node.get('depth', 1)
             ref = ", ".join(key)
-            self.recursive_sections(ref, section_names, text, depth, level)
+            heb_ref = ", ".join(heb_title)
+            self.recursive_sections(ref, section_names, text, depth, level, heb_title=heb_ref)
 
     def recursive_sections(
         self,
@@ -163,12 +172,17 @@ class Book:
         text: list,
         depth: int,
         level: int = 0,
-        anchor_ref: list | None = None,
+        anchor_ref: Optional[list[str]] = None,
+        heb_anchor_ref: Optional[list[str]] = None,
+        heb_title: Optional[str] = None,
         links: bool = False
     ) -> None:
 
         if anchor_ref is None:
             anchor_ref = []
+        if heb_anchor_ref is None:
+            heb_anchor_ref = []
+
         skip_section_names = ("שורה", "פירוש", "פסקה", "Line", "Comment", "Paragraph")
         """
         Recursively generates section names based on depth and appends to output list.
@@ -180,8 +194,9 @@ class Book:
         if depth == 0 and text != [] and not isinstance(text, bool):
             assert isinstance(text, str)
             anchor_ref_address = f"{ref} {":".join(anchor_ref)}"
+            he_ref = f"{heb_title} {"&&&".join(heb_anchor_ref)}"
             self.book_content.append(text.strip().replace("\n", "<br>") + "\n")
-            self.refs.append({"ref": anchor_ref_address, "line_index": len(self.book_content)})
+            self.refs.append({"ref": anchor_ref_address, "he_ref": he_ref, "line_index": len(self.book_content)})
         elif not isinstance(text, bool):
             if depth == 1:
                 assert isinstance(text, list)
@@ -201,11 +216,15 @@ class Book:
                     elif section_names and section_names[-depth] not in skip_section_names and letter:
                         self.book_content.append(f"({letter}) ")
                 anchor_ref.append(to_eng_daf(i) if section_names[-depth] in ("דף", "Daf") else str(i))
+                heb_anchor_ref.append(to_daf(i) if section_names[-depth] in ("דף", "Daf") else to_gematria(i))
                 self.recursive_sections(
                     ref,
                     section_names, item,
                     depth - 1, level + 1,
                     anchor_ref,
+                    heb_anchor_ref,
+                    heb_title,
                     links
                 )
                 anchor_ref.pop()
+                heb_anchor_ref.pop()

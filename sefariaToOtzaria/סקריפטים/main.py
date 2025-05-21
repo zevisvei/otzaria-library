@@ -94,7 +94,7 @@ def main(get_links: bool = False, only_new: bool = True, old_json_file_path: str
                     writer = csv.writer(f)
                     if f.tell() == 0:
                         writer.writerow(["שם בעברית", "שם באנגלית", "כשר\\לא", "קטגוריות"])
-                    writer.writerow([file_name, book_en_title,"", *file_path_rel])
+                    writer.writerow([file_name, book_en_title, "", *file_path_rel])
                 new_books_index.append(book)
                 all_metadata.append(book_metadata)
         except Exception as e:

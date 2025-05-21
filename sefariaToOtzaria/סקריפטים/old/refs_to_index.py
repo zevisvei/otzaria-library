@@ -9,9 +9,10 @@ output = []
 path = ''
 
 # the code for each level in the hierarchy
-codes =[['<h1>','</h1>'],['<h2>','</h2>'],['<h3>','</h3>'],['<h4>','</h4>'],['<h5>','</h5>'],['<h5>','</h5>'],['<h5>','</h5>'],['<h5>','</h5>'],['<h5>','</h5>']]
+codes = [['<h1>', '</h1>'], ['<h2>', '</h2>'], ['<h3>', '</h3>'], ['<h4>', '</h4>'], ['<h5>', '</h5>'], ['<h5>', '</h5>'], ['<h5>', '</h5>'], ['<h5>', '</h5>'], ['<h5>', '</h5>']]
 
-def to_gematria(i)->str:
+
+def to_gematria(i) -> str:
     """
     Convert a given integer to its gematria representation as a string.
 
@@ -22,13 +23,13 @@ def to_gematria(i)->str:
         str: The gematria representation of the input integer as a string.
     """
     s = ''
-    i = i%1000
-    j = i/1000
-    if j<0:
-        s = int_to_gematria(j, gershayim=False)+ ' '
+    i = i % 1000
+    j = i / 1000
+    if j < 0:
+        s = int_to_gematria(j, gershayim=False) + ' '
     s = s + int_to_gematria(i, gershayim=False)
     return s
-        
+
 
 def get_content_from_json(file_path):
     """
@@ -43,54 +44,53 @@ def get_content_from_json(file_path):
         content = json.load(file)
     return content
 
-def to_daf(i)->str:
-        i+=1
-        if  i%2 ==0:
-            return to_gematria(i//2)+'.'
-        else: 
-            return to_gematria(i//2)+':'
-        
-        
-def to_eng_daf(i)->str:
-        i+=1
-        if  i%2 ==0:
-            return str(i//2)+'a'
-        else:
-            return str(i//2)+'b'
-    
 
-def recursive_sections(section_names, text, depth,level=0,ref='',heRef=''):
-        """
-        Recursively generates section names based on depth and appends to output list.
-        :param section_names: list of section names
-        :param text: input text
-        :param depth: current depth of recursion
-        :return: None
-        """
-        if depth == 0 and type(text) == str:
-            
-            oneN = '\n'
-            globals()['output'].append(f"ref: {ref[:-1].replace(',  ',' ').replace(' ,','')}| heRef: {heRef[:-1]}| text: {text.replace(oneN,'')}"+('\n'))
-            globals()['refs_to_index']+=[{'ref':ref[:-1].replace(',  ',' ').replace(' ,',''),
-                                          'heRef':heRef[:-1],
-                                        'path':globals()['path'].replace('..\\..\\refs\\',''),
-                                        'line_index':len(globals()['output'])}]
-        elif type(text) != bool :
-            for i, item in enumerate(text, start=1):
-                if item != [] and item != [[]] and item!= [[[]]]:
-                    letter = to_daf(i) if section_names[-depth] == 'דף' else to_gematria(i)
-                    
-                    if depth>1:                        
-                        globals()['output'].append(f"{codes[level][0]}{section_names[-depth]} {letter}{codes[level][1]}\n")
-                    
+def to_daf(i) -> str:
+    i += 1
+    if i % 2 == 0:
+        return to_gematria(i // 2) + '.'
+    else:
+        return to_gematria(i // 2) + ':'
 
-                        
-                recursive_sections(section_names, item, depth-1,level+1,
-                                   ref + (to_eng_daf(i) if section_names[-depth] == 'דף' else str(i))+ ':',
-                                   heRef + (to_daf(i) if section_names[-depth] == 'דף' else to_gematria(i))+ ', ')
-                
 
-def process_node(node, text,level=0,ref='',heRef=''):
+def to_eng_daf(i) -> str:
+    i += 1
+    if i % 2 == 0:
+        return str(i // 2) + 'a'
+    else:
+        return str(i // 2) + 'b'
+
+
+def recursive_sections(section_names, text, depth, level=0, ref='', heRef=''):
+    """
+    Recursively generates section names based on depth and appends to output list.
+    :param section_names: list of section names
+    :param text: input text
+    :param depth: current depth of recursion
+    :return: None
+    """
+    if depth == 0 and isinstance(text, str):
+
+        oneN = '\n'
+        globals()['output'].append(f"ref: {ref[:-1].replace(',  ', ' ').replace(' ,', '')}| heRef: {heRef[:-1]}| text: {text.replace(oneN, '')}" + ('\n'))
+        globals()['refs_to_index'] += [{'ref': ref[:-1].replace(',  ', ' ').replace(' ,', ''),
+                                        'heRef': heRef[:-1],
+                                        'path': globals()['path'].replace('..\\..\\refs\\', ''),
+                                        'line_index': len(globals()['output'])}]
+    elif not isinstance(text, bool):
+        for i, item in enumerate(text, start=1):
+            if item != [] and item != [[]] and item != [[[]]]:
+                letter = to_daf(i) if section_names[-depth] == 'דף' else to_gematria(i)
+
+                if depth > 1:
+                    globals()['output'].append(f"{codes[level][0]}{section_names[-depth]} {letter}{codes[level][1]}\n")
+
+            recursive_sections(section_names, item, depth - 1, level + 1,
+                               ref + (to_eng_daf(i) if section_names[-depth] == 'דף' else str(i)) + ':',
+                               heRef + (to_daf(i) if section_names[-depth] == 'דף' else to_gematria(i)) + ', ')
+
+
+def process_node(node, text, level=0, ref='', heRef=''):
     """
     Process a given node, handling both nested nodes and nested arrays.
     :param node: the current node being processed
@@ -101,18 +101,18 @@ def process_node(node, text,level=0,ref='',heRef=''):
     if 'nodes' in node:  # Process nested nodes
         node_title = node['heTitle']
         globals()['output'].append(f"{codes[level][0]}{node_title}{codes[level][1]}\n")
-        
+
         for sub_node in node['nodes']:
-            process_node(sub_node, text[sub_node['title']] if sub_node['key']!='default' else text[''],level+1,
-        ref + ((', '+ sub_node['title']) if sub_node['key']!= 'default' else ''),
-        heRef + ((', '+ sub_node['heTitle'] )if sub_node['key']!= 'default' else ''))
+            process_node(sub_node, text[sub_node['title']] if sub_node['key'] != 'default' else text[''], level + 1,
+                         ref + ((', ' + sub_node['title']) if sub_node['key'] != 'default' else ''),
+                         heRef + ((', ' + sub_node['heTitle'])if sub_node['key'] != 'default' else ''))
     else:  # Process nested arrays
         node_title = node['heTitle']
         section_names = node['heSectionNames']
         depth = node.get('depth', 1)
         globals()['output'].append(f"{codes[level][0]}{node_title}{codes[level][0]}\n")
-        recursive_sections(section_names, text, depth,level+1,
-        ref+ ' ' , heRef+ ' ')
+        recursive_sections(section_names, text, depth, level + 1, ref + ' ', heRef + ' ')
+
 
 def process_complex_book(text_file_name, schema_file_name, output_file_name):
     """
@@ -129,32 +129,31 @@ def process_complex_book(text_file_name, schema_file_name, output_file_name):
     # add authors name
     if 'authors' in index:
         for author in index['authors']:
-            globals()['output'].append(author['he']+'\n')   
-    
+            globals()['output'].append(author['he'] + '\n')
+
     for node in index['schema']['nodes']:
         try:
-            process_node(node, text['text'][node['title']] if node['key']!='default' else text['text'][''],level=1,
-                         ref=index["schema"]["title"]+', '+ ((node['title']+', ') if node['key']!='default' else ''),
-                         heRef = index["schema"]["heTitle"]+', '+ ((node['heTitle']+', ') if node['key']!='default' else ''))
-        except KeyError :
+            process_node(node, text['text'][node['title']] if node['key'] != 'default' else text['text'][''], level=1,
+                         ref=index["schema"]["title"] + ', ' + ((node['title'] + ', ') if node['key'] != 'default' else ''),
+                         heRef=index["schema"]["heTitle"] + ', ' + ((node['heTitle'] + ', ') if node['key'] != 'default' else ''))
+        except KeyError:
             print(text_file_name)
             return
 
-def process_simple_book(text_file_name,schema_file_name,output_file_name):
-    index = get_content_from_json(file_path =schema_file_name)
+
+def process_simple_book(text_file_name, schema_file_name, output_file_name):
+    index = get_content_from_json(file_path=schema_file_name)
     sectionNames = index['schema']['heSectionNames']
     depth = index['schema']['depth']
-    text = get_content_from_json(file_path = text_file_name)
+    text = get_content_from_json(file_path=text_file_name)
     # add book title
     globals()['output'].append(f'<h1>{index["schema"]["heTitle"]}</h1>\n')
     # add authors name
     if 'authors' in index:
         for author in index['authors']:
-            globals()['output'].append(author['he']+'\n')            
-    recursive_sections(sectionNames, text['text'], depth,ref=index["schema"]["title"]+' ',heRef=index["schema"]["heTitle"]+' ')
+            globals()['output'].append(author['he'] + '\n')
+    recursive_sections(sectionNames, text['text'], depth, ref=index["schema"]["title"] + ' ', heRef=index["schema"]["heTitle"] + ' ')
 
-        
-        
 
 def process_book(text_file_name, schema_file_name, output_file_name):
     """
@@ -180,7 +179,7 @@ def process_book(text_file_name, schema_file_name, output_file_name):
         file.writelines(output)
 
 
-def process_all_books_in_folder(json_folder, schemas_folder,output_folder):
+def process_all_books_in_folder(json_folder, schemas_folder, output_folder):
     """
     Process all books in the given folder whose path ends with 'Hebrew/Merged.json'.
     It finds the corresponding schema file in the schemas folder by matching the
@@ -191,27 +190,26 @@ def process_all_books_in_folder(json_folder, schemas_folder,output_folder):
     """
     with open("blacklist.txt", 'r', encoding='utf-8') as file:
         blacklist = file.read().splitlines()
-    for root, _,files in os.walk(json_folder):
+    for root, _, files in os.walk(json_folder):
         for file in files:
             file_path = os.path.join(root, file)
-            if  file_path.endswith('Hebrew\\merged.json') and file_path.split('\\')[-3] not in blacklist:
+            if file_path.endswith('Hebrew\\merged.json') and file_path.split('\\')[-3] not in blacklist:
                 text_file = file_path
                 title = file_path.split('\\')[-3].replace(' ', '_')
                 schema_file_name = os.path.join(schemas_folder, title + '.json')
                 categories = get_content_from_json(schema_file_name)["heCategories"]
                 output_path = ''
                 for category in categories:
-                    output_path += category.replace('"','')+'\\'
-                os.makedirs(os.path.join(output_folder, output_path),exist_ok=True)
-                output_file_name = os.path.join(output_folder, output_path) + get_content_from_json(schema_file_name)['schema']['heTitle'].replace('"','').replace("'",'').replace('״','') + '.txt'
-                globals()['path']=output_file_name
+                    output_path += category.replace('"', '') + '\\'
+                os.makedirs(os.path.join(output_folder, output_path), exist_ok=True)
+                output_file_name = os.path.join(output_folder, output_path) + get_content_from_json(schema_file_name)['schema']['heTitle'].replace('"', '').replace("'", '').replace('״', '') + '.txt'
+                globals()['path'] = output_file_name
                 process_book(text_file, schema_file_name, output_file_name)
-            
-process_all_books_in_folder("..\\..\\database_export\\json",
-                            "..\\..\\database_export\\schemas",
-                           "..\\refs\\אוצריא")
+
+
+process_all_books_in_folder(r"D:\Sefaria-Export\json",
+                            r"D:\Sefaria-Export\schemas",
+                            r"C:\Users\User\Desktop\אוצריא")
 
 df = pd.DataFrame(globals()['refs_to_index'])
-df.to_csv('..\\refs\\refs.csv',index=False)
-
-
+df.to_csv('..\\refs\\refs.csv', index=False)

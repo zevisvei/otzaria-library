@@ -59,13 +59,14 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                         book_content_copy.append(line)
                     with open(f'{output_file_name}.txt', 'w', encoding='utf-8') as file:
                         file.writelines(book_content_copy)
-                    df = pd.DataFrame(refs)
-                    df.to_csv(f"{output_file_name}.csv", index=False)
+                    # df = pd.DataFrame(refs)
+                    refs_list.extend(refs)
+                    # df.to_csv(f"{output_file_name}.csv", index=False)
                     if all_footnotes:
                         footnotes_file = os.path.join(output_folder, *output_path, f"הערות על {title}.txt")
                         with open(footnotes_file, 'w', encoding='utf-8') as file:
                             file.write("\n".join(all_footnotes))
-                        json_file = os.path.join(output_folder, *output_path, f"{title}_links.json")
+                        json_file = os.path.join(links_path, f"{title}_links.json")
                         with open(json_file, "w", encoding="utf-8") as file:
                             json.dump(dict_links, file)
                 except Exception as e:
@@ -75,7 +76,12 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
 
 json_folder = "json"
 schemas_folder = "schemas"
-output_folder = "output"
+output_folder = os.path.join("אוצריא", "אוצריא")
+links_path = os.path.join("אוצריא", "links")
+os.makedirs(links_path, exist_ok=True)
 lang = "hebrew"
+refs_list = []
 main(json_folder=json_folder, schemas_folder=schemas_folder,
      output_folder=output_folder, lang=lang)
+df = pd.DataFrame(refs_list)
+df.to_csv("refs_all.csv", index=False)

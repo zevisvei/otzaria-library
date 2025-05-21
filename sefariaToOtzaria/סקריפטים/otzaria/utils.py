@@ -4,12 +4,14 @@ import json
 from bs4 import BeautifulSoup
 from hebrew_numbers import int_to_gematria
 
+from .types import BookInfo
+
 
 def recursive_register_categories(
     index: list | dict,
     data: list[dict[str, str | list[str]]] | None = None,
     tree: list[str] | None = None,
-) -> list[dict[str, str | list[str]]]:
+) -> list[BookInfo]:
     if tree is None:
         tree = []
     if data is None:
