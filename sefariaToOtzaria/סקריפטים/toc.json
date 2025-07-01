@@ -67259,5 +67259,53 @@
             "חסידות",
             "חב\"ד"
         ]
+    },
+    {
+        "he_title": "מאירי על תהלים",
+        "en_title": "Meiri on Psalms",
+        "path": [
+            "תנ\"ך",
+            "ראשונים על התנ״ך"
+        ]
+    },
+    {
+        "he_title": "עוד יוסף חי; דרשות",
+        "en_title": "Od Yosef Chai; Derashot",
+        "path": [
+            "תנ\"ך",
+            "אחרונים על התנ״ך"
+        ]
+    },
+    {
+        "he_title": "עוד יוסף חי; הלכות",
+        "en_title": "Od Yosef Chai; Halakhot",
+        "path": [
+            "הלכה",
+            "אחרונים"
+        ]
+    },
+    {
+        "he_title": "עומדות שוב בסיני; יהדות מנקודת מבט פמיניסטית",
+        "en_title": "Standing Again at Sinai; Judaism from a Feminist Perspective",
+        "path": [
+            "מחשבת ישראל",
+            "ספרות מודרנית"
+        ]
+    },
+    {
+        "he_title": "יערות דבש חלק א",
+        "en_title": "Ya'arot Devash I",
+        "path": [
+            "ספרי מוסר",
+            "אחרונים"
+        ]
+    },
+    {
+        "he_title": "יערות דבש חלק ב",
+        "en_title": "Ya'arot Devash II",
+        "path": [
+            "ספרי מוסר",
+            "אחרונים"
+        ]
     }
 ]
