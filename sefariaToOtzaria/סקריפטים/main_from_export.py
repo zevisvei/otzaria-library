@@ -59,7 +59,10 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                         book_content_copy.append(line)
                     with open(f'{output_file_name}.txt', 'w', encoding='utf-8') as file:
                         file.writelines(book_content_copy)
+                    all_metadata[output_file_name] = metadata
                     # df = pd.DataFrame(refs)
+                    for entry in refs:
+                        entry["path"] = title
                     refs_list.extend(refs)
                     # df.to_csv(f"{output_file_name}.csv", index=False)
                     if all_footnotes:
@@ -74,14 +77,19 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                         f.write(f"{file_path} {e}\n")
 
 
-json_folder = "json"
-schemas_folder = "schemas"
-output_folder = os.path.join("אוצריא", "אוצריא")
-links_path = os.path.join("אוצריא", "links")
+all_metadata = {}
+json_folder = r"D:\Sefaria-Export\json"
+schemas_folder = r"D:\Sefaria-Export\schemas"
+# output_folder = os.path.join("אוצריא", "אוצריא")
+output_folder = r"C:\Users\User\Desktop\אוצריא\אוצריא"
+# links_path = os.path.join("אוצריא", "links")
+links_path = r"C:\Users\User\Desktop\אוצריא\links"
 os.makedirs(links_path, exist_ok=True)
 lang = "hebrew"
 refs_list = []
 main(json_folder=json_folder, schemas_folder=schemas_folder,
      output_folder=output_folder, lang=lang)
 df = pd.DataFrame(refs_list)
-df.to_csv("refs_all.csv", index=False)
+df.to_csv(r"C:\Users\User\Desktop\אוצריא\refs_all.csv", index=False)
+with open(r"C:\Users\User\Desktop\אוצריא\metadata.json", "w", encoding="utf-8") as f:
+    json.dump(all_metadata, f, ensure_ascii=False, indent=4)

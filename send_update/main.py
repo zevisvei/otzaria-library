@@ -3,6 +3,7 @@ import codecs
 import os
 
 from pyluach import dates
+import requests
 
 from mitmachim import MitmachimClient
 from yemot import split_and_send
@@ -62,8 +63,11 @@ if any([added_files, modified_files, deleted_files]):
     username = os.getenv("USER_NAME")
     password = os.getenv("PASSWORD")
     yemot_token = os.getenv("TOKEN_YEMOT")
+    google_chat_url = os.getenv("GOOGLE_CHAT_URL")
     yemot_path = "ivr2:/1"
     tzintuk_list_name = "books update"
+
+    requests.post(google_chat_url, json={"text": content_mitmachim})
 
     client = MitmachimClient(username.strip().replace(" ", "+"), password.strip())
 

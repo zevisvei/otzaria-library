@@ -69,6 +69,7 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           TOKEN_YEMOT: ${{ secrets.TOKEN_YEMOT }}
+          GOOGLE_CHAT_URL: ${{ secrets.GOOGLE_CHAT_URL }}
         run: |
           python send_update/main.py
 
