@@ -2,28 +2,13 @@ name: Update Library and create manifest
 
 on:
   schedule:
-    - cron: '0 6 * * 5'  # מפעיל את ה-Workflow כל יום שישי בשעה 8:00 שעון ישראל (3:00 UTC)
+    - cron: '0 6 * * 5'  # מפעיל כל יום שישי ב-06:00 UTC (08:00/09:00 שעון ישראל)
 
   workflow_dispatch:  # מאפשר הפעלה ידנית
-
-# שמירת הטריגר הישן כתגובה כדי שלא יפעל בפועל
-# on:
-#   push:
-#     branches:
-#       - main
-#       - master
-#     paths:
-#       - Ben-YehudaToOtzaria/ספרים/אוצריא/**
-#       - DictaToOtzaria/ספרים/ערוך/אוצריא/**
-#       - OnYourWayToOtzaria/ספרים/אוצריא/**
-#       - OraytaToOtzaria/ספרים/אוצריא/**
-#       - sefariaToOtzaria/ספרים/אוצריא/**
-#       - sefaria and more/**
 
 jobs:
   update-manifest:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]' && github.actor != 'github-actions'
 
     steps:
       - name: Checkout repository
@@ -45,7 +30,7 @@ jobs:
         run: |
           python sync_and_merge_folders.py
 
-      - name: Generate Files Manifest
+      - name: Generate Main Files Manifest
         run: |
           echo "{" > files_manifest.json
           find . \( -path "./metadata.json" -o -path "./אוצריא/*" -o -path "./links/*" \) -type f \
@@ -59,11 +44,32 @@ jobs:
           ' sh {} \; | sed "$ ! s/$/,/" >> files_manifest.json
           echo "}" >> files_manifest.json
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "Update files manifest and sync folders"
-          default_author: github_actions
+      - name: Create Main Release Archive
+        run: |
+          zip -r otzaria_latest.zip אוצריא links files_manifest.json metadata.json
+
+      - name: Generate Dicta Files Manifest
+        run: |
+          echo "{" > dicta_files_manifest.json
+          find "DictaToOtzaria/ספרים/לא ערוך/אוצריא" -type f \
+          ! -path "./.git/*" \
+          -exec sh -c '
+            path="${1#./}"
+            hash=$(sha256sum "$1" | cut -d" " -f1)
+            echo "\"$path\": {\"hash\": \"$hash\"}"
+          ' sh {} \; | sed '$!s/$/,/' >> dicta_files_manifest.json
+          echo "}" >> dicta_files_manifest.json
+
+      - name: Create Dicta Release Archive
+        run: |
+          # שלב 1 – יצירת zip כך שהנתיב הפנימי יתחיל ב"אוצריא"
+          (
+            cd "DictaToOtzaria/ספרים/לא ערוך"
+            zip -r "$GITHUB_WORKSPACE/dicta_latest.zip" אוצריא
+          )
+          # שלב 2 – הוספת המניפסט ברמת השורש של ה־ZIP
+          # שיפור: שימוש ב-g (grow) במקום ב-u (update) להבטחת ההוספה
+          zip -g -j dicta_latest.zip dicta_files_manifest.json
 
       - name: update in mitmachim
         env:
@@ -74,9 +80,16 @@ jobs:
         run: |
           python send_update/main.py
 
-      - name: Create Release Archive
-        run: |
-          zip -r otzaria_latest.zip אוצריא links files_manifest.json metadata.json
+      - name: Commit manifest changes
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+        uses: EndBug/add-and-commit@v9
+        with:
+          # תיקון: שימוש בתחביר multiline כדי להבטיח הוספה נכונה של שני הקבצים
+          add: |
+            files_manifest.json
+            dicta_files_manifest.json
+          message: "Update files manifest and sync folders"
+          default_author: github_actions
 
       - name: Delete existing 'latest' release and tag
         continue-on-error: true
@@ -86,7 +99,7 @@ jobs:
           gh release delete latest --yes || true
           git push --delete origin latest || true
       
-      - name: Create and push new tag  # יצירת תגית חדשה
+      - name: Create and push new tag
         run: |
           git tag -f latest
           git push origin latest --force
@@ -98,5 +111,8 @@ jobs:
         run: |
           gh release create latest \
             --title "Latest Otzaria Files" \
-            --notes "Latest version of Otzaria files" \
-            otzaria_latest.zip
+            --notes "Latest version of Otzaria files. Includes main library and unedited Dicta files." \
+            otzaria_latest.zip \
+            dicta_latest.zip \
+            files_manifest.json \
+            dicta_files_manifest.json
