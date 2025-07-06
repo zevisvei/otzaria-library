@@ -50,26 +50,41 @@ jobs:
 
       - name: Generate Dicta Files Manifest
         run: |
+          set -e
           echo "{" > dicta_files_manifest.json
           find "DictaToOtzaria/ספרים/לא ערוך/אוצריא" -type f \
           ! -path "./.git/*" \
           -exec sh -c '
-            path="${1#./}"
+            # מסיר את הנתיב המקורי כדי לקבל נתיב יחסי שמתחיל ב"אוצריא"
+            path="${1#DictaToOtzaria/ספרים/לא ערוך/}"
             hash=$(sha256sum "$1" | cut -d" " -f1)
-            echo "\"$path\": {\"hash\": \"$hash\"}"
+            # מוסיף את הקידומת החדשה "דיקטה/" לנתיב במניפסט
+            echo "\"דיקטה/${path}\": {\"hash\": \"$hash\"}"
           ' sh {} \; | sed '$!s/$/,/' >> dicta_files_manifest.json
           echo "}" >> dicta_files_manifest.json
 
       - name: Create Dicta Release Archive
+        env:
+          # מבטיח תמיכה מלאה בעברית (UTF-8) בפקודת zip
+          LANG: C.UTF-8
         run: |
-          # שלב 1 – יצירת zip כך שהנתיב הפנימי יתחיל ב"אוצריא"
+          set -e
+          # שלב 1 – יוצר תיקיית ביניים נקייה עם המבנה הרצוי
+          rm -rf dicta_stage
+          mkdir -p dicta_stage/דיקטה
+
+          # שלב 2 – מעתיק את תיקיית "אוצריא" למבנה החדש
+          cp -r "DictaToOtzaria/ספרים/לא ערוך/אוצריא" "dicta_stage/דיקטה/"
+
+          # שלב 3 – יוצר את קובץ ה-ZIP מתוך תיקיית הביניים
+          # כך שהנתיב הפנימי יתחיל ב"דיקטה/אוצריא/..."
           (
-            cd "DictaToOtzaria/ספרים/לא ערוך"
-            zip -r "$GITHUB_WORKSPACE/dicta_latest.zip" אוצריא
+            cd dicta_stage
+            zip -r "$GITHUB_WORKSPACE/dicta_latest.zip" דיקטה
           )
-          # שלב 2 – הוספת המניפסט ברמת השורש של ה־ZIP
-          # שיפור: שימוש ב-g (grow) במקום ב-u (update) להבטחת ההוספה
-          zip -g -j dicta_latest.zip dicta_files_manifest.json
+
+          # שלב 4 – מוסיף את קובץ המניפסט לשורש ה-ZIP
+          zip -g -j "$GITHUB_WORKSPACE/dicta_latest.zip" dicta_files_manifest.json
 
       - name: update in mitmachim
         env:
