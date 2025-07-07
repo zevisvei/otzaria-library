@@ -31,6 +31,14 @@ def remove_files() -> None:
     os.remove(del_list_file_path)
 
 
+def remove_empty_dirs() -> None:
+    for root, dirs, _ in os.walk(LOCAL_PATH, topdown=False):
+        for dir_name in dirs:
+            dir_path = os.path.join(root, dir_name)
+            if not os.listdir(dir_path):
+                os.rmdir(dir_path)
+
+
 def download_new(manifest_file_name: str) -> None:
     del_list = []
     new_manifest_url = f"{BASE_URL}/{manifest_file_name}"
