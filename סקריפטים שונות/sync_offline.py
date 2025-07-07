@@ -6,15 +6,14 @@ import requests
 
 
 BASE_URL = "https://raw.githubusercontent.com/zevisvei/otzaria-library/refs/heads/main/"
-MANIFEST_FILE_NAME = "files_manifest.json"
 BASE_PATH = "אוצריא"
 LOCAL_PATH = ""
 DEL_LIST_FILE_NAME = "del_list.txt"
 
 
-def copy_manifest() -> None:
+def copy_manifest(manifest_file_name: str) -> None:
     os.makedirs(BASE_PATH, exist_ok=True)
-    shutil.copy(os.path.join(LOCAL_PATH, MANIFEST_FILE_NAME), os.path.join(BASE_PATH, MANIFEST_FILE_NAME))
+    shutil.copy(os.path.join(LOCAL_PATH, manifest_file_name), os.path.join(BASE_PATH, manifest_file_name))
 
 
 def copy_files() -> None:
@@ -32,10 +31,10 @@ def remove_files() -> None:
     os.remove(del_list_file_path)
 
 
-def download_new() -> None:
+def download_new(manifest_file_name: str) -> None:
     del_list = []
-    new_manifest_url = f"{BASE_URL}/{MANIFEST_FILE_NAME}"
-    old_manifest_file_path = os.path.join(BASE_PATH, MANIFEST_FILE_NAME)
+    new_manifest_url = f"{BASE_URL}/{manifest_file_name}"
+    old_manifest_file_path = os.path.join(BASE_PATH, manifest_file_name)
 
     new_manifest_content = requests.get(new_manifest_url).json()
     with open(old_manifest_file_path, "r", encoding="utf-8") as f:
@@ -63,9 +62,12 @@ def download_new() -> None:
     with open(old_manifest_file_path, "w", encoding="utf-8") as f:
         json.dump(new_manifest_content, f, indent=2, ensure_ascii=False)
 
-    with open(os.path.join(BASE_PATH, DEL_LIST_FILE_NAME), "w", encoding="utf-8") as f:
-        f.write("\n".join(del_list))
+    with open(os.path.join(BASE_PATH, DEL_LIST_FILE_NAME), "a", encoding="utf-8") as f:
+        f.write("\n".join(del_list) + "\n")
 
 
 if __name__ == "__main__":
-    download_new()
+    main_manifest = "files_manifest.json"
+    dicta_manifest = "dicta_files_manifest.json"
+    download_new(main_manifest)
+    download_new(dicta_manifest)
