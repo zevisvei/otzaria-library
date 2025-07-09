@@ -9,6 +9,7 @@ BASE_URL = "https://raw.githubusercontent.com/zevisvei/otzaria-library/refs/head
 BASE_PATH = "אוצריא"
 LOCAL_PATH = ""
 DEL_LIST_FILE_NAME = "del_list.txt"
+MANIFEST_FILE_NAME = "files_manifest.json"
 
 
 def copy_manifest(manifest_file_name: str) -> None:
@@ -39,8 +40,9 @@ def remove_empty_dirs() -> None:
                 os.rmdir(dir_path)
 
 
-def download_new(manifest_file_name: str) -> None:
+def download_new(is_dicta: bool = False) -> None:
     del_list = []
+    manifest_file_name = MANIFEST_FILE_NAME if not is_dicta else f"dicta_{MANIFEST_FILE_NAME}"
     new_manifest_url = f"{BASE_URL}/{manifest_file_name}"
     old_manifest_file_path = os.path.join(BASE_PATH, manifest_file_name)
 
@@ -55,7 +57,7 @@ def download_new(manifest_file_name: str) -> None:
         if value["hash"] == old_manifest_content.get(book_name, {}).get("hash"):
             continue
         target_path = os.path.join(BASE_PATH, book_name.replace("/", os.sep))
-        file_url = f"{BASE_URL}{book_name}"
+        file_url = f"{BASE_URL}{book_name}" if not is_dicta else f"{BASE_URL}DictaToOtzaria/ספרים/לא ערוך/{book_name.replace(r"\דיקטה", "")}"
         response = requests.get(file_url)
         response.raise_for_status()
         file_content = response.text
@@ -75,7 +77,5 @@ def download_new(manifest_file_name: str) -> None:
 
 
 if __name__ == "__main__":
-    main_manifest = "files_manifest.json"
-    dicta_manifest = "dicta_files_manifest.json"
-    download_new(main_manifest)
-    download_new(dicta_manifest)
+    download_new()
+    download_new(is_dicta=True)

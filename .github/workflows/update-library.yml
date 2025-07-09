@@ -56,10 +56,10 @@ jobs:
           ! -path "./.git/*" \
           -exec sh -c '
             # מסיר את הנתיב המקורי כדי לקבל נתיב יחסי שמתחיל ב"אוצריא"
-            path="${1#DictaToOtzaria/ספרים/לא ערוך/}"
+            path="${1#DictaToOtzaria/ספרים/לא ערוך/אוצריא}"
             hash=$(sha256sum "$1" | cut -d" " -f1)
             # מוסיף את הקידומת החדשה "דיקטה/" לנתיב במניפסט
-            echo "\"דיקטה/${path}\": {\"hash\": \"$hash\"}"
+            echo "\"אוצריא/דיקטה${path}\": {\"hash\": \"$hash\"}"
           ' sh {} \; | sed '$!s/$/,/' >> dicta_files_manifest.json
           echo "}" >> dicta_files_manifest.json
 
