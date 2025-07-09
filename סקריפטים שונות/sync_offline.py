@@ -12,8 +12,9 @@ DEL_LIST_FILE_NAME = "del_list.txt"
 MANIFEST_FILE_NAME = "files_manifest.json"
 
 
-def copy_manifest(manifest_file_name: str) -> None:
+def copy_manifest(is_dicta: bool = False) -> None:
     os.makedirs(BASE_PATH, exist_ok=True)
+    manifest_file_name = MANIFEST_FILE_NAME if not is_dicta else f"dicta_{MANIFEST_FILE_NAME}"
     shutil.copy(os.path.join(LOCAL_PATH, manifest_file_name), os.path.join(BASE_PATH, manifest_file_name))
 
 
@@ -26,6 +27,9 @@ def remove_files() -> None:
     with open(del_list_file_path, "r", encoding="utf-8") as f:
         content = f.readlines()
     for file_path in content:
+        file_path = file_path.strip()
+        if not file_path:
+            continue
         full_path = os.path.join(LOCAL_PATH, file_path)
         if os.path.exists(full_path):
             os.remove(full_path)
@@ -57,7 +61,7 @@ def download_new(is_dicta: bool = False) -> None:
         if value["hash"] == old_manifest_content.get(book_name, {}).get("hash"):
             continue
         target_path = os.path.join(BASE_PATH, book_name.replace("/", os.sep))
-        file_url = f"{BASE_URL}{book_name}" if not is_dicta else f"{BASE_URL}DictaToOtzaria/ספרים/לא ערוך/{book_name.replace(r"\דיקטה", "")}"
+        file_url = f"{BASE_URL}{book_name}" if not is_dicta else f"{BASE_URL}DictaToOtzaria/ספרים/לא ערוך/{book_name.replace(r"/דיקטה", "")}"
         response = requests.get(file_url)
         response.raise_for_status()
         file_content = response.text
