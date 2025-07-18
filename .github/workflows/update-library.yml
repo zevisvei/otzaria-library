@@ -2,20 +2,34 @@ name: Update Library and create manifest
 
 on:
   schedule:
-    - cron: '0 6 * * 5'  # מפעיל כל יום שישי ב-06:00 UTC (08:00/09:00 שעון ישראל)
+    - cron: '0 6 * * 5'  # מפעיל את ה-Workflow כל יום שישי בשעה 8:00 שעון ישראל (3:00 UTC)
 
   workflow_dispatch:  # מאפשר הפעלה ידנית
+
+# שמירת הטריגר הישן כתגובה כדי שלא יפעל בפועל
+# on:
+#   push:
+#     branches:
+#       - main
+#       - master
+#     paths:
+#       - Ben-YehudaToOtzaria/ספרים/אוצריא/**
+#       - DictaToOtzaria/ספרים/ערוך/אוצריא/**
+#       - OnYourWayToOtzaria/ספרים/אוצריא/**
+#       - OraytaToOtzaria/ספרים/אוצריא/**
+#       - sefariaToOtzaria/ספרים/אוצריא/**
+#       - sefaria and more/**
 
 jobs:
   update-manifest:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]' && github.actor != 'github-actions'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          lfs: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +44,7 @@ jobs:
         run: |
           python sync_and_merge_folders.py
 
-      - name: Generate Main Files Manifest
+      - name: Generate Files Manifest
         run: |
           echo "{" > files_manifest.json
           find . \( -path "./metadata.json" -o -path "./אוצריא/*" -o -path "./links/*" \) -type f \
@@ -44,50 +58,7 @@ jobs:
           ' sh {} \; | sed "$ ! s/$/,/" >> files_manifest.json
           echo "}" >> files_manifest.json
 
-      - name: Create Main Release Archive
-        run: |
-          zip -r otzaria_latest.zip אוצריא links files_manifest.json metadata.json
-
-      - name: Generate Dicta Files Manifest
-        run: |
-          set -e
-          echo "{" > dicta_files_manifest.json
-          find "DictaToOtzaria/ספרים/לא ערוך/אוצריא" -type f \
-          ! -path "./.git/*" \
-          -exec sh -c '
-            # מסיר את הנתיב המקורי כדי לקבל נתיב יחסי שמתחיל ב"אוצריא"
-            path="${1#DictaToOtzaria/ספרים/לא ערוך/אוצריא}"
-            hash=$(sha256sum "$1" | cut -d" " -f1)
-            # מוסיף את הקידומת החדשה "דיקטה/" לנתיב במניפסט
-            echo "\"אוצריא/דיקטה${path}\": {\"hash\": \"$hash\"}"
-          ' sh {} \; | sed '$!s/$/,/' >> dicta_files_manifest.json
-          echo "}" >> dicta_files_manifest.json
-
-      - name: Create Dicta Release Archive
-        env:
-          # מבטיח תמיכה מלאה בעברית (UTF-8) בפקודת zip
-          LANG: C.UTF-8
-        run: |
-          set -e
-          # שלב 1 – יוצר תיקיית ביניים נקייה עם המבנה הרצוי
-          rm -rf dicta_stage
-          mkdir -p dicta_stage/דיקטה
-
-          # שלב 2 – מעתיק את תיקיית "אוצריא" למבנה החדש
-          cp -r "DictaToOtzaria/ספרים/לא ערוך/אוצריא" "dicta_stage/דיקטה/"
-
-          # שלב 3 – יוצר את קובץ ה-ZIP מתוך תיקיית הביניים
-          # כך שהנתיב הפנימי יתחיל ב"דיקטה/אוצריא/..."
-          (
-            cd dicta_stage
-            zip -r "$GITHUB_WORKSPACE/dicta_latest.zip" דיקטה
-          )
-
-          # שלב 4 – מוסיף את קובץ המניפסט לשורש ה-ZIP
-          zip -g -j "$GITHUB_WORKSPACE/dicta_latest.zip" dicta_files_manifest.json
-
-      - name: Commit all changes
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+      - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           message: "Update files manifest and sync folders"
@@ -102,6 +73,10 @@ jobs:
         run: |
           python send_update/main.py
 
+      - name: Create Release Archive
+        run: |
+          zip -r otzaria_latest.zip אוצריא links files_manifest.json metadata.json
+
       - name: Delete existing 'latest' release and tag
         continue-on-error: true
         env:
@@ -110,7 +85,7 @@ jobs:
           gh release delete latest --yes || true
           git push --delete origin latest || true
       
-      - name: Create and push new tag
+      - name: Create and push new tag  # יצירת תגית חדשה
         run: |
           git tag -f latest
           git push origin latest --force
@@ -122,8 +97,5 @@ jobs:
         run: |
           gh release create latest \
             --title "Latest Otzaria Files" \
-            --notes "Latest version of Otzaria files. Includes main library and unedited Dicta files." \
-            otzaria_latest.zip \
-            dicta_latest.zip \
-            files_manifest.json \
-            dicta_files_manifest.json
+            --notes "Latest version of Otzaria files" \
+            otzaria_latest.zip
