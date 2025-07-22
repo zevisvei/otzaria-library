@@ -1,4 +1,4 @@
-<h1><span style="color:#2828AC;">מסכת שבת</span></h1>
+<h1>ביאור גמרא נוחה על <span style="color:#2828AC;">שבת</span></h1>
 <span style="color:#2828AC;">מתוך "גמרא נוֹחָה"</span>
 <span style="color:#2828AC;">על שם הורי</span> נ<span style="color:#2828AC;">פתלי</span> וח<span style="color:#2828AC;">נה</span> ה<span style="color:#2828AC;">ולנדר הכ"מ</span>
 <h2>פרק ראשון יציאות השבת</h2>
