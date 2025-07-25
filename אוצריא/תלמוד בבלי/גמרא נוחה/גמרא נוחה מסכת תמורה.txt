@@ -1,4 +1,4 @@
-<h1><span style="color:#2828AC;">מסכת תמורה</span></h1>
+<h1>ביאור גמרא נוחה על <span style="color:#2828AC;">תמורה</span></h1>
 <span style="color:#2828AC;">מתוך</span> "<span style="color:#2828AC;">גמרא נוֹחָה</span>"
 על שם הורי נפתלי וחנה הולנדר <span style="color:#2828AC;">הכ</span>"<span style="color:#2828AC;">מ</span>
 <span style="color:#2828AC;">תמורה פרק ראשון הכל ממירין</span>
