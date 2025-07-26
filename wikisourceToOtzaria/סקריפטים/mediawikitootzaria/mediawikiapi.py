@@ -16,6 +16,33 @@ JEWISHBOOKS = "https://wiki.jewishbooks.org.il/mediawiki/api.php"  # ה end-poin
 BASE_URL = ""
 
 
+def get_ns_list() -> list:
+    i = 0
+    namespaces = []
+    apcontinue = ''
+    while True:
+        i += 1
+        params = {
+            'action': 'query',
+            'meta': 'siteinfo',
+            'siprop': 'namespaces',
+            'format': 'json',
+            'apcontinue': apcontinue
+        }
+        response = requests.get(BASE_URL, params=params)
+        data = response.json()
+        if 'query' in data and 'namespaces' in data['query']:
+            namespaces.extend(data['query']['namespaces'].values())
+        else:
+            print("Error fetching namespaces:", data)
+            break
+        if 'continue' not in data:
+            break
+        apcontinue = data['continue']['apcontinue']
+        print(f"Fetching namespaces: batch {i}")
+    return namespaces
+
+
 def get_list_by_ns(ns: str | int) -> list:
     """
     Returns a list of pages in a specific namespace (ns).

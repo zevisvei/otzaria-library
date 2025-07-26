@@ -1,4 +1,4 @@
-<h1>מסכת בכורות</h1>
+<h1>ביאור גמרא נוחה על בכורות</h1>
 <span style="color:#2828AC;">מתוך</span> "<span style="color:#2828AC;">גמרא נוֹחָה</span>"
 על שם הורי נפתלי וחנה הולנדר <span style="color:#2828AC;">הכ</span>"<span style="color:#2828AC;">מ</span>
 <span style="font-size:80%;">שמות יג,ב:</span> <span style="font-size:70%; font-family: SBL Hebrew;">קדש לי כל בכור פטר כל רחם בבני ישראל באדם ובבהמה לי הוא</span>
