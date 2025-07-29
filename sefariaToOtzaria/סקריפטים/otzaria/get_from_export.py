@@ -145,12 +145,16 @@ class Book:
         if node.get("nodes"):
             for sub_node in node['nodes']:
                 if node["key"] != "default":
-                    key.append(node["key"])
-                    heb_title.append(node["heTitle"])
-                self.process_node(key, sub_node, text[sub_node['title']] if sub_node['key'] != 'default' else text[''], level=level, heb_title=heb_title)
-                if node["key"] != "default":
-                    key.pop()
-                    heb_title.pop()
+                    new_key = key.copy()
+                    new_heb_title = heb_title.copy()
+                    new_key.append(node["title"])
+                    if len(set(new_key)) != len(new_key):
+                        print(f"{new_key=} {key=}")
+                    new_heb_title.append(node["heTitle"])
+                self.process_node(new_key, sub_node, text[sub_node['title']] if sub_node['key'] != 'default' else text[''], level=level, heb_title=new_heb_title)
+                # if node["key"] != "default":
+                #     key.pop()
+                #     heb_title.pop()
         else:  # Process nested arrays
             if self.section_names_lang == "he":
                 section_names = node.get(
@@ -175,7 +179,8 @@ class Book:
         anchor_ref: Optional[list[str]] = None,
         heb_anchor_ref: Optional[list[str]] = None,
         heb_title: Optional[str] = None,
-        links: bool = False
+        links: bool = False,
+        letter: str = ""
     ) -> None:
 
         if anchor_ref is None:
@@ -195,14 +200,18 @@ class Book:
             assert isinstance(text, str)
             anchor_ref_address = f"{ref} {":".join(anchor_ref)}"
             he_ref = f"{heb_title} {"&&&".join(heb_anchor_ref)}"
-            self.book_content.append(text.strip().replace("\n", "<br>") + "\n")
-            self.refs.append({"ref": anchor_ref_address, "he_ref": he_ref, "line_index": len(self.book_content)})
+            if text.strip():
+                self.book_content.append(f"{letter}{text.strip().replace("\n", "<br>")}" + "\n")
+                if anchor_ref_address == "Genesis 1:1":
+                    print(f"{len(self.book_content)}")
+                    print(f"{self.book_content=}")
+                self.refs.append({"ref": anchor_ref_address, "he_ref": he_ref, "line_index": len(self.book_content)})
         elif not isinstance(text, bool):
             if depth == 1:
                 assert isinstance(text, list)
             for i, item in enumerate(text, start=1):
+                letter = ""
                 if has_value(item):
-                    letter = ""
                     if section_names:
                         letter = (
                             to_daf(i)
@@ -214,9 +223,11 @@ class Book:
                             f"<h{min(level, 6)}>{section_names[-depth]} {letter}</h{min(level, 6)}>\n"
                         )
                     elif section_names and section_names[-depth] not in skip_section_names and letter:
-                        self.book_content.append(f"({letter}) ")
-                anchor_ref.append(to_eng_daf(i) if section_names[-depth] in ("דף", "Daf") else str(i))
-                heb_anchor_ref.append(to_daf(i) if section_names[-depth] in ("דף", "Daf") else to_gematria(i))
+                        letter = f"({letter}) "
+                    else:
+                        letter = ""
+                anchor_ref.append(to_eng_daf(i) if section_names and section_names[-depth] in ("דף", "Daf") else str(i))
+                heb_anchor_ref.append(to_daf(i) if section_names and section_names[-depth] in ("דף", "Daf") else to_gematria(i))
                 self.recursive_sections(
                     ref,
                     section_names, item,
@@ -224,7 +235,8 @@ class Book:
                     anchor_ref,
                     heb_anchor_ref,
                     heb_title,
-                    links
+                    links,
+                    letter
                 )
                 anchor_ref.pop()
                 heb_anchor_ref.pop()

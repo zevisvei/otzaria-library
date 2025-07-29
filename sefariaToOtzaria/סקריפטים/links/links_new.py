@@ -30,7 +30,7 @@ otzaria_links: defaultdict[str, list[list[str]]] = defaultdict(list)
 otzaria_parse: defaultdict[str, list[Link]] = defaultdict(list)
 all_otzaria_links: defaultdict[str, list[list[str]]] = defaultdict(list)
 final_links: defaultdict[str, list[OtzariaLink]] = defaultdict(list)
-target_links_path = "links"
+target_links_path = r"C:\Users\User\Desktop\אוצריא\links"
 not_found_links: set[str] = set()
 not_found_books: set[str] = set()
 found_links: set[str] = set()
@@ -259,26 +259,27 @@ for line in read_links():
 
 os.makedirs(target_links_path, exist_ok=True)
 for key, values in final_links.items():
-    if os.path.exists(os.path.join(target_links_path, f"{key}.json")):
-        with open(os.path.join(target_links_path, f"{key}.json"), "r", encoding="utf-8") as f:
+    target_path = os.path.join(target_links_path, f"{key}_links.json")
+    if os.path.exists(target_path):
+        with open(target_path, "r", encoding="utf-8") as f:
             existing_values = json.load(f)
         values.extend(existing_values)
-    with open(os.path.join(target_links_path, f"{key}.json"), "w", encoding="utf-8") as f:
+    with open(target_path, "w", encoding="utf-8") as f:
         json.dump(values, f, indent=2, ensure_ascii=False)
 
 
 print(f"{len(set_links)=} {len(set_range)=} {len(otzaria_links)=}")
 # # print(set_links)
 
-with open("otzaria_links_found.json", "w", encoding="utf-8") as f:
+with open("otzaria_links_found_2.json", "w", encoding="utf-8") as f:
     json.dump(found_links_dict, f, ensure_ascii=False, indent=4)
 
-with open("not_found_links.txt", "w", encoding="utf-8") as f:
+with open("not_found_links_2.txt", "w", encoding="utf-8") as f:
     for link in not_found_links:
         f.write(f"{link}\n")
-with open("not_found_books.txt", "w", encoding="utf-8") as f:
+with open("not_found_books_2.txt", "w", encoding="utf-8") as f:
     for book in not_found_books:
         f.write(f"{book}\n")
-with open("found_links.txt", "w", encoding="utf-8") as f:
+with open("found_links_2.txt", "w", encoding="utf-8") as f:
     for book in found_links:
         f.write(f"{book}\n")
