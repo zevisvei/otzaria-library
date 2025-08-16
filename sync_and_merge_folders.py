@@ -9,7 +9,8 @@ mapping = {
     "OraytaToOtzaria": "Orayta",
     "sefaria and more": "sefaria",
     "sefariaToOtzaria": "sefaria",
-    "MoreBooks": "MoreBooks"
+    "MoreBooks": "MoreBooks",
+    "tashmaToOtzaria": "Tashma",
 }
 
 
@@ -58,6 +59,7 @@ folders = (
     "OnYourWayToOtzaria/ספרים/אוצריא",
     "OraytaToOtzaria/ספרים/אוצריא",
     "sefariaToOtzaria/ספרים/אוצריא",
+    "tashmaToOtzaria/ספרים/אוצריא",
     "sefaria and more",
     "MoreBooks"
 )
