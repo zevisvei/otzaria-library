@@ -1,0 +1,43 @@
+[
+    {
+        "he_authors": null,
+        "en_authors": null,
+        "series": "כלי חמדה",
+        "he_title": "כלי חמדה על התורה",
+        "en_title": "Keli Chemdah on Torah",
+        "heDesc": "",
+        "enDesc": "",
+        "heShortDesc": "",
+        "enShortDesc": "",
+        "he_categories": [
+            "תנ\"ך",
+            "אחרונים על התנ״ך"
+        ],
+        "en_categories": [
+            "Tanakh",
+            "Acharonim on Tanakh"
+        ],
+        "he_era": null,
+        "language": "he"
+    },
+    {
+        "he_authors": null,
+        "en_authors": null,
+        "he_title": "חומש קה\"ת; ביאורי חסידות",
+        "en_title": "The Kehot Chumash; A Chasidic Commentary",
+        "heDesc": "*חומש קה\"ת; ביאורי חסידות* הוא פירוש חסידי לחומש מהמאה ה-21 מאת הוצאת 'בית חב\"ד'. הפירוש הודפס כחלק מהתרגום לתורה המשולב של קהת. הפירוש מספק כיסוי מעמיק לנושאים שנחשבים ארוכים מכדי להיכלל בתרגום המשולב, והוא מבוסס בדרך כלל על פירושיו של רש\"י לפסוקי התורה. בנוסף הפירוש כולל דגימה מתורותיו של רבי מנחם מנדל שניאורסון (האדמו\"ר האחרון של תנועת חב\"ד-ליובאוויטש, המכונה \"הרבי\") ואדמו\"רים קודמים על הרלוונטיות של קטעי תורה נבחרים, וכן סקירות של כל פרשות התורה.\n",
+        "enDesc": "*The Kehot Chumash: A Chasidic Commentary* is a 21st-century commentary from Chabad House Publications, printed as part of the Kehot interpolated Torah translation. The commentary provides in-depth coverage of topics deemed too lengthy to be included in the interpolated translation and is generally based on Rashi’s explanations of Torah passages. It also includes a sampling of teachings from Rabbi Menachem Mendel Schneerson (the last rebbe of the Chabad-Lubavitch movement, known as “the Rebbe”) and his predecessors about the relevance of select Torah passages, as well as overviews of each Torah portion. \n",
+        "heShortDesc": "פרשנות לתורה מהמאה ה-21 של הוצאת 'בית חב\"ד' המבוססת על הסבריו של רש\"י ותורתו של רבי מנחם-מנדל שניאורסון\n",
+        "enShortDesc": "21st-century commentary from Chabad House Publications\n",
+        "he_categories": [
+            "תנ\"ך",
+            "פירושים מודרניים על התנ״ך"
+        ],
+        "en_categories": [
+            "Tanakh",
+            "Modern Commentary on Tanakh"
+        ],
+        "he_era": null,
+        "language": "he"
+    }
+]
