@@ -1,10 +1,37 @@
-import os
 import json
+import os
 
 import pandas as pd
-
 from otzaria.get_from_export import Book
-from otzaria.utils import sanitize_filename, footnotes
+from otzaria.utils import footnotes, sanitize_filename
+
+
+def read_file(file_path: str) -> set[str]:
+    with open(file_path, "r", encoding="utf-8") as f:
+        return set(f.read().split("\n"))
+
+
+def recursive_register_categories(
+    index: list | dict,
+    data: list[dict[str, str | list[str]]] | None = None,
+    tree: list[str] | None = None,
+) -> dict[str, int]:
+    if tree is None:
+        tree = []
+    if data is None:
+        data = {}
+    if isinstance(index, list):
+        for item in index:
+            recursive_register_categories(item, data, tree)
+    elif isinstance(index, dict):
+        if index.get("contents"):
+            tree.append(index["heCategory"])
+            for item in index["contents"]:
+                recursive_register_categories(item, data, tree)
+            tree.pop()
+        if index.get("title") and "order" in index:
+            data[index["title"]] = index["order"]
+    return data
 
 
 def get_book(book_title: str, text_file_path: str, schema_file_path: str, lang: str):
@@ -36,6 +63,8 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                     title = file_path.split(os.sep)[-3].replace(' ', '_')
                     schema_file_name = os.path.join(schemas_folder, title + '.json')
                     book_content, metadata, categories, refs = get_book(title, text_file, schema_file_name, lang)
+                    if metadata["title"] in files_black_list or any(author in authors_black_list for author in metadata["heAuthors"]):
+                        continue
                     output_path = [sanitize_filename(i) for i in categories]
                     os.makedirs(os.path.join(output_folder, *output_path), exist_ok=True)
                     output_file_name = os.path.join(output_folder, *output_path, sanitize_filename(metadata["title"]))
@@ -59,6 +88,7 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                         book_content_copy.append(line)
                     with open(f'{output_file_name}.txt', 'w', encoding='utf-8') as file:
                         file.writelines(book_content_copy)
+                    metadata["order"] = toc_content.get(metadata.get("enTitle"))
                     all_metadata[output_file_name] = metadata
                     # df = pd.DataFrame(refs)
                     for entry in refs:
@@ -77,11 +107,20 @@ def main(json_folder, schemas_folder, output_folder, lang: str):
                         f.write(f"{file_path} {e}\n")
 
 
+toc_file_path = r"F:\Sefaria-Export\table_of_contents.json"
+with open(toc_file_path, "r", encoding="utf-8") as f:
+    toc = json.load(f)
+toc_content = recursive_register_categories(toc)
 all_metadata = {}
-json_folder = r"D:\Sefaria-Export\json"
-schemas_folder = r"D:\Sefaria-Export\schemas"
+json_folder = r"F:\Sefaria-Export\json"
+schemas_folder = r"F:\Sefaria-Export\schemas"
+files_black_list_file_path = r""
+authors_black_files_list_file_path = r""
+files_black_list = read_file(files_black_list_file_path)
+authors_black_list = read_file(authors_black_files_list_file_path)
 # output_folder = os.path.join("אוצריא", "אוצריא")
 output_folder = r"C:\Users\User\Desktop\אוצריא\אוצריא"
+os.makedirs(output_folder, exist_ok=True)
 # links_path = os.path.join("אוצריא", "links")
 links_path = r"C:\Users\User\Desktop\אוצריא\links"
 os.makedirs(links_path, exist_ok=True)
@@ -91,5 +130,5 @@ main(json_folder=json_folder, schemas_folder=schemas_folder,
      output_folder=output_folder, lang=lang)
 df = pd.DataFrame(refs_list)
 df.to_csv(r"C:\Users\User\Desktop\אוצריא\refs_all.csv", index=False)
-with open(r"C:\Users\User\Desktop\אוצריא\metadata.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\User\Desktop\אוצריא\books_metadata.json", "w", encoding="utf-8") as f:
     json.dump(all_metadata, f, ensure_ascii=False, indent=4)

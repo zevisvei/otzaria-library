@@ -1,8 +1,10 @@
-import os
 import csv
-from collections import defaultdict
 import json
-from typing import TypedDict, Generator
+import os
+from collections import defaultdict
+from collections.abc import Generator
+from copy import deepcopy
+from typing import TypedDict
 
 from tqdm import tqdm
 
@@ -31,6 +33,7 @@ otzaria_parse: defaultdict[str, list[Link]] = defaultdict(list)
 all_otzaria_links: defaultdict[str, list[list[str]]] = defaultdict(list)
 final_links: defaultdict[str, list[OtzariaLink]] = defaultdict(list)
 target_links_path = r"C:\Users\User\Desktop\אוצריא\links"
+refs_file_path = r"C:\Users\User\Desktop\אוצריא\refs_all.csv"
 not_found_links: set[str] = set()
 not_found_books: set[str] = set()
 found_links: set[str] = set()
@@ -42,9 +45,9 @@ def match_range(
         sefaria_start_range: list[int],
         sefaria_end_range: list[int]
 ) -> bool:
-    if any([not isinstance(x, int)
+    if any(not isinstance(x, int)
             for link in [otzaria_link, sefaria_start_range, sefaria_end_range]
-            for x in link]):
+            for x in link):
         return False
     common_len = min(len(sefaria_start_range), len(sefaria_end_range), len(otzaria_link))
     return sefaria_start_range[:common_len] <= otzaria_link[:common_len] <= sefaria_end_range[:common_len]
@@ -56,9 +59,7 @@ def match_range(
 
 def match_links(sefaria_start_range: list[int] | list[str], otzaria_link: list[int] | list[str]) -> bool:
     common_len = min(len(sefaria_start_range), len(otzaria_link))
-    if sefaria_start_range[:common_len] == otzaria_link[:common_len]:
-        return True
-    return False
+    return sefaria_start_range[:common_len] == otzaria_link[:common_len]
 
 
 def get_best_match(otzaria_links: list[Link]) -> list[Link]:
@@ -86,6 +87,25 @@ def parse_range(start_index: str, end_index: str) -> tuple[list[str], list[str]]
             if len(start) > len(end):
                 end.insert(0, i)
     return start, end
+
+
+def fix_he_ref(ref: str, en_ref_len: int) -> str:
+    first_part = []
+    split_ref = ref.split(",")
+    last_part = split_ref[-1]
+    if len(split_ref) == 1:
+        last_part = split_ref[-1]
+        split_ref = []
+    split_last_part = last_part.split(" ")
+    start_index = split_last_part[-1].split("&&&")
+    if len(split_ref) > 1:
+        first_part = split_ref[:-1]
+    if len(split_last_part) > 1:
+        first_part.append(" ".join(split_last_part[:-1]))
+    first_part = [part.strip() for part in first_part]
+    start_index = [part.strip() for part in start_index]
+    start_index_new = start_index[:en_ref_len]
+    return f"{', '.join(first_part)} {', '.join(start_index_new)}"
 
 
 def split_link(link: str) -> Link:
@@ -132,8 +152,7 @@ def read_links() -> Generator[list[str]]:
             if headers[0] != "Citation 1" or headers[1] != "Citation 2":
                 continue
             print(headers)
-            for line in reader:
-                yield line
+            yield from reader
 
 
 for line in read_links():
@@ -143,7 +162,6 @@ for line in read_links():
         else:
             set_links.add(line[i].strip())
 
-refs_file_path = r"C:\Users\User\Desktop\אוצריא\refs_all.csv"
 print(f"{len(set_links)=} {len(set_range)=}")
 with open(refs_file_path, "r", encoding="utf-8", newline="") as f:
     reader = csv.reader(f)
@@ -157,6 +175,7 @@ with open(refs_file_path, "r", encoding="utf-8", newline="") as f:
         all_otzaria_links[f"{", ".join(parse["first_part"])} {":".join(map(str, parse["start_index"]))}"].append(line)
         otzaria_parse[parse["first_part"][0]].append(parse)
         if line[0].strip() in set_links:
+            line[1] = line[1].replace("&&&", ", ")
             otzaria_links[line[0].strip()].append(line)
             set_links.remove(line[0].strip())
 num = len(set_links)
@@ -185,10 +204,12 @@ for i in tqdm(set_links):
         if result:
             # result_link = max(result, key=lambda x: len(x["start_index"]))
             # otzaria_links[i] = [all_otzaria_links[f"{", ".join(best_match[0]["first_part"])} {":".join(map(str, best_match[0]["start_index"]))}"]] if best_match else []
-            otzaria_links[i].extend([otzaria_link
-                                    for otzaria_link in all_otzaria_links[f"{", ".join(best_match[0]["first_part"])} {":".join(map(str, best_match[0]["start_index"]))}"]]
-                                    if best_match else []
-                                    )
+            if best_match:
+                links = [otzaria_link for otzaria_link in all_otzaria_links[f"{", ".join(best_match[0]["first_part"])} {":".join(map(str, best_match[0]["start_index"]))}"]]
+                links = deepcopy(links)
+                for link in links:
+                    link[1] = fix_he_ref(link[1], len(best_match[0]["start_index"]))
+                otzaria_links[i].extend(links)
             set_links_copy.remove(i)
             found_links.add(i)
             found_links_dict[i] = [all_otzaria_links[f"{", ".join(best_match[0]["first_part"])} {":".join(map(str, best_match[0]["start_index"]))}"]] if best_match else []
@@ -226,11 +247,13 @@ for i in tqdm(set_range):
             # result_link = max(result, key=lambda x: len(x["start_index"]))
             # otzaria_links[i] = [all_otzaria_links[f"{", ".join(match["first_part"])} {":".join(map(str, match["start_index"]))}"]
             #                     for match in best_match] if best_match else []
-            otzaria_links[i].extend([otzaria_link
-                                    for match in best_match
-                                    for otzaria_link in all_otzaria_links[f"{", ".join(match["first_part"])} {":".join(map(str, match["start_index"]))}"]]
-                                    if best_match else []
-                                    )
+            if best_match:
+                for match in best_match:
+                    links = [otzaria_link for otzaria_link in all_otzaria_links[f"{", ".join(match["first_part"])} {":".join(map(str, match["start_index"]))}"]]
+                    links = deepcopy(links)
+                    for link in links:
+                        link[1] = fix_he_ref(link[1], len(match["start_index"]))
+                    otzaria_links[i].extend(links)
             range_links_copy.remove(i)
             found_links.add(i)
             found_links_dict[i] = [all_otzaria_links[f"{", ".join(match["first_part"])} {":".join(map(str, match["start_index"]))}"]

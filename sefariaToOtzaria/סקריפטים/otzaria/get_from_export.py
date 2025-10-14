@@ -1,6 +1,6 @@
-from .utils import to_daf, to_gematria, has_value, read_json, to_eng_daf
-
 from typing import Optional
+
+from .utils import has_value, read_json, to_daf, to_eng_daf, to_gematria
 
 
 class Book:
@@ -14,7 +14,7 @@ class Book:
     ) -> None:
 
         self.book_title = book_title
-        self.metadata = {}
+        self.metadata = {"heSeries": None, "series": None, "series-index": None}
         self.lang = lang[:2]
         self.refs = []
         self.long_lang = lang
@@ -26,7 +26,7 @@ class Book:
         self.schema = read_json(schema_file_path)
         self.he_title = he_title
 
-    def get_metadata(self) -> dict[str, str]:
+    def get_metadata(self) -> tuple[dict, list[str]]:
         era_dict = {
             "GN": {"en": "Gaonim", "he": "גאונים"},
             "RI": {"en": "Rishonim", "he": "ראשונים"},
@@ -35,65 +35,63 @@ class Book:
             "A": {"en": "Amoraim", "he": "אמוראים"},
             "CO": {"en": "Contemporary", "he": "מחברי זמננו"},
         }
-        authors_list = []
+        en_authors_list = []
+        he_authors_list = []
         authors = self.schema.get("authors")
         if authors:
             for i in authors:
-                i = i.get(self.section_names_lang)
-                if i:
-                    authors_list.append(i)
-        if authors:
-            self.metadata["authors"] = "&".join(authors_list)
-
-        if self.section_names_lang == "he" and (
-            self.he_title or self.schema.get("heTitle")
-        ):
-            self.metadata["title"] = self.he_title or self.schema.get("heTitle")
-        else:
-            self.metadata["title"] = self.book_title
-
-        long_Desc = self.schema.get(f"{self.section_names_lang}Desc")
-        ShortDesc = self.schema.get(f"{self.section_names_lang}ShortDesc")
-        era = self.schema.get("era")
-
-        if long_Desc:
-            self.metadata["comments"] = long_Desc
-        elif ShortDesc:
-            self.metadata["comments"] = ShortDesc
-
+                en_author = i.get("en")
+                he_author = i.get("he")
+                if en_author:
+                    en_authors_list.append(en_author)
+                if he_author:
+                    he_authors_list.append(he_author)
+        self.metadata["authors"] = en_authors_list
+        self.metadata["heAuthors"] = he_authors_list
+        self.metadata["title"] = self.he_title or self.schema.get("heTitle")
+        self.metadata["enTitle"] = self.schema.get("title")
+        self.metadata["enDesc"] = self.schema.get("enDesc")
+        self.metadata["enShortDesc"] = self.schema.get("enShortDesc")
+        self.metadata["heDesc"] = self.schema.get("heDesc")
+        self.metadata["heShortDesc"] = self.schema.get("heShortDesc")
         self.metadata["publisher"] = "sefaria"
         categories = self.schema.get("categories")
+        self.metadata["categories"] = categories
         he_categories = self.schema.get("heCategories")
-        if he_categories and self.section_names_lang == "he":
-            self.metadata["tags"] = ",".join(he_categories)
-            categories = he_categories
-            if not self.metadata.get("series"):
-                self.metadata["series"] = he_categories[-1]
-        elif categories:
-            self.metadata["tags"] = ",".join(categories)
-            if not self.metadata.get("series"):
-                self.metadata["series"] = categories[-1]
-
-        if era:
-            era_in_dict = era_dict.get(era)
-            if era_in_dict:
-                if self.metadata.get("tags"):
-                    self.metadata["tags"] += f",{era_in_dict[self.section_names_lang]}"
-                else:
-                    self.metadata["tags"] = era_in_dict[self.section_names_lang]
-
+        self.metadata["heCategories"] = he_categories
+        era = era_dict.get(self.schema.get("era", ""), {})
+        self.metadata["era"] = era.get("en")
+        self.metadata["heEra"] = era.get("he")
         self.metadata["language"] = self.lang
-        return self.metadata, categories
+        self.metadata["pubDate"] = self.schema.get("pubDate")
+        self.metadata["compDate"] = self.schema.get("compDate")
+        self.metadata["pubPlace"] = None
+        self.metadata["compPlace"] = self.schema.get("compPlace")
+        comp_date_string = self.schema.get("compDateString", {})
+        self.metadata["compDateStringEn"] = comp_date_string.get("en")
+        self.metadata["compDateStringHe"] = comp_date_string.get("he")
+        pub_date_string = self.schema.get("pubDateString", {})
+        self.metadata["pubDateStringEn"] = pub_date_string.get("en")
+        self.metadata["pubDateStringHe"] = pub_date_string.get("he")
+        comp_place_string = self.schema.get("compPlaceString", {})
+        self.metadata["compPlaceStringEn"] = comp_place_string.get("en")
+        self.metadata["compPlaceStringHe"] = comp_place_string.get("he")
+        pub_place_string = self.schema.get("pubPlaceString", {})
+        self.metadata["pubPlaceStringEn"] = pub_place_string.get("en")
+        self.metadata["pubPlaceStringHe"] = pub_place_string.get("he")
+        extra_titles = self.schema.get("titles", [])
+        self.metadata["extraTitlesHe"] = [title.get("text") for title in extra_titles if title.get("lang") == "he" and title.get("text") != self.metadata["title"] and title.get("text")]
+        self.metadata["extraTitlesEn"] = [title.get("text") for title in extra_titles if title.get("lang") == "en" and title.get("text") != self.metadata["enTitle"] and title.get("text")]
+
+        return self.metadata, he_categories if self.section_names_lang == "he" else categories
 
     def set_series(self, text: dict) -> None:
+        if not self.metadata.get("heSeries"):
+            self.metadata["heSeries"] = text.get("heCollectiveTitle")
         if not self.metadata.get("series"):
-            if self.section_names_lang == "he" and text.get("heCollectiveTitle"):
-                self.metadata["series"] = text.get("heCollectiveTitle")
-            elif text.get("collectiveTitle"):
-                self.metadata["series"] = text.get("collectiveTitle")
-        if not self.metadata.get("series-index") and not self.metadata.get("series"):
-            if text.get("order"):
-                self.metadata["series-index"] = text["order"][-1]
+            self.metadata["series"] = text.get("collectiveTitle")
+        if not self.metadata.get("series-index") and text.get("order") and isinstance(text["order"], list) and len(text["order"]) > 0:
+            self.metadata["series-index"] = text["order"][-1]
 
     def process_book(self) -> list | None:
         self.book_content.append(f"<h1>{self.he_title or self.schema.get("heTitle")}</h1>\n")
