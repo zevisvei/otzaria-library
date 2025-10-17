@@ -2,56 +2,9 @@
 מתוך "גמרא נוֹחָה"
 על שם הורי נפתלי וחנה הולנדר <span style="color:#2828AC;">ז"ל</span>
 <h2>פרק ראשון שמאי אומר</h2>
-פרשת היולדת
-<span style="color:#2828AC;">ויקרא פרק יב</span>
-<span style="color:#2828AC;">פסוק ב</span>
-<span style="font-family: SBL Hebrew;">דבר אל בני ישראל לאמר: אשה כי תזריע וילדה זכר וטמאה שבעת ימים כימי נדת דותה תטמא</span>
-<span style="color:#2828AC;">פסוק ג</span>
-<span style="font-family: SBL Hebrew;">וביום השמיני ימול בשר ערלתו</span>
-<span style="color:#2828AC;">פסוק ד</span>
-<span style="font-family: SBL Hebrew;">ושלשים יום ושלשת ימים תשב בדמי טהרה בכל קדש לא תגע ואל המקדש לא תבא עד מלאת ימי טהרה</span>
-<span style="color:#2828AC;">פסוק ה</span>
-<span style="font-family: SBL Hebrew;">ואם נקבה תלד וטמאה שבעים כנדתה וששים יום וששת ימים תשב על דמי טהרה</span>
-<span style="color:#2828AC;">פסוק ו</span>
-<span style="font-family: SBL Hebrew;">ובמלאת ימי טהרה לבן או לבת תביא כבש בן שנתו לעלה ובן יונה או תר לחטאת אל פתח אהל מועד אל הכהן</span>
-<span style="color:#2828AC;">פסוק ז</span>
-<span style="font-family: SBL Hebrew;">והקריבו לפני ה’ וכפר עליה וטהרה ממקר דמיה זאת תורת הילדת לזכר או לנקבה</span>
-<span style="color:#2828AC;">פסוק ח</span>
-<span style="font-family: SBL Hebrew;">ואם לא תמצא ידה די שה ולקחה שתי תרים או שני בני יונה אחד לעלה ואחד לחטאת וכפר עליה הכהן וטהרה</span>
-פרשת אשה נדה
-<span style="color:#2828AC;">ויקרא טו</span>
-<span style="color:#2828AC;">פסוק יט</span>
-<span style="font-family: SBL Hebrew;">ואשה כי תהיה זבה דם יהיה זבה בבשרה שבעת ימים תהיה בנדתה וכל הנגע בה יטמא עד הערב</span>
-<span style="color:#2828AC;">פסוק כ</span>
-<span style="font-family: SBL Hebrew;">וכל אשר תשכב עליו בנדתה יטמא וכל אשר תשב עליו יטמא</span>
-<span style="color:#2828AC;">פסוק כא</span>
-<span style="font-family: SBL Hebrew;">וכל הנגע במשכבה יכבס בגדיו ורחץ במים וטמא עד הערב</span>
-<span style="color:#2828AC;">פסוק כב</span>
-<span style="font-family: SBL Hebrew;">וכל הנגע בכל כלי אשר תשב עליו יכבס בגדיו ורחץ במים וטמא עד הערב</span>
-<span style="color:#2828AC;">פסוק כג</span>
-<span style="font-family: SBL Hebrew;">ואם על המשכב הוא או על הכלי אשר הוא ישבת עליו בנגעו בו יטמא עד הערב</span>
-<span style="color:#2828AC;">פסוק כד</span>
-<span style="font-family: SBL Hebrew;">ואם שכב ישכב איש אתה ותהי נדתה עליו וטמא שבעת ימים וכל המשכב אשר ישכב עליו יטמא</span>
-פרשת אשה זבה
-<span style="color:#2828AC;">ויקרא טו</span>
-<span style="color:#2828AC;">פסוק כה</span>
-<span style="font-family: SBL Hebrew;">ואשה כי יזוב זוב דמה ימים רבים בלא עת נדתה או כי תזוב על נדתה כל ימי זוב טמאתה כימי נדתה תהיה טמאה הוא</span>
-<span style="color:#2828AC;">פסוק כו</span>
-<span style="font-family: SBL Hebrew;">כל המשכב אשר תשכב עליו כל ימי זובה כמשכב נדתה יהיה לה וכל הכלי אשר תשב עליו טמא יהיה כטמאת נדתה</span>
-<span style="color:#2828AC;">פסוק כז</span>
-<span style="font-family: SBL Hebrew;">וכל הנוגע בם יטמא וכבס בגדיו ורחץ במים וטמא עד הערב</span>
-<span style="color:#2828AC;">פסוק כח</span>
-<span style="font-family: SBL Hebrew;">ואם טהרה מזובה וספרה לה שבעת ימים ואחר תטהר</span>
-<span style="color:#2828AC;">פסוק כט</span>
-<span style="font-family: SBL Hebrew;">וביום השמיני תקח לה שתי תרים או שני בני יונה והביאה אותם אל הכהן אל פתח אהל מועד</span>
-<span style="color:#2828AC;">פסוק ל</span>
-<span style="font-family: SBL Hebrew;">ועשה הכהן את האחד חטאת ואת האחד עלה וכפר עליה הכהן לפני ה’ מזוב טמאתה</span>
-<span style="color:#2828AC;">פסוק לא</span>
-<span style="font-family: SBL Hebrew;">והזרתם את בני ישראל מטמאתם ולא ימתו בטמאתם בטמאם את משכני אשר בתוכם</span>
-<span style="color:#2828AC;">פסוק לב</span>
-<span style="font-family: SBL Hebrew;">זאת תורת הזב ואשר תצא ממנו שכבת זרע לטמאה בה</span>
-<span style="color:#2828AC;">פסוק לג</span>
-<span style="font-family: SBL Hebrew;">והדוה בנדתה והזב את זובו לזכר ולנקבה ולאיש אשר ישכב עם טמאה</span>
+פרשת היולדת<br><span style="color:#2828AC;">ויקרא פרק יב</span><br><span style="color:#2828AC;">פסוק ב</span><br><span style="font-family: SBL Hebrew;">דבר אל בני ישראל לאמר: אשה כי תזריע וילדה זכר וטמאה שבעת ימים כימי נדת דותה תטמא</span><br><span style="color:#2828AC;">פסוק ג</span><br><span style="font-family: SBL Hebrew;">וביום השמיני ימול בשר ערלתו</span><br><span style="color:#2828AC;">פסוק ד</span><br><span style="font-family: SBL Hebrew;">ושלשים יום ושלשת ימים תשב בדמי טהרה בכל קדש לא תגע ואל המקדש לא תבא עד מלאת ימי טהרה</span><br><span style="color:#2828AC;">פסוק ה</span><br><span style="font-family: SBL Hebrew;">ואם נקבה תלד וטמאה שבעים כנדתה וששים יום וששת ימים תשב על דמי טהרה</span><br><span style="color:#2828AC;">פסוק ו</span><br><span style="font-family: SBL Hebrew;">ובמלאת ימי טהרה לבן או לבת תביא כבש בן שנתו לעלה ובן יונה או תר לחטאת אל פתח אהל מועד אל הכהן</span><br><span style="color:#2828AC;">פסוק ז</span><br><span style="font-family: SBL Hebrew;">והקריבו לפני ה’ וכפר עליה וטהרה ממקר דמיה זאת תורת הילדת לזכר או לנקבה</span><br><span style="color:#2828AC;">פסוק ח</span><br><span style="font-family: SBL Hebrew;">ואם לא תמצא ידה די שה ולקחה שתי תרים או שני בני יונה אחד לעלה ואחד לחטאת וכפר עליה הכהן וטהרה</span>
+פרשת אשה נדה<br><span style="color:#2828AC;">ויקרא טו</span><br><span style="color:#2828AC;">פסוק יט</span><br><span style="font-family: SBL Hebrew;">ואשה כי תהיה זבה דם יהיה זבה בבשרה שבעת ימים תהיה בנדתה וכל הנגע בה יטמא עד הערב</span><br><span style="color:#2828AC;">פסוק כ</span><br><span style="font-family: SBL Hebrew;">וכל אשר תשכב עליו בנדתה יטמא וכל אשר תשב עליו יטמא</span><br><span style="color:#2828AC;">פסוק כא</span><br><span style="font-family: SBL Hebrew;">וכל הנגע במשכבה יכבס בגדיו ורחץ במים וטמא עד הערב</span><br><span style="color:#2828AC;">פסוק כב</span><br><span style="font-family: SBL Hebrew;">וכל הנגע בכל כלי אשר תשב עליו יכבס בגדיו ורחץ במים וטמא עד הערב</span><br><span style="color:#2828AC;">פסוק כג</span><br><span style="font-family: SBL Hebrew;">ואם על המשכב הוא או על הכלי אשר הוא ישבת עליו בנגעו בו יטמא עד הערב</span><br><span style="color:#2828AC;">פסוק כד</span><br><span style="font-family: SBL Hebrew;">ואם שכב ישכב איש אתה ותהי נדתה עליו וטמא שבעת ימים וכל המשכב אשר ישכב עליו יטמא</span>
+פרשת אשה זבה<br><span style="color:#2828AC;">ויקרא טו</span><br><span style="color:#2828AC;">פסוק כה</span><br><span style="font-family: SBL Hebrew;">ואשה כי יזוב זוב דמה ימים רבים בלא עת נדתה או כי תזוב על נדתה כל ימי זוב טמאתה כימי נדתה תהיה טמאה הוא</span><br><span style="color:#2828AC;">פסוק כו</span><br><span style="font-family: SBL Hebrew;">כל המשכב אשר תשכב עליו כל ימי זובה כמשכב נדתה יהיה לה וכל הכלי אשר תשב עליו טמא יהיה כטמאת נדתה</span><br><span style="color:#2828AC;">פסוק כז</span><br><span style="font-family: SBL Hebrew;">וכל הנוגע בם יטמא וכבס בגדיו ורחץ במים וטמא עד הערב</span><br><span style="color:#2828AC;">פסוק כח</span><br><span style="font-family: SBL Hebrew;">ואם טהרה מזובה וספרה לה שבעת ימים ואחר תטהר</span><br><span style="color:#2828AC;">פסוק כט</span><br><span style="font-family: SBL Hebrew;">וביום השמיני תקח לה שתי תרים או שני בני יונה והביאה אותם אל הכהן אל פתח אהל מועד</span><br><span style="color:#2828AC;">פסוק ל</span><br><span style="font-family: SBL Hebrew;">ועשה הכהן את האחד חטאת ואת האחד עלה וכפר עליה הכהן לפני ה’ מזוב טמאתה</span><br><span style="color:#2828AC;">פסוק לא</span><br><span style="font-family: SBL Hebrew;">והזרתם את בני ישראל מטמאתם ולא ימתו בטמאתם בטמאם את משכני אשר בתוכם</span><br><span style="color:#2828AC;">פסוק לב</span><br><span style="font-family: SBL Hebrew;">זאת תורת הזב ואשר תצא ממנו שכבת זרע לטמאה בה</span><br><span style="color:#2828AC;">פסוק לג</span><br><span style="font-family: SBL Hebrew;">והדוה בנדתה והזב את זובו לזכר ולנקבה ולאיש אשר ישכב עם טמאה</span>
 <h3>ב,א</h3>
 משנה:
 שמאי אומר: כל הנשים דין שעתן <span style="color:#2828AC;">(<span style="color:#2828AC;">אם ראתה דם - די לנו אם תטמא תרומה וטהרות שתגע בהן משעת ראייה ואילך, ולא אמרינן 'כי היכי דהשתא אישתכח דם בבית החיצון, אי הות בדקה נמי מקמי הכי הוה אישתכח, וכותלי בית הרחם העמידוהו'; וקיימא לן בפרק 'יוצא דופן'</span> <span style="font-size:80%;">(לקמן דף מ.)</span> <span style="color:#2828AC;">'כל הנשים מטמאות בבית החיצון'</span>)</span>;

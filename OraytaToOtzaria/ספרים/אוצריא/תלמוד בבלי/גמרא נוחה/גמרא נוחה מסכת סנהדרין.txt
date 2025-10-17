@@ -915,34 +915,6 @@
 השתא דאמרת 'לו' לדרשה, '<span style="font-family: SBL Hebrew;">לא ירבה לו נשים</span>' מאי דרשת ביה?
 למעוטי הדיוטות <span style="color:#2828AC;">(<span style="color:#2828AC;">דמותרין להרבות נשים</span>)</span>.
 רב יהודה רמי: כתיב <span style="color:#2828AC;">(מלכים א ה,ו)</span> <span style="font-family: SBL Hebrew;">ויהי לשלמה ארבעים אלף ארוות סוסים למרכבתו</span> <span style="font-size:70%; font-family: SBL Hebrew;">[ (</span><span style="color:#008A00;">בגירסא שלנו</span> <span style="font-size:70%; font-family: SBL Hebrew;">'למרכבו') ושנים עשר אלף פרשים]</span> וכתיב <span style="color:#2828AC;">(דברי הימים ב ט,כה)</span> <span style="font-family: SBL Hebrew;">ויהי לשלמה ארבעת אלפים אריות סוסים</span> <span style="font-size:70%; font-family: SBL Hebrew;">[ומרכבות ושנים עשר אלף פרשים ויניחם בערי הרכב ועם המלך בירושלם]</span>; הא כיצד? אם ארבעים אלף איצטבלאות <span style="color:#2828AC;">(<span style="color:#2828AC;">בית גדול למדור הסוסים</span>)</span> היו - כל אחד ואחד היו בו ארבעת אלפים ארוות <span style="color:#2828AC;">(<span style="color:#2828AC;">הבדלה בין שורה לשורה על פני הבית</span>)</span> סוסים, ואם ארבעת אלפים איצטבלאות היו - כל אחד ואחד היו בו ארבעים אלף ארוות סוסים.
-Sanhedrin 021: Shlomo's horses
-ERIC COOPERSMITH asked:
-ACCORDING TO THE CHESBON OF THE GEMARA IT SEEMS AS IF Shlomo Hamelech had 160 million horses. Can that be true??
-----------------------------------------------
-The Kollel replies:
-You are correct that according to the Gemara's answer to reconcile the
-verse in Melachim with the verse in Divrei ha'Yamim, it would come out that
-Shlomo ha'Melech had 160 million horses.
-However, it seems that a printer's error crept into the Vilna Shas. The
-word "Elef" should not appear in each of the two phrases of the Gemara
-after the word "Arba'im." That is, the Gemara should say "Im Arba'im
-Itztabla'os Hayu," instead of "Im Arba'im Elef Itztabla'os Hayu," and
-similarly in the Gemara's second phrase. Accordingly, there were
-only160,000, instead of 160 million. See DIKDUKEI SOFRIM. (The Peshat in
-the verse in Melachim would then be that he had 40 stables containing
-thousands of horses, while the verse in Divrei ha'Yamim would be that he
-had 4000 horses in each of his stables.)
-The RADAK (Melachim 1 5:6) also has such a Girsa, but in his first phrase
-he has 40 stables with 4000 horses (for a total of 160,000), and in his
-second phrase he has 40,000 stables with 40 horses (for a total of 1.6
-million).
-The METZUDAS DAVID and RALBAG also have such a Girsa, but they write that
-there was only 10 horses in each stable, and there were 4000 stables. Thus,
-the verse in Melachim is giving the total number of horses in the stables,
-while the verse in Divrei ha'Yamim is giving the total number of stables.
-It seems that this was their Girsa in the Gemara.
-Yisroel Shaw
-D.A.F.
 רבי יצחק רמי: כתיב <span style="color:#2828AC;">(דברי הימים ב ט,כ)</span> <span style="font-size:70%; font-family: SBL Hebrew;">[וכל כלי משקה המלך שלמה זהב וכל כלי בית יער הלבנון זהב סגור]</span> <span style="font-family: SBL Hebrew;">אין כסף נחשב בימי שלמה למאומה</span> וכתיב <span style="color:#2828AC;">(מלכים א י,כז)</span> <span style="font-family: SBL Hebrew;">ויתן המלך את הכסף בירושלים כאבנים</span> <span style="color:#2828AC;">(חשיב מיהא פורתא)</span> <span style="font-size:70%; font-family: SBL Hebrew;">[ואת הארזים נתן כשקמים אשר בשפלה לרב]</span>!?
 לא קשיא: כאן קודם שנשא שלמה את בת פרעה, כאן לאחר שנשא שלמה את בת פרעה
 אמר רבי יצחק: בשעה שנשא שלמה את בת פרעה - ירד גבריאל ונעץ קנה בים, והעלה שירטון, ועליו נבנה כרך גדול שברומי.

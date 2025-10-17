@@ -9,13 +9,6 @@
 <span style="color:#2828AC;">(תענית ב,ב)</span>
 <span style="color:#008A00;">הגירסא: לפי דפוס וילנא עם אחדים מההגהות שעל הדף – לפי הנראה לי כנחוץ לצורך הפשט הפשוט.</span>
 <span style="color:#008A00;">מקרא: בתחתית הדף</span>
-<span style="color:#2828AC;">הערות בשולי הדף – בתצוגת דף אינטרנט אפשר – באקפלורר – להניח עליהם את הסמן ואז מופיעה ההערה בחלון. אפשר גם לראות אם עוברים לתצוגה של דף הדפסה.</span>
-<span style="color:#2828AC;">In Explorer, Footnotes become visible when the cursor rests on the number of the footnote.</span>
-הערות וטבלאות באנגלית – ע"י כולל עיון הדף, ראש הכולל הרב מרדכי קורנפלד –
-Producers of the Dafyomi Advancement Forum, mailto:daf@dafyomi.co.il, http://www.dafyomi.co.il/
-This material is ©2005 by Julius Hollander 27 Bialik St., Petah Tikva, Israel 49351
-Permission to distribute this material, with this notice, is granted - with request to notify of use
-at the address at www.geocities.com/yeshol
 <h2>פרק ראשון קדשי קדשים</h2>
 בתורה:
 ויקרא ה,יד-טז: <span style="font-family: SBL Hebrew;">וידבר ה’ אל משה לאמר:</span>

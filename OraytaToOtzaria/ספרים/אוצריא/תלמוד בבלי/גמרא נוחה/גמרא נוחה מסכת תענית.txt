@@ -1,6 +1,5 @@
 <h1>ביאור גמרא נוחה על תענית</h1>
-מתוך "גמרא נוֹחָה"<span style="color:#2828AC;">1 I heard that Rashi in Masechet Ta'anit is not really Rashi. I was wondering what the story is: (a) How do we know it's not Rashi? (b) Why didn't Rashi write a commentary? (c) If it's not Rashi, who is it? Avraham Adam Sabzevari, Kew Gardens, NY, USA ---------------------------------------------- The Kollel replies: (a) The Sefer "Rashi Ta'anis" (Moshe Chai Publishing, 5764, annotated by Rabbi Yosef Chaim Dayan) brings in his introduction the Maharatz Chiyus' essay "Imrei Binah", chapter 5, who mentions several categories of proofs and many examples of each to show that the Perush printed in our Gemara is not from Rashi.  Among his proofs are: 1. Contradictions between this Perush and Rashi's Perush throughout Shas. 2. Tosfos on our Masechta does not quote this Perush, so it would seem that they did not have it. 3. Other commentaries, such as Ritva and Ran, do not bringing Rashi's opinion in their commentaries, again implying that they did not have his Perush available. (Neither does the Bartenura use the words of Rashi nearly as much as with other Masechtos.) 4. The quotes in Tosfos and other Rishonim that are attributed to Rashi are not consistent with the Perush here. 5. This Perush is not written in the same style as Rashi throughout Shas, specifically regarding the way he quotes Pesukim. 6. There are several examples of extraneous words appearing in this commentary, which is clearly not Rashi's style. 7. There is an abundance of differing versions of this Perush. Although Rabbi Dayan refutes many of the proofs of Maharatz Chiyus, nevertheless it is clear that many Rishonim had a different commentary of Rashi than what is printed. (See, for example, Tosfos 4a DH Chigeres, and 12a DH Im, and 12b DH Nim; Ramban 15a; Or Zaru'a #403, 407, and 410). Many Acharonim agreed with Maharatz Chiyus that our commentary was not written by Rashi, for example Chida (in Shem ha'Gedolim, letter "Shin"), citing R. Yakov Emden, Yad David (Zintzheim) Ta'anis 13a, Mar'eh Kohen (R. Betzalel Cohen of Vilna), and R. Reuven Margoliyos (Nitzotzei Zohar to Mishpatim, 115a). (b) We do not have Rashi's commentary on Nedarim and Nazir either, or on most of Bava Basra.  Nobody seems to know why that is - were they lost, or did Rashi simply not have a chance to finish them?  That does not seem to be the case here, though, since Rishonim do quote Rashi from Ta'anis. We actually have another record of Rashi's commentary on Ta'anis.  Three manuscripts of a commentary which has been attributed to Rashi (but differs from the printed "Rashi") exist.  The commentary of Rashi printed with the Gemara in Spain 1482 seems to have been based on those manuscripts, as well as the Rashi printed in the Ein Yakov of Saloniki, 1520.  Although there are minor differences between the manuscripts and the printed "Rashi" throughout the Maseches, the major difference between our Rashi and those Rashis is in the first Daf and a half of the Maseches.  It seems that the commentary we have for these pages was written by a Talmid of Rabeinu Gershon (see below, (c)). Even these manuscripts do not contain all of the citations from Rashi that the Rishonim bring, but they are more consistent with the Rishonim's citations than our "Rashi".  One of the manuscripts begins with a note saying that it is not clear who wrote it, but the scribe heard that Rashi's student wrote the (or a) commentary.  This is consistent with the conclusion of Maharatz Chiyus (see below, (c)). The Rashi printed alongside the Rif is much briefer than our "Rashi", and his style seems more polished.  According to R. Reuven Margoliyos (cited above at the end of (a)), this is what remains from the "true" commentary of Rashi on Ta'anis. (c) Maharatz Chiyus concludes that some notes for Maseches Ta'anis were indeed written by Rashi himself.  These were then used by a Talmid of his as the basis for his own Perush.  This new Perush was not popularized at the time (thus it was not available to the other Rishonim) but after the Perush was printed alongside the Gemara, it was mistaken for Rashi's own commentary.  He asserts that each mention of "I heard from my Rebbi" indicates a teaching that the author read in Rashi's Perush. The author of Dikdukei Sofrim (Ta'anis 2b, see also Cheshek Shlomo 3a) points out that for the first Daf and a half of Ta'anis, the commentary printed as "Rashi" is suspiciously similar to the commentary of Rabeinu Gershon (which is printed in the common Shas).  That section may have been written by a student of Rabeinu Gershon (as mentioned above (b)).  This is not true of the remainder of the commentary.</span>
-על שם הורי נפתלי וחנה הולנדר הכ"מ
+מתוך "גמרא נוֹחָה" על שם הורי נפתלי וחנה הולנדר הכ"מ
 <h2>פרק ראשון מאימתי</h2>
 <h3>ב,א</h3>
 משנה:
@@ -324,40 +323,6 @@
 אמר רב פפא: הלכך
 <h3>ז,א</h3>
 נימרינהו לתרוייהו: אל ההודאות ורוב ההודאות <span style="color:#2828AC;">(ברוך אתה ברוב ההודאות - במרבית ההודאות; האל - של כל ההודאות משמע, ומתחלה היה משמע רוב ממש, ולא מרובות, וכמו כן ב'ישתבח': "אל מלך גדול בתשבחות אל ההודאות". מפי רבי)</span>.
-<span style="color:#2828AC;">Re: Ta'anis 006b: The Berachah said on rain in Eretz Yisrael</span>
-<span style="color:#2828AC;">Michael Winokur {michaelswinokur@yahoo.com} asked:</span>
-<span style="color:#2828AC;">Michael asked earlier:</span>
-<span style="color:#2828AC;">}} Does the berach on rain have an introduction containing shem and malchus...{{</span>
-<span style="color:#2828AC;">The Kollel replied:</span>
-<span style="color:#2828AC;">}}TOSFOS in Berachos (46a, DH ul'Man d'Amar) explains that a Berachah of</span>
-<span style="color:#2828AC;">Hoda'ah, a Berachah of praise to Hashem (as opposed to Birchas ha'Nehenin or</span>
-<span style="color:#2828AC;">Birchas ha'Mitzvos), does not need to open with the text of a Berachah with</span>
-<span style="color:#2828AC;">Shem u'Malchus.{{</span>
-<span style="color:#2828AC;">Michael asked further:</span>
-<span style="color:#2828AC;">The Shem is obviously there. But where is Malchus? The word Melech</span>
-<span style="color:#2828AC;">does not appear. Is it implicit in the Shem?</span>
-<span style="color:#2828AC;">----------------------------------------------</span>
-<span style="color:#2828AC;">The Kollel replies:</span>
-<span style="color:#2828AC;">(a) The word "Malkeinu" appears in the Berachah (granted, not in the</span>
-<span style="color:#2828AC;">Chasimah itself, but right before the Chasimah). We find that, according to</span>
-<span style="color:#2828AC;">some Rishonim, appearances of Malchus, even when not in the actual Chasimah</span>
-<span style="color:#2828AC;">(or Pesichah), still count as the necessary Malchus, as the Beis Yosef,</span>
-<span style="color:#2828AC;">citing from the Rosh and Tosfos, mentions in OC 214.</span>
-<span style="color:#2828AC;">(b) It is interesting to note, though, that the RAN (Ta'anis 2a, DH Amar Rav</span>
-<span style="color:#2828AC;">Papa) says that the end of the Berachah should indeed include the word</span>
-<span style="color:#2828AC;">"Melech" ("Baruch... Melech Rov ha'Hoda'os") for this reason.</span>
-<span style="color:#2828AC;">(c) The RA'AVAD (on the Ba'al ha'Me'or in Maseches Berachos), as quoted by</span>
-<span style="color:#2828AC;">the TUR (OC 218), maintains that a Birchas Hoda'ah does *not* require</span>
-<span style="color:#2828AC;">Malchus like other types of Berachos do. Although all of the Rishonim argue</span>
-<span style="color:#2828AC;">with the Ra'avad, the PERISHAH there (218:4) writes that, "[The opinion of</span>
-<span style="color:#2828AC;">the Ra'avad] is the source for the common practice that in a number of</span>
-<span style="color:#2828AC;">Berachos, we do not say Malchus."</span>
-<span style="color:#2828AC;">(The MISHNAH BERURAH (214:1) says that the Halachah that a Berachah without</span>
-<span style="color:#2828AC;">Shem u'Malchus is not a Berachah applies to "both Birchos ha'Mitzvos and</span>
-<span style="color:#2828AC;">Birchos ha'Nehenin." He leaves out Birchos ha'Hoda'os, though, and it may be</span>
-<span style="color:#2828AC;">that he means to imply, like the Perishah, that Birchos ha'Hoda'os (such as</span>
-<span style="color:#2828AC;">the Berachah for rain in Eretz Yisrael) do not need Malchus.)</span>
-<span style="color:#2828AC;">Y. Shaw</span>
 אמר רבי אבהו: גדול יום הגשמים מתחיית המתים, דאילו תחיית המתים לצדיקים, ואילו גשמים - בין לצדיקים בין לרשעים.
 ופליגא דרב יוסף, דאמר רב יוסף: מתוך שהיא שקולה כתחיית המתים - קבעוה בתחיית המתים <span style="color:#2828AC;">(דאיהו אמר כתחיית המתים ולא יותר, שבה חיים בני אדם, שהתבואה גדילה בו)</span>.
 אמר רב יהודה: גדול יום הגשמים כיום שניתנה בו תורה, שנאמר <span style="font-size:80%;">(דברים לב,ב)</span> <span style="font-family: SBL Hebrew;">יערף</span> <span style="color:#2828AC;">(כמו</span> <span style="font-family: SBL Hebrew;">אף שמיו יערפו טל</span> <span style="font-size:80%;">(דברים לג,כח)</span> <span style="font-family: SBL Hebrew;">ושחקים ירעפו טל</span> <span style="font-size:80%;">(משלי ג,כ)</span> <span style="color:#2828AC;">- שהיא מרבה הפירות)</span> <span style="font-family: SBL Hebrew;">כמטר לקחי [תזל כטל אמרתי כשעירם עלי דשא וכרביבים עלי עשב]</span> <span style="color:#2828AC;">(השוה לֶקַח למטר)</span>, ואין לקח אלא תורה, שנאמר <span style="font-size:80%;">(משלי ד,ב)</span> <span style="font-family: SBL Hebrew;">כי לקח טוב נתתי לכם תורתי אל תעזבו</span>.
@@ -569,49 +534,6 @@
 תניא נמי הכי: 'כשהתחילו היחידים להתענות - מתענין שני וחמישי ושני, ומפסיקין בראשי חדשים <span style="color:#2828AC;">(שאם חל ראש חדש בשני ובחמישי לאחר שהתחילו להתענות - פוסקין תעניתם)</span>,
 <h3>י,ב</h3>
 ובימים טובים הכתובין במגילת תענית'.
-<span style="color:#2828AC;">Ta'anos 010a: When we start saying "v'Sen Tal u'Matar"</span>
-<span style="color:#2828AC;">Mark Kerzner {mkerzner70@hotmail.com} asked:</span>
-<span style="color:#2828AC;">Dear Rabbi Kornfeld: BSD</span>
-<span style="color:#2828AC;">In the Artscroll edition of Taanis, the dates are quoted as December 5 or</span>
-<span style="color:#2828AC;">6, not 4 or 5, as in the Artscroll Siddur. This is a stira.</span>
-<span style="color:#2828AC;">Besides, I have also heard in a Daf Yomi lecture a few years ago that the 4</span>
-<span style="color:#2828AC;">or 5 of December were calculated by the author of Kitzur Shulchan Oruch,</span>
-<span style="color:#2828AC;">Rabbi Shlomo Ganzfried, and that since then the calculated date changed by</span>
-<span style="color:#2828AC;">1, thus making it December 5 or 6.</span>
-<span style="color:#2828AC;">Have you heard of these opinions? Is it connected to the question of 60 days</span>
-<span style="color:#2828AC;">being 60*24 hours, or 60 days?</span>
-<span style="color:#2828AC;">Thank you. Sincerely,</span>
-<span style="color:#2828AC;">Mark Kerzner</span>
-<span style="color:#2828AC;">------------------------</span>
-<span style="color:#2828AC;">The Kollel replies:</span>
-<span style="color:#2828AC;">Good question. The issue is not related to the question of 60 days after the</span>
-<span style="color:#2828AC;">Tekufah, or 60 periods of 24 hours after the Tekufah.</span>
-<span style="color:#2828AC;">Rather, the issue is merely a matter of how to count the English dates.</span>
-<span style="color:#2828AC;">The Jewish date begins at nightfall, while the secular date begins at</span>
-<span style="color:#2828AC;">midnight.</span>
-<span style="color:#2828AC;">If I tell you that we start saying "v'Sen Tal u'Matar" in Ma'ariv (after</span>
-<span style="color:#2828AC;">nightfall, but before midnight) of December 4, what does that mean? Does that</span>
-<span style="color:#2828AC;">mean the night *going into* December 4 (but right now, when you Daven Ma'ariv</span>
-<span style="color:#2828AC;">before midnight, it is still December 3), or does that mean the night *near</span>
-<span style="color:#2828AC;">the end* of December 4 (it has been December 4 all day already, and at night,</span>
-<span style="color:#2828AC;">a few hours before midnight, you say v'Sen Tal u'Matar)?</span>
-<span style="color:#2828AC;">When the ArtScroll Sidur says that the date (in a normal year) is December 4,</span>
-<span style="color:#2828AC;">that means that we begin saying v'Sen Tal u'Matar after December 4, during</span>
-<span style="color:#2828AC;">the night going into December 5.</span>
-<span style="color:#2828AC;">When the ArtScroll Ta'anis says that the date (in a normal year) is December</span>
-<span style="color:#2828AC;">5, that also means the night going into December 5 (but right now, during</span>
-<span style="color:#2828AC;">Ma'ariv, it is still December 4).</span>
-<span style="color:#2828AC;">When the KITZUR SHULCHAN ARUCH was first published (1864), they were saying</span>
-<span style="color:#2828AC;">v'Sen Tal u'Matar on the night going into December 4, while the actual date</span>
-<span style="color:#2828AC;">was still December 3. In the year 1900, when no leap year was made (in</span>
-<span style="color:#2828AC;">accordance with the system of the Gregorian calendar of omitting the leap</span>
-<span style="color:#2828AC;">year three out of every four centesimal years), the date of 60 days after the</span>
-<span style="color:#2828AC;">Tekufah consequently moved up one day -- to "December 5" in the words of the</span>
-<span style="color:#2828AC;">footnotes on the Kitzur Shulchan Aruch, meaning that we say v'Sen Tal u'Matar</span>
-<span style="color:#2828AC;">on December 4, during the night going into December 5.</span>
-<span style="color:#2828AC;">I hope this clarifies your question.</span>
-<span style="color:#2828AC;">All the best,</span>
-<span style="color:#2828AC;">Y. Shaw</span>
 תנו רבנן: 'אל יאמר אדם: "תלמיד אני <span style="color:#2828AC;">(ואיני חשוב כל כך כיחידים, כלומר: איני ראוי להתחיל תענית עם היחידים)</span>, איני ראוי להיות יחיד", אלא: כל תלמידי חכמים יחידים.
 אי זהו יחיד ואיזהו תלמיד?
 יחיד - כל שראוי למנותו פרנס על הצבור,
@@ -648,85 +570,6 @@
 <span style="font-family: SBL Hebrew;">[</span><span style="font-size:80%;">דברים לב,ד:</span> <span style="font-family: SBL Hebrew;">הצור תמים פעלו כי כל דרכיו משפט] אל אמונה ואין עול [צדיק וישר הוא]</span>: '<span style="font-family: SBL Hebrew;">אל אמונה</span>' - <span style="color:#2828AC;">(מצדיק הדין על הצדיקים לפרוע מהם, ועושה טובה וישרות עם הרשעים לפרוע כל זכותם בעולם הזה, כדי לטורדן)</span>: כשם שנפרעין מן הרשעים לעולם הבא אפילו על עבירה קלה שעושין - כך נפרעין מן הצדיקים בעולם הזה על עבירה קלה שעושין;
 '<span style="font-family: SBL Hebrew;">ואין עול</span>' <span style="color:#2828AC;">(שאין עושה דין בלא דין אמת וצדק)</span>: כשם שמשלמין שכר לצדיקים לעולם הבא אפילו על מצוה קלה שעושין - כך משלמין שכר לרשעים בעולם הזה אפילו על מצוה קלה שעושין <span style="color:#2828AC;">( כדי לטורדן מן העולם הבא, וכדכתיב</span> <span style="font-size:80%;">(דברים ז,י)</span> <span style="font-family: SBL Hebrew;">ומשלם לשונאיו אל פניו להאבידו</span><span style="color:#2828AC;">)</span>;
 '<span style="font-family: SBL Hebrew;">צדיק וישר הוא</span>' - מלמד שבשעת פטירתו של אדם לבית עולמו - כל מעשיו נפרטין לפניו, ואומרים לו: כך וכך עשית במקום פלוני ביום פלוני, והוא אומר "הֵין"<span style="color:#2828AC;">,</span> ואומרים לו: חתום! וחותם, שנאמר <span style="font-size:80%;">(איוב לז,ז)</span> <span style="font-family: SBL Hebrew;">ביד כל אדם יחתום [לדעת כל אנשי מעשהו]</span> <span style="color:#2828AC;">(כותב מעשה כל אדם, ומחתים יד על כל מעשיו)</span>; ולא עוד, אלא שמצדיק עליו את הדין ואומר להם: יפה דנתוני לקיים מה שנאמר <span style="font-family: SBL Hebrew;">[</span><span style="font-size:80%;">תהלים נא,ו:</span> <span style="font-family: SBL Hebrew;">לך לבדך חטאתי והרע בעיניך עשיתי] למען תצדק בדברך [תזכה בשפטך]</span> <span style="color:#2828AC;">(שהוא מצדיק עליו בדבריך, שאתה מראה לו)</span>.
-<span style="color:#2828AC;">Ta'anis 11</span>
-<span style="color:#2828AC;">1) PERSONAL CONDUCT DURING TIMES OF FAMINE</span>
-<span style="color:#2828AC;">QUESTION: The Gemara says that during a time of famine, marital relations are</span>
-<span style="color:#2828AC;">prohibited, as we learn from the conduct of Yosef during the famine in</span>
-<span style="color:#2828AC;">Mitzrayim. If marital relations are prohibited during a time of famine, how</span>
-<span style="color:#2828AC;">was Yocheved conceived? Yocheved was born to Levi when the family of Yakov</span>
-<span style="color:#2828AC;">descended from Eretz Yisrael and entered Mitzrayim (as Rashi points out in</span>
-<span style="color:#2828AC;">Bereishis 46:26), which was two years into the famine! (TOSFOS)</span>
-<span style="color:#2828AC;">ANSWERS:</span>
-<span style="color:#2828AC;">(a) TOSFOS answers that our Gemara is only making a statement of preferable</span>
-<span style="color:#2828AC;">behavior, of Midas Chasidus, and it is not expressing an actual prohibition.</span>
-<span style="color:#2828AC;">Levi and his wife did not practice this Midas Chasidus, although Yosef did.</span>
-<span style="color:#2828AC;">(The RA'AVAD writes in Sha'ar ha'Kedushah that before the Torah was given,</span>
-<span style="color:#2828AC;">the Avos and their children did not observe practices such as Midas Chasidus,</span>
-<span style="color:#2828AC;">but only the actual Mitzvos.)</span>
-<span style="color:#2828AC;">The OR HA'CHAIM (Bereishis 41:50), though, asks that the verse explicitly</span>
-<span style="color:#2828AC;">refers to Levi as "Ish Chasidecha" (Devarim 33:8), implying that he did</span>
-<span style="color:#2828AC;">conduct himself with Midas Chasidus!</span>
-<span style="color:#2828AC;">(b) The DA'AS ZEKENIM (Bereishis 41:50) quotes RABEINU YEHUDAH HE'CHASID who</span>
-<span style="color:#2828AC;">explains that it is only prohibited when one knows, from the prophecy of a</span>
-<span style="color:#2828AC;">Navi, that the famine will continue. Yosef had heard the prophecy that was</span>
-<span style="color:#2828AC;">expressed in the dream of Pharaoh, and thus he knew that the famine would</span>
-<span style="color:#2828AC;">continue. Levi did not know this, and therefore it was permitted for him to</span>
-<span style="color:#2828AC;">engage in marital relations.</span>
-<span style="color:#2828AC;">It appears that Rabeinu Yehudah he'Chasid understood that the reason for the</span>
-<span style="color:#2828AC;">prohibition so as not to stretch already limited resources by introducing</span>
-<span style="color:#2828AC;">another contender for the food supply. This only applies if the child will be</span>
-<span style="color:#2828AC;">*born* while there is still a famine (since that is the when he, or his</span>
-<span style="color:#2828AC;">mother, will need to need extra food).</span>
-<span style="color:#2828AC;">(c) The MIZRACHI and the OR HA'CHAIM answer that if one does not have any</span>
-<span style="color:#2828AC;">children, marital relations are permitted during a famine, as our Gemara</span>
-<span style="color:#2828AC;">says. The reason is presumably because a person who has no children is</span>
-<span style="color:#2828AC;">obligated to fulfill the Mitzvah of Piryah v'Rivyah. Levi, although he had</span>
-<span style="color:#2828AC;">boys, did not have any girls, and thus he had not yet fulfilled the Mitzvah</span>
-<span style="color:#2828AC;">of Piryah v'Rivyah. Therefore, it was permitted for him during the time of</span>
-<span style="color:#2828AC;">famine.</span>
-<span style="color:#2828AC;">The problem with this answer is that Yosef, too, did not have any daughters!</span>
-<span style="color:#2828AC;">Why, then, did Yosef refrain from marital relations, while Levi did not? (See</span>
-<span style="color:#2828AC;">OR HA'CHAIM.)</span>
-<span style="color:#2828AC;">The DA'AS ZEKENIM, who also gives this answer, explains why Yosef acted</span>
-<span style="color:#2828AC;">differently from Levi even though they both had only boys. Yosef maintained</span>
-<span style="color:#2828AC;">that one fulfills the Mitzvah of Piryah v'Rivyah with two male children.</span>
-<span style="color:#2828AC;">Levi, on the other hand, was of the opinion that one must have at least one</span>
-<span style="color:#2828AC;">boy and one girl to fulfill the Mitzvah (both of these opinions are discussed</span>
-<span style="color:#2828AC;">in Yevamos 62a). Therefore, Yosef held that he did not fall into the category</span>
-<span style="color:#2828AC;">of those who are permitted to engage in marital relations during a famine,</span>
-<span style="color:#2828AC;">while Levi held that he did!</span>
-<span style="color:#2828AC;">(d) The CHIZKUNI and OR HA'CHAIM further suggest that the reason Levi did not</span>
-<span style="color:#2828AC;">refrain was because his own family was not suffering; they had food during</span>
-<span style="color:#2828AC;">the famine. Only the natives around them were suffering, and there was no</span>
-<span style="color:#2828AC;">obligation to join in their suffering. (Although he did not know whether</span>
-<span style="color:#2828AC;">Yosef did or did not have food, Yosef was only a single person and the entire</span>
-<span style="color:#2828AC;">family should not have to suffer because of a single member's plight.)</span>
-<span style="color:#2828AC;">Yosef, though, did not know that his father and brothers had food and he</span>
-<span style="color:#2828AC;">thought that they were suffering from the famine. Therefore he joined them in</span>
-<span style="color:#2828AC;">their suffering and refrained from marital relations.</span>
-<span style="color:#2828AC;">We may develop this answer further by suggesting that even if Yosef was</span>
-<span style="color:#2828AC;">confident that his family had food because of the great merit of Yakov Avinu</span>
-<span style="color:#2828AC;">(if Yosef merited to have food, certainly Yakov would merit the same), he</span>
-<span style="color:#2828AC;">nevertheless separated from his wife because the natives were suffering. Why,</span>
-<span style="color:#2828AC;">then, did Levi not separate from his wife out of empathy for the natives like</span>
-<span style="color:#2828AC;">Yosef did?</span>
-<span style="color:#2828AC;">The MIZRACHI (beginning of Parshas Vayeshev) explains that when the young</span>
-<span style="color:#2828AC;">Yosef reported to his father that his brothers were eating Ever Min ha'Chai</span>
-<span style="color:#2828AC;">(limbs from a live animal), that was only his interpretation of their act;</span>
-<span style="color:#2828AC;">they were actually eating from an animal that had been slaughtered properly</span>
-<span style="color:#2828AC;">but was still kicking. An animal in such a state is permitted for a Jew to</span>
-<span style="color:#2828AC;">eat, and is prohibited as Ever Min ha'Chai for a Ben Noach to eat. The</span>
-<span style="color:#2828AC;">brothers maintained that they had a status of Jews, and therefore the animal</span>
-<span style="color:#2828AC;">was permissible to them. Yosef, though, maintained that they were considered</span>
-<span style="color:#2828AC;">Bnei Noach, since the Torah had not yet been given to them, and thus it was</span>
-<span style="color:#2828AC;">forbidden for them to eat the animal.</span>
-<span style="color:#2828AC;">Levi, then, was following his previous reasoning when he did not separate</span>
-<span style="color:#2828AC;">from his wife. He held that he had a status of a Jew, and thus he did not</span>
-<span style="color:#2828AC;">have to share in the suffering of the natives who were Bnei Noach. Yosef,</span>
-<span style="color:#2828AC;">though, maintained that the sons of Yakov, too, were considered Bnei Noach,</span>
-<span style="color:#2828AC;">and therefore he had to be concerned for the feelings of his fellow Bnei</span>
-<span style="color:#2828AC;">Noach (just as Noach did during the Flood, Rashi Bereishis 7:7). That is why</span>
-<span style="color:#2828AC;">Yosef separated from his wife while Levi did not! (M. Kornfeld)</span>
 אמר שמואל: כל היושב בתענית נקרא חוטא.
 סבר כי האי תנא, דתניא: 'רבי אלעזר הקפר ברבי אומר: מה תלמוד לומר <span style="font-family: SBL Hebrew;">[</span><span style="font-size:80%;">במדבר ו,יא:</span> <span style="font-family: SBL Hebrew;">ועשה הכהן אחד לחטאת ואחד לעלה] וכפר עליו מאשר חטא על הנפש [וקדש את ראשו ביום ההוא]</span>? וכי באיזה נפש חטא זה <span style="color:#2828AC;">(מי הרג שנקרא 'חוטא')</span>? אלא שציער עצמו מן היין <span style="color:#2828AC;">(שאין מצוה לצער עצמו, כדאמרינן: 'צדיקי אי אכלי האי עלמא [בהוריות: אי אכלי תרי עומלי] - מי סני להו?',</span> <span style="font-size:80%;">[במסכת הוריות פרק שלישי דף י,ב]</span><span style="color:#2828AC;">)</span>! והלא דברים קל וחומר: ומה זה שלא ציער עצמו אלא מן היין נקרא חוטא, המצער עצמו מכל דבר ודבר - על אחת כמה וכמה.
 רבי אלעזר אומר: נקרא קדוש <span style="color:#2828AC;">(רישיה דקרא קא דריש, בשביל שמתוך כך מתמרקין עונותיו: שמִתְעֲנֶה</span>), שנאמר <span style="font-size:80%;">(במדבר ו,ה)</span> <span style="font-family: SBL Hebrew;">[כל ימי נדר נזרו תער לא יעבר על ראשו עד מלאת הימם אשר יזיר לה'] קדוש יהיה גדל פרע שער ראשו</span>; ומה זה שלא ציער עצמו אלא מדבר אחד נקרא קדוש, המצער עצמו מכל דבר - על אחת כמה וכמה!'.
@@ -742,93 +585,6 @@
 אמר רב ששת: האי בר בי רב דיתיב בתעניתא - ליכול כלבא לשירותיה <span style="color:#2828AC;">(סעודתו; 'כלבא ליכול סעודתו'! ולכך המתענה אינו מועיל לו, אלא כמי שמתענה מפני שאין לו מה יאכל)</span>.
 ואמר רבי ירמיה בר אבא: אין תענית ציבור בבבל <span style="color:#2828AC;">(לענין איסורי חומרי תענית אמר רבי ירמיה למילתיה, שהיו נוהגין בו כעין אבילות, שהיו אוכלין מבעוד יום ואסורין בנעילת הסנדל)</span> אלא תשעה באב בלבד.
 אמר רבי ירמיה בר אבא אמר ריש לקיש: אין תלמיד חכם רשאי לישב בתענית, מפני שממעט במלאכת שמים <span style="color:#2828AC;">(חלש הוא, ואינו יכול ללמוד)</span>.
-<span style="color:#2828AC;">11b-----------------------------------11b</span>
-<span style="color:#2828AC;">2) DEFINITION OF A "TA'ANIS SHA'OS"</span>
-<span style="color:#2828AC;">OPINIONS: The Gemara discusses whether a "Ta'anis Sha'os" is considered an</span>
-<span style="color:#2828AC;">actual Ta'anis, and if it is, whether or not one recites Aneinu, the prayer</span>
-<span style="color:#2828AC;">said on a Ta'anis, in the Shemoneh Esreh. What exactly is a Ta'anis Sha'os?</span>
-<span style="color:#2828AC;">RASHI seems to say that a Ta'anis Sha'os is simply a Ta'anis which one did</span>
-<span style="color:#2828AC;">not formally accept upon himself during the previous day (one fasted without</span>
-<span style="color:#2828AC;">a Kabalah to do so the day before). Why, though, should such a Ta'anis be</span>
-<span style="color:#2828AC;">called a Ta'anis *Sha'os*? What does it have to do with "Sha'os" (literally</span>
-<span style="color:#2828AC;">"hours")?</span>
-<span style="color:#2828AC;">Second, why does the Gemara say that if remains fasting through the night</span>
-<span style="color:#2828AC;">following a Ta'anis ("Lan b'Ta'aniso"), it is not even called a Ta'anis</span>
-<span style="color:#2828AC;">Sha'os because "he was not Mekabel it." By definition, every Ta'anis that one</span>
-<span style="color:#2828AC;">was not Mekabel is a Ta'anis Sha'os! Why should this not be considered a</span>
-<span style="color:#2828AC;">Ta'anis Sha'os?</span>
-<span style="color:#2828AC;">(a) According to RASHI, who says that a Ta'anis Sha'os is simply a Ta'anis</span>
-<span style="color:#2828AC;">that one was not Mekabel upon himself the day before, the reason it is called</span>
-<span style="color:#2828AC;">a Ta'anis Sha'os is as follows. Since one was not Mekabel it the day before,</span>
-<span style="color:#2828AC;">but only after nightfall, that day is not a full day of Ta'anis. It lasts</span>
-<span style="color:#2828AC;">only for "hours" rather than days, since it starts at the time he accepted it</span>
-<span style="color:#2828AC;">and continues until the end of that same day. When one is Mekabel the Ta'anis</span>
-<span style="color:#2828AC;">the day before, the entire day -- and not just a certain number of hours in</span>
-<span style="color:#2828AC;">the day -- is viewed as a "day of fasting."</span>
-<span style="color:#2828AC;">This does not mean that if he accepts the Ta'anis from before nightfall he</span>
-<span style="color:#2828AC;">will not be eating for 24 hours. It is permitted for him to eat at night.</span>
-<span style="color:#2828AC;">Nevertheless, since he accepted it upon himself earlier, the night is</span>
-<span style="color:#2828AC;">considered to be part of a "fast day." (Rashi says clearly in Shabbos 24a,</span>
-<span style="color:#2828AC;">that one who was Mekabel a Ta'anis the day before says Aneinu even at night,</span>
-<span style="color:#2828AC;">even if he is still eating and drinking at that time.) If one was Mekabel the</span>
-<span style="color:#2828AC;">Ta'anis after the night began, then the whole day cannot be considered a</span>
-<span style="color:#2828AC;">Ta'anis because the day began before the Ta'anis was accepted.</span>
-<span style="color:#2828AC;">When Abaye says that the Ta'anis of our Gemara is different because the</span>
-<span style="color:#2828AC;">person did not accept upon himself the Ta'anis, he means that the person not</span>
-<span style="color:#2828AC;">only failed to accept the Ta'anis upon himself the day before, but he was</span>
-<span style="color:#2828AC;">never accepted it upon himself it at all. Only *after* he fasted did he</span>
-<span style="color:#2828AC;">express his desire to say Aneinu for his "retroactive fast," but by then it</span>
-<span style="color:#2828AC;">is too late to convert his act of fasting into a formal Ta'anis.</span>
-<span style="color:#2828AC;">(b) The ROSH holds that both a Ta'anis and Ta'anis Sha'os are the same with</span>
-<span style="color:#2828AC;">regard to Kabalah -- one must accept upon himself either type of Ta'anis the</span>
-<span style="color:#2828AC;">day before in order for it to be considered a valid Ta'anis. The difference</span>
-<span style="color:#2828AC;">between them is that in a Ta'anis Sha'os, one accepts to fast only a certain</span>
-<span style="color:#2828AC;">number of hours during the day, as the term "Ta'anis Sha'os" implies. A</span>
-<span style="color:#2828AC;">regular Ta'anis is when one accepts to fast the entire day.</span>
-<span style="color:#2828AC;">Abaye says that in the case of Rav Huna, the person was not Mekabel the</span>
-<span style="color:#2828AC;">Ta'anis the day before, but only on the day that he started to fast (albeit</span>
-<span style="color:#2828AC;">before the fast began). Therefore it is not even a Ta'anis Sha'os.</span>
-<span style="color:#2828AC;">3) SAYING "ANEINU" AFTER FASTING THROUGH THE NIGHT</span>
-<span style="color:#2828AC;">QUESTION: Rav Huna says that if one fasted during the day and continued to</span>
-<span style="color:#2828AC;">fast through the night, he does not say Aneinu during the day that follows</span>
-<span style="color:#2828AC;">that night. Why would we have thought that he says Aneinu on the day after</span>
-<span style="color:#2828AC;">his fast? RASHI (DH l'Machar) explains what Rav Huna is teaching us. We might</span>
-<span style="color:#2828AC;">have thought that one should say Aneinu in order to fulfill the recitation of</span>
-<span style="color:#2828AC;">Aneinu for the fasting of the *night before*. Rav Huna teaches that one</span>
-<span style="color:#2828AC;">cannot do that, because there was no Kabalah for the Ta'anis that one</span>
-<span style="color:#2828AC;">observed during the night.</span>
-<span style="color:#2828AC;">Why did Rashi have to explain that Aneinu is being said retroactively for the</span>
-<span style="color:#2828AC;">fast of the previous night? The person has presumably not yet stopped</span>
-<span style="color:#2828AC;">fasting. Rashi should explain that Aneinu is being said for the fast that he</span>
-<span style="color:#2828AC;">is *still observing*, during the day after the night!</span>
-<span style="color:#2828AC;">ANSWER: The Gemara (12a) states that it is only considered a Ta'anis Sha'os</span>
-<span style="color:#2828AC;">if one does not eat anything *until the end of the day*. If so, when one</span>
-<span style="color:#2828AC;">fasted throughout the night after his fast, how can he say Aneinu the</span>
-<span style="color:#2828AC;">following day? Even though he is still observing his fast at the beginning of</span>
-<span style="color:#2828AC;">the day, he is going to eat before the end of the day, and thus the fast will</span>
-<span style="color:#2828AC;">not be a valid Ta'anis on which to say Aneinu!</span>
-<span style="color:#2828AC;">For this reason, the ROSH says that Rav Huna is not discussing a case where</span>
-<span style="color:#2828AC;">one fasts for a single day and wants to say Aneinu on the following day</span>
-<span style="color:#2828AC;">before eating. Rather, the case is where one decides, on the morning after a</span>
-<span style="color:#2828AC;">Ta'anis, to fast for two entire consecutive days. He wants to say Aneinu</span>
-<span style="color:#2828AC;">after the first night and not eat again until nightfall. (KORBAN NESANEL</span>
-<span style="color:#2828AC;">1:10:5)</span>
-<span style="color:#2828AC;">RASHI, on the other hand, found that explanation to be unlikely, because the</span>
-<span style="color:#2828AC;">Gemara, which says "Lan b'Ta'aniso," implies that the person had no intention</span>
-<span style="color:#2828AC;">to fast a second day, but merely to fast during the night following his one-</span>
-<span style="color:#2828AC;">day fast. Therefore, Rashi explains that the prayer of Aneinu that one would</span>
-<span style="color:#2828AC;">say during the day after fasting through the night is for the fast that he</span>
-<span style="color:#2828AC;">*already observed* (the previous night), and not for the fast that he is</span>
-<span style="color:#2828AC;">observing at that time, when he Davens, during the day. When the Gemara says</span>
-<span style="color:#2828AC;">later (12a) that one must fast until sundown, it is referring to a case where</span>
-<span style="color:#2828AC;">one starts his fast at sunrise. Rashi learns that just as one may fast from</span>
-<span style="color:#2828AC;">sunrise to sunset, so may one fast from sunset to sunrise and it is</span>
-<span style="color:#2828AC;">considered a full-fledged fast. That is why Rashi says that we might have</span>
-<span style="color:#2828AC;">thought that one may say Aneinu because of the fast of the preceding night</span>
-<span style="color:#2828AC;">which had a status of a Ta'anis Sha'os. On the other hand, there was no</span>
-<span style="color:#2828AC;">reason for the Gemara to presume that one should say Aneinu for fasting a</span>
-<span style="color:#2828AC;">short while on the next day, since he is going to eat before sundown and thus</span>
-<span style="color:#2828AC;">that day does not have a status of a Ta'anis. (M. Kornfeld)</span>
 אוכלין ושותין משחשיכה [ומותרין במלאכה, וברחיצה, ובסיכה, ובנעילת הסנדל, ובתשמיש המטה]:
 אמר רבי זעירא אמר רב הונא: יחיד שקיבל עליו תענית <span style="color:#2828AC;">(מאתמול: "הרי אני יושב בתענית למחר")</span>, אפילו אכל ושתה כל הלילה <span style="color:#2828AC;">(עד עמוד השחר)</span> - למחר הוא מתפלל תפילת תענית <span style="color:#2828AC;">('עננו')</span>; לן בתעניתו <span style="color:#2828AC;">(באותו תענית שקיבל עליו, שלא אכל במוצאי תעניתו, ולן כל אותו הלילה לשם תענית עד הבקר)</span> - <span style="color:#2828AC;">(למחר)</span> אינו מתפלל של תענית <span style="color:#2828AC;">(אינו יכול להתפלל 'עננו' קודם שיאכל, כדי לצאת ידי חובת תענית של לילה, אף על פי שהוא יום אחד כדכתיב</span> <span style="font-size:80%;">(בראשית א,ה)</span> <span style="font-family: SBL Hebrew;">ויהי ערב ויהי בוקר יום אחד</span><span style="color:#2828AC;">, ולקמןמפרש ואזיל)</span>.
 אמר רב יוסף: מאי קסבר רב הונא <span style="color:#2828AC;">(מאי טעמא אין מתפלל למחר עננו)</span>?
@@ -914,42 +670,6 @@
 אמר רב חנא בר קטינא: לא נצרכה אלא לחמי טבריא! <span style="color:#2828AC;">(והלכך: חייבי טבילות - אִין, כולי עלמא - לא, אבל בצונן שרו)</span>.
 אי הכי - אימא סיפא: 'אמר רבי חנינא סגן הכהנים: כדַי <span style="color:#2828AC;">(ראוי)</span> הוא בית אלהינו לאבד עליו טבילה פעם אחת בשנה', ואי אמרת בצונן מותר - ירחץ בצונן! <span style="color:#2828AC;">(ואם איתא כדמוקמת לה דבצונן שרי, מאי קא מהדר ליה רבי חנינא לתנא קמא מאיבוד טבילה?: נהי דלא טבלי בחמין משום כבוד בית אלהינו, הא מצו טבלי בצונן אלא לאו בצונן נמי אסירי, והיינו דאמר 'לאבד')</span>!
 אמר רב פפא: <span style="color:#2828AC;">(לעולם בחמי טבריא, והיינו דקאמרינן 'חייבי טבילות - אִין, כולי עלמא - לא, ובצונן כולי עלמא שרי', ומאי 'לאבד' דקאמר רבי חנינא? - כגון)</span> באתרא דלא שכיח צונן.
-<span style="color:#2828AC;">_</span>
-Ta'anis Chart #1
-Daf 13a-13b
-_______________________________________________________ |
-|
-THE PROHIBITION OF WASHING ON A TA'ANIS AND FOR AN AVEL |
-_______________________________________________________ |
-|
-|
-(A) (C) |
-TA'ANIS TZIBUR AVEL & TISHA B'AV |
-______________ _________________ |
-|
-RAV CHISDA, AND |
-RAVA (2nd version) |
-________________ |
-1) HOT WATER Asur (entire body)(1) Asur(2) |
-|
-2) COLD WATER Mutar Asur (entire body)(3) |
-|
-|
-RAVA (1st version) |
-________________ |
-3) HOT WATER Asur (entire body)(1) Asur(2) |
-|
-4) COLD WATER Mutar Mutar |
-==========
-FOOTNOTES:
-==========
-(1) It is Mutar, though, to wash one's face, hands, and feet in hot water on
-a Ta'anis.
-(2) This applies to any part of the Avel's body.
-(3) It is over this point that the Amora'im disagree. The Gemara's conclusion
-is like Rav Chisda; an Avel is prohibited from washing all of his body, even
-in cold water, and *any* part oF his body in hot water (but he may wash his
-face, hands, and feet in cold water).
 תא שמע: 'כשאמרו 'אסור במלאכה' <span style="color:#2828AC;">(גבי תענית צבור)</span> - לא אמרו אלא ביום, אבל בלילה מותר <span style="color:#2828AC;">(מהכא משמע דבלילי תשעה באב מותר במלאכה ואין ביטול אלא ביום, אבל אין מפרסמין הדבר)</span>; וכשאמרו 'אסור בנעילת הסנדל' - לא אמרו אלא בעיר אבל בדרך מותר; הא כיצד? יוצא לדרך <span style="color:#2828AC;">(חוץ לעיר)</span> נועל, נכנס לעיר חולץ; וכשאמרו 'אסור ברחיצה' - לא אמרו אלא כל גופו, אבל פניו ידיו ורגליו – מותר; וכן אתה מוצא במנודה ובאָבל'; מאי לאו אכולהו, ובמאי עסקינן?: אילימא בחמין - פניו ידיו ורגליו מי שרו? והאמר רב ששת: אבל אסור להושיט אצבעו בחמין? אלא לאו – בצונן! <span style="color:#2828AC;">(אכל הני קאי, ואפילו ארחיצה, ושמע מינה דבתענית צבור אסור לרחוץ כל גופו, ואפילו בצונן, ותיובתא לרפרם בר פפא!)</span>
 לא, לעולם <span style="color:#2828AC;">(הך רחיצה)</span> בחמין <span style="color:#2828AC;">(אבל בצונן - שרי לרחוץ כל גופו)</span>; ודקא קשיא לך 'וכן אתה מוצא במנודה ובאבל' - אשארא קאי <span style="color:#2828AC;">(אנעילה וסיכה; והשתא דאמרת במנודה ואבל לאו ארחיצה קיימי - ליכא לאקשויי כדפרכת לעיל: 'אילימא בחמין מי שרי, ורחץ בצונן בתוך שבעה' - גרסינן, אלמא: בצונן שרי)</span>.
 תא שמע, דאמר רבי אבא הכהן משום רבי יוסי הכהן: 'מעשה ומתו בניו של רבי יוסי בן רבי חנינא ורחץ בצונן כל שבעה'?
@@ -1101,113 +821,6 @@ face, hands, and feet in cold water).
 פליגי בה רבי לוי בר חמא ורבי חנינא: חד אמר: הרי אנו חשובין לפניך כאפר, וחד אמר: כדי שיזכור לנו אפרו של יצחק.
 מאי בינייהו?
 איכא בינייהו עפר סתם <span style="color:#2828AC;">(שאינו אפר מקלה: זכירת אפרו של יצחק - ליכא. 'סתם' לא גרסינן, אלא: איכא בינייהו עפר)</span>.
-<span style="color:#2828AC;">Ta'anis 16</span>
-<span style="color:#2828AC;">1) ASHES OF HUMAN BONE</span>
-<span style="color:#2828AC;">QUESTION: The Mishnah (15a) says that as part of the Seder Ta'aniyos, they</span>
-<span style="color:#2828AC;">would place ashes upon the heads of the Nasi and Av Beis Din. TOSFOS (here</span>
-<span style="color:#2828AC;">and on 15b) writes that these ashes should come from a human bone that was</span>
-<span style="color:#2828AC;">burned.</span>
-<span style="color:#2828AC;">How can Tosfos suggest using ashes of a human bone? It is prohibited to</span>
-<span style="color:#2828AC;">mutilate dead bodies. How can it be permitted to disgrace and defile human</span>
-<span style="color:#2828AC;">remains by burning it for this purpose? In addition, the remains must be</span>
-<span style="color:#2828AC;">buried, how can they be burned and placed on the heads of the congregants!</span>
-<span style="color:#2828AC;">ANSWERS:</span>
-<span style="color:#2828AC;">(a) RASHI (Berachos 5b) says that a bone less than the size of a barley seed</span>
-<span style="color:#2828AC;">does not need to be buried. If so, perhaps it may also be burned and it is</span>
-<span style="color:#2828AC;">not considered a disgrace to the dead.</span>
-<span style="color:#2828AC;">(b) RAV S. Z. BRAUN in SHE'ARIM HA'METZUYANIM B'HALACHAH cites the MAGEN</span>
-<span style="color:#2828AC;">AVRAHAM (OC 311:3) who implies (perhaps based on this Tosfos) that the</span>
-<span style="color:#2828AC;">prohibition of disgracing a Mes does not apply if the body has been burned to</span>
-<span style="color:#2828AC;">ashes (see also TOSFOS in Chulin 125b, DH Yachol). Presumably, after being</span>
-<span style="color:#2828AC;">burned to ashes it also becomes a new entity and burial is no required.</span>
-<span style="color:#2828AC;">Rav Braun, however, points out that many Acharonim do not accept this ruling</span>
-<span style="color:#2828AC;">of the Magen Avraham.</span>
-<span style="color:#2828AC;">(c) The Acharonim ask another basic question. Tosfos says that we should use</span>
-<span style="color:#2828AC;">ashes of human bone to commemorate Akeidas Yitzchak. However, no human was</span>
-<span style="color:#2828AC;">actually burned at the Akeidah! It would be more appropriate to use ashes</span>
-<span style="color:#2828AC;">from wood or from a ram, since that is what was burned at the Akeidah. (KEREN</span>
-<span style="color:#2828AC;">ORAH, YA'AVETZ)</span>
-<span style="color:#2828AC;">The SHE'ARIM HA'METZUYANIM B'HALACHAH suggests that there is a mistake in the</span>
-<span style="color:#2828AC;">Tosfos. Instead of saying "Etzem Adam," it should read "Etzem Ayil" -- "the</span>
-<span style="color:#2828AC;">bone of a *ram*." (He proposes that in an earlier manuscript, the words in</span>
-<span style="color:#2828AC;">Tosfos read "Etzem *A'*" (Alef), and the printer erred and wrote "Adam"</span>
-<span style="color:#2828AC;">instead of "Ayil." Another alternative is that Tosfos originally read</span>
-<span style="color:#2828AC;">"me'Etzem *O Dam*" -- from bone or blood, since one may not waste food by</span>
-<span style="color:#2828AC;">burning meat for this purpose) Since a ram was burned in Akeidas Yitzchak, a</span>
-<span style="color:#2828AC;">bone from a ram should be burned to arouse Hashem's mercy by alluding to the</span>
-<span style="color:#2828AC;">Akeidah. (See Rosh Hashanah 16a "Blow before me the Shofar of a ram, that I</span>
-<span style="color:#2828AC;">may remember Akeidas Yitzchak.")</span>
-<span style="color:#2828AC;">QUESTION: However, according to all of these answers, Tosfos is saying that a</span>
-<span style="color:#2828AC;">specific type of ash should be used. How did Tosfos know that a specific type</span>
-<span style="color:#2828AC;">should be used? If anything, it can be inferred from the Sugya on this Daf</span>
-<span style="color:#2828AC;">that *any* ashes may be used: The Gemara records an argument between Rebbi</span>
-<span style="color:#2828AC;">Levi bar Chama and Rebbi Chanina whether the reason for putting ashes is to</span>
-<span style="color:#2828AC;">remind us of our worthlessness -- we are like ashes -- or to remind us of</span>
-<span style="color:#2828AC;">Akeidas Yitzchak. The difference between these two opinions, says the Gemara,</span>
-<span style="color:#2828AC;">is "Afar Stam" -- dirt. According to the opinion that says the point is to</span>
-<span style="color:#2828AC;">remind us of our worthlessness, we may also use dirt, while according to the</span>
-<span style="color:#2828AC;">opinion that says that the point is to remind us of Akeidas Yitzchak, dirt</span>
-<span style="color:#2828AC;">does not suffice.</span>
-<span style="color:#2828AC;">If, as Tosfos says, the opinion that connects the ashes to Akeidas Yitzchak</span>
-<span style="color:#2828AC;">holds that ashes of *bone* are required, the Gemara should have offered that</span>
-<span style="color:#2828AC;">as the difference between the two opinions as to the reason for placing</span>
-<span style="color:#2828AC;">ashes. According to the one who says it is reminiscent of the Akeidah, it</span>
-<span style="color:#2828AC;">must be ashes from *bone*, while according to the other opinion *any* ashes</span>
-<span style="color:#2828AC;">may be used. Since the Gemara did not offer this as a difference between the</span>
-<span style="color:#2828AC;">two opinions (but mentioned dirt instead), it seems clear that ashes of bone</span>
-<span style="color:#2828AC;">are not required! (BIRKEI YOSEF OC 579 and Acharonim)</span>
-<span style="color:#2828AC;">ANSWER: Tosfos said that the ashes are from bones to answer another question.</span>
-<span style="color:#2828AC;">How can one opinion insist that ashes are put on the people's heads to show</span>
-<span style="color:#2828AC;">that "we are worthless as ash," and therefore dirt may be used as well as</span>
-<span style="color:#2828AC;">ash, when the Mishnah clearly seems to contradict this assertion. The Mishnah</span>
-<span style="color:#2828AC;">mentions specifically that "Efer Makleh" (ashes) was used, adding the word</span>
-<span style="color:#2828AC;">Makleh to exclude dirt, as Rashi explained in the Mishnah? (KEREN ORAH,</span>
-<span style="color:#2828AC;">RASHASH)</span>
-<span style="color:#2828AC;">In addition, the Amora'im that discuss the source for placing ashes seem to</span>
-<span style="color:#2828AC;">be arguing over a subject that is already debated by the Tana'im. On Daf 15b</span>
-<span style="color:#2828AC;">the Gemara brought a Beraisa in which the Tana Kama writes that plain "ashes"</span>
-<span style="color:#2828AC;">were used, leaving out the word "Makleh" (and thereby including dirt). Rebbi</span>
-<span style="color:#2828AC;">Nasan argues and says "they would bring Efer *Makleh*," meaning specifically</span>
-<span style="color:#2828AC;">ashes. Why didn't the Gemara just say that the debate of the Amora'im over</span>
-<span style="color:#2828AC;">why ashes are used was already debated by these Tana'im?</span>
-<span style="color:#2828AC;">Because of these questions, Tosfos understood that when the Gemara says that</span>
-<span style="color:#2828AC;">the difference between the two opinions is "Afar Stam," it is not referring</span>
-<span style="color:#2828AC;">to dirt. The word "Afar" here means *ashes* (as in "Afar Serefas ha'Parah,"</span>
-<span style="color:#2828AC;">see Rashi in the Mishnah). *Both* opinions among the Amora'im permit only</span>
-<span style="color:#2828AC;">ashes to be used. The argument between them is whether a *specific type* of</span>
-<span style="color:#2828AC;">ash must be used, or any type of ash may be used. The opinion that says that</span>
-<span style="color:#2828AC;">the point is to remind us of Akeidas Yitzchak holds that only the ashes of</span>
-<span style="color:#2828AC;">bones may be used, while the other opinion allows any ashes. If so, both</span>
-<span style="color:#2828AC;">opinions concur with the ruling of the Mishnah, and with Rebbi Nasan of the</span>
-<span style="color:#2828AC;">Beraisa.</span>
-<span style="color:#2828AC;">In fact, this is clearly implied in the wording of the Gemara, as we have it</span>
-<span style="color:#2828AC;">in our texts. The Gemara says that they argue whether "Afar Setam' may be</span>
-<span style="color:#2828AC;">used (plain ashes). Rashi (DH Afar) says that the word "Setam" is extra and</span>
-<span style="color:#2828AC;">should be erased, since it makes no sense for the Gemara to refer to "plain</span>
-<span style="color:#2828AC;">dirt" as opposed to some other type of dirt -- what other dirt is there?</span>
-<span style="color:#2828AC;">Tosfos, on the other hand, makes a point of saying that the Girsa Afar</span>
-<span style="color:#2828AC;">*Setam* is correct. He explains that the word Afar means ashes, and not dirt.</span>
-<span style="color:#2828AC;">When the Gemara says that the Amora'im argue whether "*plain* ashes" may be</span>
-<span style="color:#2828AC;">used, it means as opposed to a specific type of ashes; ashes from bones. (M.</span>
-<span style="color:#2828AC;">Kornfeld)</span>
-<span style="color:#2828AC;">(According to the other Rishonim, who learn that *dirt* may be used according</span>
-<span style="color:#2828AC;">to the Amora who says ashes are placed on the head to make a person feel</span>
-<span style="color:#2828AC;">worthless, how can this opinion be reconciled with the Mishnah, which says</span>
-<span style="color:#2828AC;">specifically "Efer Makleh" is used?</span>
-<span style="color:#2828AC;">1. They might explain that the reason it says "Makleh" (ashes that come from</span>
-<span style="color:#2828AC;">a furnace or from a normal fire) is to exclude the ashes of a Parah Adumah,</span>
-<span style="color:#2828AC;">as one opinion in the ME'IRI learns. (This is apparently the opinion of</span>
-<span style="color:#2828AC;">RASHBAM in Bava Basra 60b, DH Efer Makleh.) . One might have thought that</span>
-<span style="color:#2828AC;">ashes of a Parah Adumah must be applied to be Metaher everyone, so the</span>
-<span style="color:#2828AC;">Mishnah emphasizes that any Efer can be used. The Mishnah does not write</span>
-<span style="color:#2828AC;">Makleh to exclude dirt, and dirt may also be used. The Tana Kama of the</span>
-<span style="color:#2828AC;">Beraisa, though, insists that ashes of a Parah Adumah are applied, for the</span>
-<span style="color:#2828AC;">above reason.</span>
-<span style="color:#2828AC;">2. Rashi, who does not explain like the Rashbam, offers a different solution</span>
-<span style="color:#2828AC;">(15a DH Efer), as the LECHEM MISHNAH (Ta'aniyos 3:1) KEREN ORAH and RASHASH</span>
-<span style="color:#2828AC;">explain. Rashi implies that even if dirt may be used, since it also denotes</span>
-<span style="color:#2828AC;">worthlessness, nevertheless it is better to use ashes, which display even</span>
-<span style="color:#2828AC;">more worthlessness (since they are not fertile).)</span>
 למה יוצאין לבית הקברות?
 פליגי בה רבי לוי בר חמא ורבי חנינא: חד אמר: הרי אנו חשובין לפניך כמתים, וחד אמר: כדי שיבקשו עלינו מתים רחמים.
 מאי בינייהו?
@@ -1215,31 +828,6 @@ face, hands, and feet in cold water).
 <span style="color:#2828AC;">(איידי דאיירי בפלוגתא דרבי לוי ורבי חנינא - תנא נמי הא פלוגתא:)</span>
 מאי 'הר המוריה' <span style="color:#2828AC;">(דאברהם קרא למקום העקידה '</span><span style="font-family: SBL Hebrew;">הר יֵרָאֶה</span><span style="color:#2828AC;">'</span> <span style="font-size:80%;">(בראשית כב,יד)</span><span style="color:#2828AC;">, וכתיב</span> <span style="font-size:80%;">(בראשית כב,ב)</span> <span style="font-family: SBL Hebrew;">אל ארץ המוריה</span><span style="color:#2828AC;">)</span>?
 פליגי בה רבי לוי בר חמא ורבי חנינא: חד אמר: הר שיצא ממנו הוראה <span style="color:#2828AC;">(תורה)</span> לישראל <span style="color:#2828AC;">(</span><span style="font-family: SBL Hebrew;">כי מציון תצא תורה</span> <span style="font-size:80%;">(ישעיה ב,ג)</span><span style="color:#2828AC;">,</span> <span style="font-family: SBL Hebrew;">יורו משפטיך ליעקב</span> <span style="font-size:80%;">(דברים לג,י)</span><span style="color:#2828AC;">, ולשכת הגזית שבה עמדו הנביאים המוכיחים לישראל)</span>, וחד אמר: הר שיצא ממנו מורא לאומות העולם <span style="color:#2828AC;">( ששומעין גדולות ישראל וירושלים ומתפחדים עליהם, שמעתי. לישנא אחרינא: הר המוריה - הר סיני, מורא לאומות העולם - במתן תורה, דכתיב</span> <span style="font-size:80%;">(תהלים עו,ט)</span> <span style="font-family: SBL Hebrew;">ארץ יראה ושקטה</span><span style="color:#2828AC;">)</span>.
-<span style="color:#2828AC;">2) HAR HA'MORIYAH</span>
-<span style="color:#2828AC;">QUESTION: The Gemara explains the implications of the name "Har ha'Moriyah."</span>
-<span style="color:#2828AC;">Either it means the mountain from which Torah was taught, or the mountain</span>
-<span style="color:#2828AC;">from which fear [to the nations] emanated. RASHI and TOSFOS suggest two</span>
-<span style="color:#2828AC;">possibilities for which mountain this is. Either it is referring to</span>
-<span style="color:#2828AC;">Yerushalayim and the site of the Mikdash, or to Mount Sinai.</span>
-<span style="color:#2828AC;">The verse which discusses "Eretz ha'Moriyah" (Bereishis 22:2, see Rashi) and</span>
-<span style="color:#2828AC;">"Har ha'Moriyah" (Divrei Hayamim II:3:1) are clearly referring to the site of</span>
-<span style="color:#2828AC;">the Mikdash, and not to Mount Sinai, which wasn't in Eretz Yisrael at all.</span>
-<span style="color:#2828AC;">How can Rashi and Tosfos suggest that it is Har Sinai! (Maharsha)</span>
-<span style="color:#2828AC;">ANSWERS:</span>
-<span style="color:#2828AC;">(a) The KEREN ORAH and others point out that the Yalkut Shimoni on Shir</span>
-<span style="color:#2828AC;">ha'Shirim 4:6, on the verse "I will go to Har ha'Mor," brings the argument of</span>
-<span style="color:#2828AC;">our Gemara. It is not discussing ha'Moriyah but ha'Mor, which could indeed be</span>
-<span style="color:#2828AC;">Mount Sinai. Perhaps our Gemara should be emended accordingly. (According to</span>
-<span style="color:#2828AC;">this Girsa, the Gemara only mentions this here because the same Amora'im that</span>
-<span style="color:#2828AC;">argued earlier argue about this as well. It is not brought in because the</span>
-<span style="color:#2828AC;">Mishnah refers to "Avraham on Har ha'Moriyah." In fact, this is what Rashi</span>
-<span style="color:#2828AC;">writes (at the beginning of DH Mai Har -- although the rest of his words</span>
-<span style="color:#2828AC;">clearly show that his Girsa was ha'Moriyah, as it appears in our texts).</span>
-<span style="color:#2828AC;">(b) The Gemara in Megilah 29a says that Mount Tabor and Mount Carmel came to</span>
-<span style="color:#2828AC;">the desert, to the area of Sinai, at the time the Torah was given. YALKUT</span>
-<span style="color:#2828AC;">RE'UVENI (Parashat Yitro, DH Bish'as) suggests that in the same manner, the</span>
-<span style="color:#2828AC;">Temple Mount temporarily "jumped" to the Sinai desert in order for the Torah</span>
-<span style="color:#2828AC;">to be given upon it!</span>
 הזקן שבהן אומר לפניהן דברי כבושין:
 תנו רבנן: 'אם יש זקן - אומר זקן, ואם לאו - אומר חכם; ואם לאו - אומר אדם של צורה'.
 אטו זקן דקאמרי אף על גב דלאו חכם הוא <span style="color:#2828AC;">(אלא עם הארץ, בתמיהה: הא ודאי חכם עדיף!)</span>?
@@ -1286,180 +874,6 @@ face, hands, and feet in cold water).
 תנו רבנן: 'על הראשונות הוא אומר 'ברוך ה' אלהי ישראל מן העולם ועד העולם - ברוך גואל ישראל' והן עונין אחריו 'ברוך שם כבוד מלכותו לעולם ועד', וחזן הכנסת אומר 'תקעו כהנים תקעו';
 וחוזר ואומר 'מי שענה את אברהם בהר המוריה הוא יענה אתכם וישמע בקול צעקתכם היום הזה', ועל השניה הוא אומר 'ברוך ה' אלהי ישראל מן העולם ועד העולם - ברוך זוכר הנשכחות' והן עונין אחריו 'ברוך שם כבוד מלכותו לעולם ועד' וחזן הכנסת אומר 'הריעו בני אהרן הריעו';
 ואומר 'מי שענה את אבותינו על ים סוף הוא יענה אתכם וישמע בקול צעקתכם היום הזה' והם מריעין ותוקעין ומריעין; וכן בכל ברכה וברכה: באחת אומר 'תקעו' ובאחת אומר 'הריעו' עד שיגמור את הברכות כולן, וכך הנהיג <span style="color:#2828AC;">(מנהג זה אמקדש קאי)</span> רבי חלפתא בציפורי, ורבי חנניה בן תרדיון בסיכני וכשבא דבר אצל חכמים אמרו: לא היו נוהגין כן אלא בשערי מזרח ובהר הבית'.
-<span style="color:#2828AC;">16b-----------------------------------16b</span>
-<span style="color:#2828AC;">1) THE DIFFERENCE BETWEEN THE "MIKDASH" AND "GEVULIN" REGARDING THE PRAYERS</span>
-<span style="color:#2828AC;">ON A TA'ANIS</span>
-<span style="color:#2828AC;">OPINIONS: The Mishnah relates an incident that happened on a public fast day</span>
-<span style="color:#2828AC;">in the times of Rebbi Chalafta and Rebbi Chananya ben Teradyon. Once, on a</span>
-<span style="color:#2828AC;">Ta'anis, the Tefilos for the Ta'anis were conducted in an unusual way, and</span>
-<span style="color:#2828AC;">when the Chachamim heard about it they objected and said that we do not pray</span>
-<span style="color:#2828AC;">in such a way outside of the Mikdash.</span>
-<span style="color:#2828AC;">What exactly did they do to cause the Chachamim to object? And why is their</span>
-<span style="color:#2828AC;">mistaken practice supposed to be done only in the Mikdash and not outside of</span>
-<span style="color:#2828AC;">the Mikdash?</span>
-<span style="color:#2828AC;">(a) RASHI (15b, DH v'Lo Anu) explains that they did not answer "Amen" after</span>
-<span style="color:#2828AC;">hearing the Berachah, but rather they said, "Baruch Shem Kevod Malchuso</span>
-<span style="color:#2828AC;">l'Olam va'Ed" after each Berachah. Rashi's Girsa of the incident in the</span>
-<span style="color:#2828AC;">Mishnah (third line on 15b) reads, "... and they did *not* answer 'Amen'</span>
-<span style="color:#2828AC;">after him" (which is the Girsa in our texts as well).</span>
-<span style="color:#2828AC;">The Chachamim objected because the only place where we do not say "Amen"</span>
-<span style="color:#2828AC;">after a Berachah is in the Mikdash, where we say "Baruch Shem Kevod..." after</span>
-<span style="color:#2828AC;">a Berachah instead of "Amen." The reason for the difference is that in the</span>
-<span style="color:#2828AC;">Mikdash, the four letter name of Hashem was pronounced "k'Kesivaso," as it is</span>
-<span style="color:#2828AC;">written (RITVA). Since the more holy name of Hashem is used, a special ending</span>
-<span style="color:#2828AC;">was instituted for the Berachos, reflecting the Kedushah of the Holy Name</span>
-<span style="color:#2828AC;">that was uttered. Instead of saying, "Baruch Atah Hashem...," one says,</span>
-<span style="color:#2828AC;">"Baruch Hashem... *Min ha'Olam v'Ad ha'Olam*," as the Gemara here mentions.</span>
-<span style="color:#2828AC;">Since the blessing itself is different, the response after the blessing is</span>
-<span style="color:#2828AC;">also different, reflecting the change in the blessing itself ("Baruch Shem</span>
-<span style="color:#2828AC;">Kevod Malchuso *l'Olam va'Ed*"). (See also Insights to Yoma 37:1)</span>
-<span style="color:#2828AC;">The Rishonim disagree with Rashi's explanation. How could Rebbi Chalafta have</span>
-<span style="color:#2828AC;">made such a mistake and let the people say "Baruch Shem Kevod" and not "Amen"</span>
-<span style="color:#2828AC;">after the Berachos? Everyone knows that only in the Mikdash do we say "Baruch</span>
-<span style="color:#2828AC;">Shem Kevod" after a Berachah! The Rishonim therefore assert that this was not</span>
-<span style="color:#2828AC;">the mistake that took place. (Their Girsa of the incident as recorded in the</span>
-<span style="color:#2828AC;">Mishnah reads, "... and they *answered* 'Amen' after him." This is also the</span>
-<span style="color:#2828AC;">Girsa in the Yerushalmi and in the Dikdukei Sofrim.)</span>
-<span style="color:#2828AC;">(It could be that this question is based on another difference in the Girsa</span>
-<span style="color:#2828AC;">of the Mishnah. The text of the Mishnah as recorded in the RITVA is, "An</span>
-<span style="color:#2828AC;">incident occurred *involving* Rebbi Chalafta," whereas our Girsa, which is</span>
-<span style="color:#2828AC;">the Girsa that Rashi had, reads, "An incident occurred *in the days of* Rebbi</span>
-<span style="color:#2828AC;">Chalafta." According to Rashi's Girsa, it could be that Rebbi Chalafta was</span>
-<span style="color:#2828AC;">not involved in the incident, and it was the lay people who erred. -Y. Shaw)</span>
-<span style="color:#2828AC;">(b) The RAMBAM (Hilchos Ta'aniyos 4:17, according to the MAGID MISHNAH ibid.</span>
-<span style="color:#2828AC;">4:3 and the RITVA here) explains that they blew the Shofar during the</span>
-<span style="color:#2828AC;">recitation of the Berachos of the Tefilah of the Ta'anis. The Chachamim</span>
-<span style="color:#2828AC;">objected, because the Shofar is blown during the Berachos of a Ta'anis only</span>
-<span style="color:#2828AC;">in the Mikdash, and not outside of the Mikdash. (The source for this ruling</span>
-<span style="color:#2828AC;">might be the verse in Bamidbar 10:9 which relates that when you blow the</span>
-<span style="color:#2828AC;">Shofar in a time of trouble, "You will be remembered *before Hashem* and you</span>
-<span style="color:#2828AC;">will be saved from your enemies." "Before Hashem" implies in the Mikdash --</span>
-<span style="color:#2828AC;">M. Kornfeld)</span>
-<span style="color:#2828AC;">RASHI (15b) questions this explanation and says that it cannot be that the</span>
-<span style="color:#2828AC;">Chachamim objected on those grounds, because we find throughout the Masechta</span>
-<span style="color:#2828AC;">that the Shofar is blown during times of trouble even outside of the Mikdash.</span>
-<span style="color:#2828AC;">The Rishonim answer Rashi's question on the Rambam's explanation by saying</span>
-<span style="color:#2828AC;">that the Rambam agrees that the Shofar is blown outside of the Mikdash, as</span>
-<span style="color:#2828AC;">Rashi says. However, it is supposed to be blown *after* the Berachos. Only in</span>
-<span style="color:#2828AC;">the Mikdash is the Shofar blown *during* the Berachos. The Chachamim objected</span>
-<span style="color:#2828AC;">to blowing the Shofar *during* the Berachos outside of the Mikdash.</span>
-<span style="color:#2828AC;">(c) The RE'AH, quoted by the RITVA and RAN, answers that the mistake was that</span>
-<span style="color:#2828AC;">they changed the order of the Berachos. Instead of first saying the</span>
-<span style="color:#2828AC;">supplication of "Mi sh'Anah..." and then saying the Chasimah (closing words</span>
-<span style="color:#2828AC;">of "Baruch Atah Hashem...") of the Berachah, they said the Chasimah first and</span>
-<span style="color:#2828AC;">then they said (or repeated) "Mi sh'Anah." The Chachamim objected to this</span>
-<span style="color:#2828AC;">practice being done outside of the Mikdash for the following reason.</span>
-<span style="color:#2828AC;">The blowing of the Shofar must be done *with* the Berachah. When Davening</span>
-<span style="color:#2828AC;">outside of the Mikdash, the people who hear the Berachah answer only "Amen."</span>
-<span style="color:#2828AC;">When the Shofar is blown afterwards, it is considered as though it is being</span>
-<span style="color:#2828AC;">blown immediately after the Berachah that was just recited, with no</span>
-<span style="color:#2828AC;">interruption, since Amen is not a new theme, but relates to the Berachah that</span>
-<span style="color:#2828AC;">was recited. In contrast, the people in the Mikdash answer "Baruch Shem</span>
-<span style="color:#2828AC;">Kevod..." to the Berachah that they hear. "Baruch Shem" itself is a new and</span>
-<span style="color:#2828AC;">separate Berachah from the one that was recited. Consequently, the Shofar</span>
-<span style="color:#2828AC;">cannot be blown after "Baruch Shem" because it will not be connected to the</span>
-<span style="color:#2828AC;">Berachah of Shemoneh Esreh that was recited; "Baruch Shem" intervenes between</span>
-<span style="color:#2828AC;">the Berachah and the blowing of the Shofar. Therefore, in the Mikdash, while</span>
-<span style="color:#2828AC;">the Kohanim were preparing to blow the Shofar, the Chazan would repeat "Mi</span>
-<span style="color:#2828AC;">sh'Anah" so that the blowing of the Shofar would be connected to the</span>
-<span style="color:#2828AC;">Berachah.</span>
-<span style="color:#2828AC;">This seems to be how the VILNA GA'ON (Hagahos ha'Gra #1) understood the</span>
-<span style="color:#2828AC;">Gemara. He deletes the words "v'Chozer v'Omer" from the Gemara when it</span>
-<span style="color:#2828AC;">describes how the Berachos are recited outside of the Mikdash, but he leaves</span>
-<span style="color:#2828AC;">those words in when it describes how it is down in the Mikdash. Hence, the</span>
-<span style="color:#2828AC;">Gemara is saying that the Chazan repeated the "Mi sh'Anah" that he had</span>
-<span style="color:#2828AC;">already said ("v'Chozer v'Omer"), while out of the Mikdash the Chazan simply</span>
-<span style="color:#2828AC;">went on to the next Berachah without repeating anything. (The Rambam, ibid..,</span>
-<span style="color:#2828AC;">seems to also have learned like the Re'ah.)</span>
-<span style="color:#2828AC;">(d) The RITVA quotes, in the name of some commentators that the mistake here</span>
-<span style="color:#2828AC;">is identical to the one made "in the times of Rebbi Chalafta etc." in the</span>
-<span style="color:#2828AC;">Gemara in Rosh Hashanah (27a). There the Gemara records that in the times of</span>
-<span style="color:#2828AC;">Rebbi Chalafta and Rebbi Chanina ben Teradyon the congregation blew both</span>
-<span style="color:#2828AC;">Shofaros and Chatzotzeros (as opposed to Shofaros alone) outside of the</span>
-<span style="color:#2828AC;">Mikdash. The Chachamim told him that we blow with both only in the Mikdash,</span>
-<span style="color:#2828AC;">and elsewhere we blow only with Shofaros. This difference is based on the</span>
-<span style="color:#2828AC;">verse, "With Chatzotzeros and the sound of the Shofar, blow a Teru'ah *before</span>
-<span style="color:#2828AC;">the King, Hashem*" (Tehilim 98:6), which implies that the only place where</span>
-<span style="color:#2828AC;">both are used is "before the King, Hashem" -- in the Beis ha'Mikdash, while</span>
-<span style="color:#2828AC;">elsewhere we blow only with the Shofar. Our Mishnah, they explain, is</span>
-<span style="color:#2828AC;">referring to the same incident. (According to this suggestion, though, the</span>
-<span style="color:#2828AC;">main part of the incident is missing from our Mishnah.)</span>
-<span style="color:#2828AC;">2) "AND SOME SAY" -- THE SECOND BERAISA'S VERSION OF THE TEFILOS AND TEKI'OS</span>
-<span style="color:#2828AC;">ON A TA'ANIS</span>
-<span style="color:#2828AC;">OPINIONS: The Gemara records a Beraisa which describes at length the manner</span>
-<span style="color:#2828AC;">of reciting the Tefilos and blowing the Teki'os on a Ta'anis in the Mikdash</span>
-<span style="color:#2828AC;">and outside of the Mikdash. The Gemara then says "and some say..." ("v'Is</span>
-<span style="color:#2828AC;">d'Amri") and cites another version of the Beraisa, which describes how the</span>
-<span style="color:#2828AC;">Tefilos and Teki'os were done in the Mikdash.</span>
-<span style="color:#2828AC;">What is the difference between the two versions of the Beraisa? They seem to</span>
-<span style="color:#2828AC;">be saying the same thing, but we know that when the Gemara introduces a</span>
-<span style="color:#2828AC;">second version of a statement with the words "some say," it usually means</span>
-<span style="color:#2828AC;">that there is some point of difference. What is that difference?</span>
-<span style="color:#2828AC;">(a) RASHI (DH v'Is d'Amri) says that the two Beraisos are not arguing at all.</span>
-<span style="color:#2828AC;">The Gemara, when it says, "and some say," means only that some said the</span>
-<span style="color:#2828AC;">Beraisa in a slightly different wording, but they both mean the same thing.</span>
-<span style="color:#2828AC;">It is not like an "Ika d'Amri" ("there are those who say") which always means</span>
-<span style="color:#2828AC;">that the Gemara is introducing a second opinion that argues with the first.</span>
-<span style="color:#2828AC;">Here, they both agree.</span>
-<span style="color:#2828AC;">(b) The RITVA (15a) explains that instead of the words "v'Is d'Amri" ("and</span>
-<span style="color:#2828AC;">some say"), the text of the Gemara should be "Rebbi Yehudah Omer." (See also</span>
-<span style="color:#2828AC;">DIKDUKEI SOFRIM.) The Ritva says that the difference between Rebbi Yehudah</span>
-<span style="color:#2828AC;">and the Tana Kama is whether we blow only a single Teki'ah for each Berachah,</span>
-<span style="color:#2828AC;">or whether we blow a full set of Teki'ah-Teru'ah-Teki'ah for each Berachah.</span>
-<span style="color:#2828AC;">Rebbi Yehudah is consistent with his opinion elsewhere, for he says in Sukah</span>
-<span style="color:#2828AC;">(53a) that the three sounds of Teki'ah-Teru'ah-Teki'ah cannot be interrupted</span>
-<span style="color:#2828AC;">by any other sounds and they must be blown together, in one breath. Rebbi</span>
-<span style="color:#2828AC;">Yehudah holds that the three sounds of the set are actually one long sound,</span>
-<span style="color:#2828AC;">and thus they can never be divided. That is why he says here that after each</span>
-<span style="color:#2828AC;">Berachah, we must blow a complete set of Teki'ah-Teru'ah-Teki'ah. According</span>
-<span style="color:#2828AC;">to the Tana Kama, though, each sound is a separate, independent sound, and</span>
-<span style="color:#2828AC;">thus they maintain that we blow a Teki'ah with the first Berachah, a Teru'ah</span>
-<span style="color:#2828AC;">with the second Berachah, and a Teki'ah with the third, and so on. That</span>
-<span style="color:#2828AC;">serves as a proper set of Teki'ah-Teru'ah-Teki'ah, for it does not matter</span>
-<span style="color:#2828AC;">that there are Berachos in between them. (The RITVA is Gores on 12a that</span>
-<span style="color:#2828AC;">there were a total of 7, and not 18, Teki'os in each Shemoneh Esreh. This is</span>
-<span style="color:#2828AC;">also the Girsa of Rabeinu Chananel.)</span>
-<span style="color:#2828AC;">The Ritva also does not have the words "Tanu Rabanan" that appear later (five</span>
-<span style="color:#2828AC;">lines after "v'Is d'Amri"). According to the Ritva, the entire discussion is</span>
-<span style="color:#2828AC;">all part of one long Beraisa, and there are not two separate Beraisos (as the</span>
-<span style="color:#2828AC;">KEREN ORAH points out).</span>
-<span style="color:#2828AC;">However, if the Beraisa is Rebbi Yehudah, as the Ritva asserts, why does the</span>
-<span style="color:#2828AC;">Beraisa say that the second Berachah is *Zichronos*? Rebbi Yehudah holds that</span>
-<span style="color:#2828AC;">Zichronos are not said, as he states in our Mishnah (15a)! It must be that</span>
-<span style="color:#2828AC;">either the Ritva's text of the Beraisa did not say that the second Berachah</span>
-<span style="color:#2828AC;">is Zichronos, or, as the Hagahos of the Dikdukei Sofrim suggests, Rebbi</span>
-<span style="color:#2828AC;">Yehudah does not argue about the Chasimah (end) of the Berachah -- he agrees</span>
-<span style="color:#2828AC;">that it is "Zocher ha'Nishkachos." This is why the Mishnah does not tell us</span>
-<span style="color:#2828AC;">how Rebbi Yehudah ended his Berachos, a point about which the RAN wonders.</span>
-<span style="color:#2828AC;">Rebbi Yehudah only argues that we do not recite all of the verses of</span>
-<span style="color:#2828AC;">Zichronos, which the Tana Kama holds that we say. He agrees, though, that we</span>
-<span style="color:#2828AC;">recite the Berachah of Zichronos.</span>
-<span style="color:#2828AC;">Why does the Beraisa say that in some Berachos, the Kohanim are told to blow</span>
-<span style="color:#2828AC;">the Shofar with the command "Tik'u" ("blow a Teki'ah"), while in other</span>
-<span style="color:#2828AC;">Berachos they are commanded, "Heri'u" ("blow a Teru'ah")? In both cases, both</span>
-<span style="color:#2828AC;">Teki'ah and Teru'ah are blown! RASHI and the RAMBAM explain that the command</span>
-<span style="color:#2828AC;">"Heri'u" means that they should blow a set of Teru'ah-Teki'ah-Teru'ah (as the</span>
-<span style="color:#2828AC;">text of our Gemara reads, four lines from the bottom), whereas "Tik'u" means</span>
-<span style="color:#2828AC;">blow a set of Teki'ah-Teru'ah-Teki'ah. The RITVA, though, explains that Rebbi</span>
-<span style="color:#2828AC;">Yehudah holds that Teki'ah-Teru'ah-Teki'ah is one long sound, and that the</span>
-<span style="color:#2828AC;">proper Girsa in the second Berachah is also "Teki'ah-Teru'ah-Teki'ah" (with</span>
-<span style="color:#2828AC;">Teki'ah first, and then Teru'ah). This is also the Girsa of the Dikdukei</span>
-<span style="color:#2828AC;">Sofrim. According to the Ritva, then, why do we command the Kohanim to blow</span>
-<span style="color:#2828AC;">with the word "Heri'u?" The reason is because we want the Kohanim to blow the</span>
-<span style="color:#2828AC;">Teru'ah slightly longer than the Teki'ah. When we command them with the word</span>
-<span style="color:#2828AC;">"Tik'u," they blow the Teki'ah slightly longer than the Teru'ah. (On a</span>
-<span style="color:#2828AC;">Ta'anis, it is alright for the Teru'ah to be longer than the Teki'ah --</span>
-<span style="color:#2828AC;">Ritva.)</span>
-<span style="color:#2828AC;">(c) The RAMBAM writes that outside of the Mikdash, the Shofaros are not blown</span>
-<span style="color:#2828AC;">during the Berachos (as we saw in the previous Insight). The KEREN ORAH</span>
-<span style="color:#2828AC;">comments that according to the Rambam, this might be what the "v'Is d'Amri"</span>
-<span style="color:#2828AC;">means to say. The two Beraisos are arguing whether the Shofar is blown</span>
-<span style="color:#2828AC;">outside of the Mikdash. The second Beraisa ("v'Is d'Amri") describes what</span>
-<span style="color:#2828AC;">they did outside of the Mikdash, and it leaves out the Teki'os. While</span>
-<span style="color:#2828AC;">describing what they did in the Mikdash, it includes the Teki'os! It must</span>
-<span style="color:#2828AC;">hold that there were no Teki'os in Gevulin, and thus there is nothing to</span>
-<span style="color:#2828AC;">describe. The earlier Beraisa, though, holds that there were Teki'os outside</span>
-<span style="color:#2828AC;">of the Mikdash as well.</span>
 רבי יהודה אומר לא היה צריך לומר זכרונות [ושופרות, אלא אומר תחתיהן <span style="font-size:80%;">(מלכים א ח,לז)</span> <span style="font-family: SBL Hebrew;">רעב כי יהיה בארץ דבר כי יהיה</span>; <span style="font-size:80%;">(ירמיהו יד,א)</span> <span style="font-family: SBL Hebrew;">אשר היה דבר ה' אל ירמיהו על דברי הבצרות</span>]:
 אמר רבי אדא דמן יפו: מאי טעמא דרבי יהודה? - לפי שאין אומרים זכרונות ושופרות
 <h3>יז,א</h3>
@@ -1852,39 +1266,6 @@ face, hands, and feet in cold water).
 אזל לבית המדרש, שמעינהו לרבנן דקאמרי: נהירן שמעתתין כבשני חוני המעגל <span style="color:#2828AC;">(מוגהת לנו שמועה זו כאילו למדנוה בחייו של חוני המעגל)</span>, דכי הוי עייל לבית מדרשא - כל קושיא דהוו להו לרבנן הוה מפרק להו <span style="color:#2828AC;">(שהיה מפרקה לנו ומגיה לנו יפה יפה)</span>.
 אמר להו: אנא ניהו!
 לא הימנוהו ולא עבדי ליה יקרא כדמבעי ליה. חלש דעתיה, בעי רחמי - ומית.
-<span style="color:#2828AC;">Ta'anis 023a: Suicidal prayer</span>
-<span style="color:#2828AC;">Dov Lew (aish2@netvision.net.il) asked:</span>
-<span style="color:#2828AC;">Taanis 23a-</span>
-<span style="color:#2828AC;">Choni Hamagil prayed for his own demise and died. Is it permitted</span>
-<span style="color:#2828AC;">to pray for ones death? Don't the Poskim allow the prayer for the</span>
-<span style="color:#2828AC;">death of person only in the most excruciating and hopeless medical</span>
-<span style="color:#2828AC;">crises? [See Ran (Nedarim 40a) Tiferes Yisroel (Yoma 8,7) and Shu"T</span>
-<span style="color:#2828AC;">Tshuvos V'Hanhogos (vol. II, Siman 82).]</span>
-<span style="color:#2828AC;">Did the temporary social problems of Choni justify a suicidal</span>
-<span style="color:#2828AC;">prayer???</span>
-<span style="color:#2828AC;">Kol Tuv,</span>
-<span style="color:#2828AC;">Dov Lew</span>
-<span style="color:#2828AC;">----------------------------------------------</span>
-<span style="color:#2828AC;">The Kollel replies:</span>
-<span style="color:#2828AC;">The Ran that you cite says that one may pray for a sick person who is</span>
-<span style="color:#2828AC;">suffering that his suffering end, even if that means praying that he dies.</span>
-<span style="color:#2828AC;">Regarding Choni ha'Ma'agil, he was suffering greatly from his circumstances,</span>
-<span style="color:#2828AC;">even though he was not physically ill (although "Chalash Da'atei" might mean</span>
-<span style="color:#2828AC;">that he also became physically ill). We find the same circumstances in the</span>
-<span style="color:#2828AC;">case of Rebbi Yochanan after his Chavrusa, Reish Lakish, passed way (see Bava</span>
-<span style="color:#2828AC;">Metzia 84a).</span>
-<span style="color:#2828AC;">It is not clear that the problems of Choni were temporary, as you wrote. In</span>
-<span style="color:#2828AC;">the case of Choni ha'Ma'agil and Rebbi Yochanan, those who Davened were on a</span>
-<span style="color:#2828AC;">high enough level that they recognized what was best for them, and they</span>
-<span style="color:#2828AC;">Davened accordingly, and Hashem agreed with them and fulfilled their</span>
-<span style="color:#2828AC;">requests.</span>
-<span style="color:#2828AC;">(Also, it does not actually say that they Davened to die. Rather, it says</span>
-<span style="color:#2828AC;">that they "prayed for mercy (Ba'i Rachmi) and then they died." Perhaps they</span>
-<span style="color:#2828AC;">prayed only that Hashem have mercy on them and relieve them from their</span>
-<span style="color:#2828AC;">suffering, and Hashem listened to their prayers and had mercy on them by</span>
-<span style="color:#2828AC;">taking their lives.)</span>
-<span style="color:#2828AC;">Let us know if you come up with any other answers.</span>
-<span style="color:#2828AC;">Y. Shaw</span>
 אמר רבא היינו דאמרי אינשי: או חברותא או מיתותא. <span style="color:#2828AC;">(ולא גרסינן הכא 'כחברי דאיוב', אלא בבבא בתרא</span> <span style="font-size:80%;">(טז,ב)</span> <span style="color:#2828AC;">גבי מעשה דאיוב; אם אין חביריו של אדם נוהגין בו כבוד כבתחילה - נוח לו שימות. 'אי נמי משום הנך בריוני' לא כתוב בספרינו)</span>.
 אבא חלקיה - בר בריה דחוני המעגל הוה, וכי מצטריך עלמא למיטרא הוו משדרי רבנן לגביה ובעי רחמי ואתי מיטרא. זימנא חדא איצטריך עלמא למיטרא, שדור רבנן זוגא דרבנן לגביה למבעי רחמי דניתי מיטרא; אזול לביתיה ולא אשכחוהו, אזול בדברא ואשכחוהו דהוה קא רפיק <span style="color:#2828AC;">(עודר בשדה)</span>. יהבו ליה שלמא
 <h3>כג,ב</h3>
